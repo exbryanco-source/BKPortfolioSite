@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name — Portfolio</title>
+    <meta name="description" content="Portfolio of Your Name — designer & developer." />
+  </head>
+  <body class="is-loading">
+    <!-- Boot loader (pattern from reference: "Loading (0%)") -->
+    <div class="loader" data-loader aria-hidden="true">
+      <div class="loader__meta label">
+        <span>System status / initializing</span>
+        <span>Calibration in progress</span>
+      </div>
+      <div class="loader__count">
+        Loading (<span data-loader-count>0</span>%)
+      </div>
+    </div>
+
+    <!-- Fixed WebGL canvas behind all content -->
+    <canvas class="webgl" data-webgl aria-hidden="true"></canvas>
+
+    <header class="header">
+      <a href="#top" class="header__logo" data-scroll-link>YN®</a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu"
+        data-menu-toggle
+      >
+        <span class="menu-toggle__label label" data-menu-label>Menu</span>
+        <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+      </button>
+    </header>
+
+    <!-- Fullscreen hamburger menu overlay -->
+    <nav id="menu" class="menu" aria-label="Main" data-menu inert>
+      <div class="menu__bg" data-menu-bg></div>
+      <ul class="menu__links">
+        <li><a href="#top" data-scroll-link><span class="menu__num label">01</span><span class="menu__text">Home</span></a></li>
+        <li><a href="#work" data-scroll-link><span class="menu__num label">02</span><span class="menu__text">Work</span></a></li>
+        <li><a href="#disciplines" data-scroll-link><span class="menu__num label">03</span><span class="menu__text">Disciplines</span></a></li>
+        <li><a href="#about" data-scroll-link><span class="menu__num label">04</span><span class="menu__text">About</span></a></li>
+        <li><a href="#contact" data-scroll-link><span class="menu__num label">05</span><span class="menu__text">Contact</span></a></li>
+      </ul>
+      <div class="menu__footer label" data-menu-fade>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:hello@example.com">hello@example.com</a>
+      </div>
+    </nav>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <p class="label hero__eyebrow" data-hero-fade>Portfolio / 2026</p>
+        <h1 class="hero__title" data-hero-title>Designing<br />digital worlds</h1>
+        <p class="hero__intro" data-hero-fade>
+          Independent designer &amp; developer crafting interactive experiences,
+          brands and 3D web.
+        </p>
+        <span class="label hero__scroll" data-hero-fade>Scroll ↓</span>
+      </section>
+
+      <!-- WORK (01) -->
+      <section id="work" class="section">
+        <header class="section__head">
+          <span class="label">Works (01)</span>
+          <h2 class="section__title" data-split>Selected work</h2>
+        </header>
+        <div class="work-grid">
+          <!-- Replace .card__media divs with <img loading="lazy" ...> once you export images -->
+          <a href="#" class="card" data-reveal>
+            <div class="card__media"></div>
+            <div class="card__meta label"><span>Project One</span><span>Branding</span></div>
+          </a>
+          <a href="#" class="card" data-reveal>
+            <div class="card__media"></div>
+            <div class="card__meta label"><span>Project Two</span><span>Web</span></div>
+          </a>
+          <a href="#" class="card" data-reveal>
+            <div class="card__media"></div>
+            <div class="card__meta label"><span>Project Three</span><span>3D</span></div>
+          </a>
+          <a href="#" class="card" data-reveal>
+            <div class="card__media"></div>
+            <div class="card__meta label"><span>Project Four</span><span>Motion</span></div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Ticker -->
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track" data-ticker>
+          <span>Let's work together — </span><span>Let's work together — </span>
+          <span>Let's work together — </span><span>Let's work together — </span>
+        </div>
+      </div>
+
+      <!-- DISCIPLINES (02) -->
+      <section id="disciplines" class="section">
+        <header class="section__head">
+          <span class="label">Disciplines (02)</span>
+          <h2 class="section__title" data-split>What I do</h2>
+        </header>
+        <ol class="disciplines">
+          <li data-reveal><span class="label">01</span><h3>Branding</h3><p>Identity systems, art direction, guidelines.</p></li>
+          <li data-reveal><span class="label">02</span><h3>Web Development</h3><p>Creative front-end, WebGL, motion.</p></li>
+          <li data-reveal><span class="label">03</span><h3>3D &amp; Motion</h3><p>Real-time 3D, product renders, animation.</p></li>
+          <li data-reveal><span class="label">04</span><h3>UI / UX</h3><p>Product design from wireframe to prototype.</p></li>
+        </ol>
+      </section>
+
+      <!-- ABOUT / pull quote -->
+      <section id="about" class="section">
+        <span class="label">About (03)</span>
+        <blockquote class="quote" data-split>
+          Good design is invisible until it moves you.
+        </blockquote>
+      </section>
+    </main>
+
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact" class="footer">
+      <span class="label">Contact (04)</span>
+      <a class="footer__email" href="mailto:hello@example.com" data-split>hello@example.com</a>
+      <div class="footer__bottom label">
+        <span>© 2026 Your Name</span>
+        <a href="#top" data-scroll-link>Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
