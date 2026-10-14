@@ -4,7 +4,7 @@ Static portfolio (Superpills / Bryan Khua) built with Vite + vanilla JS, with on
 - Desktop frame: file `gXPm8y9DY39DrkYXWPZIdW`, node `71:16`
 - Mobile frame: same file, node `84:657` (390 wide)
 
-The landing page (`index.html`) is complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
+The landing page (`index.html`) and Library page (`library.html`, Figma `240:715` / mobile `240:834`) are complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
 
 ## Commands
 - `npm run dev` — dev server
@@ -16,7 +16,8 @@ The landing page (`index.html`) is complete for desktop + mobile. Remote: `origi
 index.html                 Landing page — page-specific sections + @include partials
 vite.config.ts             html-partials plugin + multi-page input (all root *.html)
 src/
-  pages/home.js            Landing entry: imports styles, calls bootPage(), mounts 3D hero
+  pages/home.js            Landing entry: calls bootPage(), mounts 3D hero (styles are <link>ed in the HTML)
+  pages/library.js         Library entry: initArchive() then bootPage()
   core/                    Shared runtime — every page uses these via bootPage()
     boot.js                bootPage({ load }): scroll, menu, strips, clock, loader, animations
     scroll.js              Lenis smooth scroll (starts stopped; boot.js starts it after the loader)
@@ -25,6 +26,7 @@ src/
     animations.js          GSAP data-attribute animations (split text, reveals, ticker, hero intro)
     hscroll.js             [data-hscroll] horizontal strips (drag + native swipe)
     clock.js               [data-clock] live Singapore time
+    archive.js             [data-archive] endless horizontal pan (library page)
   partials/                Shared markup, inlined at build time
     loader.html  header.html (header + menu overlay)  contact-card.html  footer.html
   styles/
@@ -35,17 +37,22 @@ src/
     utilities.css          .section, .divider, .only-mobile / .only-desktop
     components/            buttons, loader, header, menu, marquee, hscroll, contact-card, footer
     pages/home.css         Landing-only sections (hero, client list, services, showreel)
+    pages/library.css      Library-only (fixed screen, archive grid, base line)
   hero/                    Landing-only React + R3F island (see "3D hero")
 public/assets/             Figma-exported images; *-m.svg = mobile-cropped variants
+  library/                 library-01…30 archive tiles (row-major; 21–24 are animated GIFs)
 ```
 
 ## Landing page structure (`index.html`, top → bottom)
-1. **Loader** (partial) → **Header + menu** (partial): logo, 40×40 menu toggle; menu = dimmed page + 440px dark side panel (Figma `101:3677`). The header toggle stays on top as the panel's close (X); the item for the section in view gets `aria-current` (cream), others grey. "Library" links to `/library.html` (project archive page — not built yet) from both the menu and the footer.
+1. **Loader** (partial) → **Header + menu** (partial): logo, 40×40 menu toggle; menu = dimmed page + 440px dark side panel (Figma `101:3677`). The header toggle stays on top as the panel's close (X); the item for the section in view gets `aria-current` (cream), others grey. "Library" links to `/library.html` (project archive page) from both the menu and the footer. Page links in the menu (no `data-menu-section`) get `aria-current="page"` on their own page; section links only track sections on their own page.
 2. **Hero** `[data-hero-root]` — React; text left, disc stack right (mobile: stack behind text).
 3. **Selected client work** `#work` — marquee band, client list (`.brand-card` ×6), marquee band.
 4. **Services** — `.service` ×3 (Branding / Product / Motion): number, copy, "Learn more", project strip.
 5. **Skillset** `#about` — h2 + Vimeo showreel embed + metadata.
 6. **Contact card** `#contact` (partial) → **Footer** (partial).
+
+## Library page (`library.html`)
+One fixed screen (`.library`, 100svh, no page scroll): header partial, `.archive[data-archive]` filling the space between header and base line, and `.library__base` (clock + ©; not the footer partial). The archive is a 10 × 3 grid (`[data-archive-set]`, 240×129 tiles, 40px gap) inside `[data-archive-rail]`; `core/archive.js` clones the set to cover the viewport and wraps the rail's x offset modulo one set, so it pans endlessly. Drag (mouse/pen/touch), wheel on either axis and ←/→ pan it, with eased motion and release momentum (none under reduced motion). Tiles are not links yet. To add a tile, add a `.card__media` to the set and adjust `grid-template-columns` in `pages/library.css`.
 
 ## Shared components (reuse these on new pages)
 | Component | Markup / source | Styles |
@@ -62,8 +69,8 @@ public/assets/             Figma-exported images; *-m.svg = mobile-cropped varia
 | Divider | `.divider` | `utilities.css` |
 
 ### Adding a page
-1. Create `about.html` in the project root (it is picked up by the build automatically). Include the partials, give `<main id="top">`, and add `<script type="module" src="/src/pages/about.js">`.
-2. `src/pages/about.js`: `import '../styles/index.css'; import '../styles/pages/about.css'; import { bootPage } from '../core/boot.js'; bootPage();` — pass `{ load: (loader) => promise }` if the page has async setup the loader should wait for.
+1. Create `about.html` in the project root (it is picked up by the build automatically). In `<head>`, link the styles: `<link rel="stylesheet" href="/src/styles/index.css" />` and `<link rel="stylesheet" href="/src/styles/pages/about.css" />` — never import CSS from the JS entry (in dev, Vite injects JS-imported CSS only after the module runs, so the raw HTML flashes before the loader is styled). Include the partials, give `<main id="top">`, and add `<script type="module" src="/src/pages/about.js">`.
+2. `src/pages/about.js`: `import { bootPage } from '../core/boot.js'; bootPage();` — pass `{ load: (loader) => promise }` if the page has async setup the loader should wait for.
 3. Put page-only styles in `src/styles/pages/about.css`; promote anything reused to `components/`.
 
 ## Conventions

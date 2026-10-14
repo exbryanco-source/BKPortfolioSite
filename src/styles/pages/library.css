@@ -1,0 +1,70 @@
+/* Library (library.html) — Figma 240:715 / mobile 240:834.
+   One fixed screen: the header overlays the top, the archive fills the space
+   between it and the base line, and only the archive moves. */
+.library {
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  overflow: hidden;
+  /* Clear the fixed header: gutter + 63px logo + gutter */
+  padding-top: calc(var(--gutter) * 2 + 63px);
+}
+
+/* Archive — endless horizontal pan (core/archive.js) */
+.archive {
+  display: flex;
+  flex: 1 1 0;
+  min-height: 0;
+  align-items: center;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none; /* drag pans the rail on touch too */
+  outline: none;
+}
+.archive:focus-visible {
+  outline: 1px solid var(--border-default);
+  outline-offset: -1px;
+}
+.archive.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.archive__rail {
+  display: flex;
+  column-gap: var(--scale-040);
+  will-change: transform;
+}
+.archive__set {
+  display: grid;
+  flex: none;
+  grid-template-columns: repeat(10, 240px);
+  grid-auto-rows: 129px;
+  gap: var(--scale-040);
+}
+.archive .card__media {
+  width: 240px;
+  height: 129px;
+}
+.archive img {
+  -webkit-user-drag: none;
+}
+
+/* Base line — clock + copyright, bottom right */
+.library__base {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: var(--scale-024);
+  padding: var(--scale-040) var(--gutter);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .archive { padding-block: var(--scale-024); }
+  .library__base {
+    justify-content: space-between;
+    padding: var(--scale-040) var(--gutter) var(--scale-032);
+    font: var(--m-caption);
+  }
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library — Superpills</title>
+    <meta name="description" content="An archive of branding, product and motion work by Bryan Khua." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Linked (not imported from JS) so they block first paint in dev too — no unstyled flash before the loader -->
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="stylesheet" href="/src/styles/pages/library.css" />
+  </head>
+  <body class="is-loading">
+    <!-- @include loader.html -->
+
+    <!-- @include header.html -->
+
+    <!-- Library (240:715 desktop / 240:834 mobile) — one fixed screen, no page scroll -->
+    <main id="top" class="library">
+      <h1 class="visually-hidden">Library</h1>
+
+      <!-- Archive: endless horizontal pan (core/archive.js). The set is a 10 × 3 grid, repeated by JS. -->
+      <section class="archive" aria-label="Project archive — drag or scroll to browse" tabindex="0" data-archive>
+        <div class="archive__rail" data-archive-rail>
+          <div class="archive__set" data-archive-set>
+            <div class="card__media"><img src="/assets/library/library-01.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-02.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-03.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-04.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-05.png" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-06.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-07.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-08.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-09.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-10.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-11.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-12.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-13.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-14.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-15.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-16.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-17.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-18.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-19.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-20.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-21.gif" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-22.gif" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-23.gif" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-24.gif" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-25.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-26.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-27.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-28.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-29.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+            <div class="card__media"><img src="/assets/library/library-30.jpg" width="240" height="129" loading="lazy" alt="" /></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="library__base t-caption-footer">
+        <p>SGT <span data-clock>09:41</span></p>
+        <p>© 2026 Bryan Khua</p>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/pages/library.js"></script>
+  </body>
+</html>

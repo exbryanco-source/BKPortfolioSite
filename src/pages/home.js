@@ -1,5 +1,3 @@
-import '../styles/index.css';
-import '../styles/pages/home.css';
 import { bootPage } from '../core/boot.js';
 
 // Landing page. The hero (text + interactive disc stack) is a React island;
