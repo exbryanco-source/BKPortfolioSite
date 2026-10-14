@@ -4,7 +4,7 @@ Static portfolio (Superpills / Bryan Khua) built with Vite + vanilla JS, with on
 - Desktop frame: file `gXPm8y9DY39DrkYXWPZIdW`, node `71:16`
 - Mobile frame: same file, node `84:657` (390 wide)
 
-The landing page (`index.html`) and Library page (`library.html`, Figma `240:715` / mobile `240:834`) are complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
+The landing page (`index.html`), Work page (`work.html`, Figma `95:2886` / mobile `95:3063`) and Library page (`library.html`, Figma `240:715` / mobile `240:834`) are complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
 
 ## Commands
 - `npm run dev` — dev server
@@ -17,6 +17,7 @@ index.html                 Landing page — page-specific sections + @include pa
 vite.config.ts             html-partials plugin + multi-page input (all root *.html)
 src/
   pages/home.js            Landing entry: calls bootPage(), mounts 3D hero (styles are <link>ed in the HTML)
+  pages/work.js            Work entry: bootPage() (the carousel is wired by boot)
   pages/library.js         Library entry: initArchive() then bootPage()
   core/                    Shared runtime — every page uses these via bootPage()
     boot.js                bootPage({ load }): scroll, menu, strips, clock, loader, animations
@@ -24,7 +25,8 @@ src/
     menu.js                Fullscreen menu timeline + [data-scroll-link] handling
     loader.js              "Loading (n%)" boot screen
     animations.js          GSAP data-attribute animations (split text, reveals, ticker, hero intro)
-    hscroll.js             [data-hscroll] horizontal strips (drag + native swipe)
+    hscroll.js             [data-hscroll] horizontal strips (drag + native swipe; [data-hscroll-snap] glides onto items)
+    carousel.js            [data-carousel] snap carousel: marker dots, ←/→, one wheel gesture = one slide
     clock.js               [data-clock] live Singapore time
     archive.js             [data-archive] endless horizontal pan (library page)
   partials/                Shared markup, inlined at build time
@@ -34,22 +36,27 @@ src/
     tokens.css             Figma variables (desktop + --m-* mobile) + layout tokens
     base.css               Reset, element defaults, Lenis, lazy-image fade, reduced motion
     typography.css         .t-* text styles (Figma "Desktop/…" styles)
-    utilities.css          .section, .divider, .only-mobile / .only-desktop
+    utilities.css          .section, .divider, .only-mobile / .only-desktop, .visually-hidden
     components/            buttons, loader, header, menu, marquee, hscroll, contact-card, footer
     pages/home.css         Landing-only sections (hero, client list, services, showreel)
+    pages/work.css         Work-only (fixed screen, project cards, marker rail, base line)
     pages/library.css      Library-only (fixed screen, archive grid, base line)
   hero/                    Landing-only React + R3F island (see "3D hero")
 public/assets/             Figma-exported images; *-m.svg = mobile-cropped variants
+  work/                    Work page card images (Send.App reuses product-02.jpg)
   library/                 library-01…30 archive tiles (row-major; 21–24 are animated GIFs)
 ```
 
 ## Landing page structure (`index.html`, top → bottom)
-1. **Loader** (partial) → **Header + menu** (partial): logo, 40×40 menu toggle; menu = dimmed page + 440px dark side panel (Figma `101:3677`). The header toggle stays on top as the panel's close (X); the item for the section in view gets `aria-current` (cream), others grey. "Library" links to `/library.html` (project archive page) from both the menu and the footer. Page links in the menu (no `data-menu-section`) get `aria-current="page"` on their own page; section links only track sections on their own page.
+1. **Loader** (partial) → **Header + menu** (partial): logo, 40×40 menu toggle; menu = dimmed page + 440px dark side panel (Figma `101:3677`). The header toggle stays on top as the panel's close (X); the item for the section in view gets `aria-current` (cream), others grey. "Work" links to `/work.html` (featured work page) and "Library" to `/library.html` (project archive page) from both the menu and the footer. Page links in the menu (no `data-menu-section`) get `aria-current="page"` on their own page; section links only track sections on their own page.
 2. **Hero** `[data-hero-root]` — React; text left, disc stack right (mobile: stack behind text).
 3. **Selected client work** `#work` — marquee band, client list (`.brand-card` ×6), marquee band.
 4. **Services** — `.service` ×3 (Branding / Product / Motion): number, copy, "Learn more", project strip.
 5. **Skillset** `#about` — h2 + Vimeo showreel embed + metadata.
 6. **Contact card** `#contact` (partial) → **Footer** (partial).
+
+## Work page (`work.html`)
+One fixed screen (`.work`, 100svh, no page scroll): header partial, `.work__featured` (gallery + marker rail) and `.work__base` (clock + ©; not the footer partial). The gallery is a `.thumbs[data-hscroll][data-hscroll-snap][data-carousel-track]` of 6 `.project-card` articles (900×500 desktop / 300×500 mobile, image + scrim + title/divider/details), inset from both screen edges by `--gutter` (track `padding-inline` + `scroll-padding-inline`); cards give up height first on short viewports. `.work__rail` has one `button.work__dot[data-carousel-dot]` per card (filled = in view). Drag, swipe, dots, ←/→ on the focused gallery and vertical wheel all move it. Cards are not links yet. To add a project, add a `.project-card` and a matching dot.
 
 ## Library page (`library.html`)
 One fixed screen (`.library`, 100svh, no page scroll): header partial, `.archive[data-archive]` filling the space between header and base line, and `.library__base` (clock + ©; not the footer partial). The archive is a 10 × 3 grid (`[data-archive-set]`, 240×129 tiles, 40px gap) inside `[data-archive-rail]`; `core/archive.js` clones the set to cover the viewport and wraps the rail's x offset modulo one set, so it pans endlessly. Drag (mouse/pen/touch), wheel on either axis and ←/→ pan it, with eased motion and release momentum (none under reduced motion). Tiles are not links yet. To add a tile, add a `.card__media` to the set and adjust `grid-template-columns` in `pages/library.css`.
@@ -63,6 +70,7 @@ One fixed screen (`.library`, 100svh, no page scroll): header partial, `.archive
 | Footer | `<!-- @include footer.html -->` | `components/footer.css` |
 | Marquee band | `.marquee > .divider + .marquee__viewport > .marquee__track[data-ticker] > span… + .divider` | `components/marquee.css` |
 | Image strip | `.thumbs[data-hscroll][data-lenis-prevent-horizontal] > .card__media > img[loading=lazy]` | `components/hscroll.css` |
+| Snap carousel | `[data-carousel]` > `.thumbs[data-carousel-track][data-hscroll][data-hscroll-snap]` (CSS `scroll-snap-type`) + `[data-carousel-dot]` buttons | `core/carousel.js`; styles per page |
 | Icon button | `button.control` (40×40) | `components/buttons.css` |
 | Arrow link | `.arrow-link` + `.t-*` children ("Learn more ↗", "Contact →", "Back to top ↑") | `components/buttons.css` |
 | Section spacing | `.section` (side gutter) + `padding-block` from tokens | `utilities.css`, `tokens.css` |
@@ -78,7 +86,7 @@ One fixed screen (`.library`, 100svh, no page scroll): header partial, `.archive
 - **Layout tokens:** `--gutter` (40 desktop / 24 mobile) for all side padding; `--space-section-lg` (160/96) and `--space-section-md` (96/64) for section rhythm. Components set `padding-block` only; side padding comes from `.section` (or `var(--gutter)` for fixed chrome).
 - **Breakpoints:** mobile is `max-width: 720px` everywhere (CSS, `<picture>` sources, `src/hero`); tablet tweaks at `max-width: 1100px` are not in Figma. Each component file keeps its own mobile rules next to its desktop rules.
 - **Breakpoint-specific content:** copy that differs between Figma frames uses `.only-desktop` / `.only-mobile`; mobile-cropped artwork (`*-m.svg`) is swapped with `<picture><source media="(max-width: 720px)">`.
-- **Animations are opt-in data attributes:** `data-split` (word reveal on scroll), `data-reveal` (staggered fade-in), `data-hero-title` / `data-hero-fade` (intro after loader), `data-ticker` (looping marquee), `data-hscroll` (strip), `data-clock`. All run from `bootPage()` and no-op when absent.
+- **Animations are opt-in data attributes:** `data-split` (word reveal on scroll), `data-reveal` (staggered fade-in), `data-hero-title` / `data-hero-fade` (intro after loader), `data-ticker` (looping marquee), `data-hscroll` (strip), `data-carousel` (snap carousel), `data-clock`. All run from `bootPage()` and no-op when absent.
 - **Links:** `[data-scroll-link]` smooth-scrolls only when the target is on the current page; shared nav uses `/#section` so it works from any page. "Back to top" uses `#top` — every page needs `<main id="top">`.
 - **Scrolling:** Lenis is locked while the loader shows and started by `bootPage()`. Horizontal scrollers need `data-lenis-prevent-horizontal` or Lenis swallows trackpad swipes.
 - Respect `prefers-reduced-motion` (`prefersReducedMotion` in `core/scroll.js`): no smooth scroll, no split/reveal/ticker, minimal 3D motion.

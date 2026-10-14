@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work — Superpills</title>
+    <meta name="description" content="Featured brand, product and motion work by Bryan Khua." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Linked (not imported from JS) so they block first paint in dev too — no unstyled flash before the loader -->
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="stylesheet" href="/src/styles/pages/work.css" />
+  </head>
+  <body class="is-loading">
+    <!-- @include loader.html -->
+
+    <!-- @include header.html -->
+
+    <!-- Work (95:2886 desktop / 95:3063 mobile) — one fixed screen, no page scroll -->
+    <main id="top" class="work" data-carousel>
+      <h1 class="visually-hidden">Work</h1>
+
+      <!-- Featured work: snap carousel (core/hscroll.js drag + core/carousel.js dots, keys, wheel) -->
+      <section class="work__featured" aria-label="Featured work">
+        <div
+          class="work__gallery thumbs"
+          tabindex="0"
+          aria-label="Projects — drag, swipe or use the arrow keys to browse"
+          data-carousel-track
+          data-hscroll
+          data-hscroll-snap
+          data-lenis-prevent-horizontal
+        >
+          <article class="project-card">
+            <img class="project-card__image" src="/assets/product-02.jpg" width="900" height="500" loading="lazy" alt="" />
+            <div class="project-card__copy">
+              <h2 class="project-card__title t-heading-h1">Send.App</h2>
+              <div class="divider"></div>
+              <div class="project-card__details">
+                <p class="project-card__summary t-body-small">Shaping Brand &amp; Product for a Super-app</p>
+                <p class="project-card__tags t-label-small">Creative Direction · Product Design</p>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <img class="project-card__image" src="/assets/work/work-pil.jpg" width="900" height="500" loading="lazy" alt="" />
+            <div class="project-card__copy">
+              <h2 class="project-card__title t-heading-h1">PIL Singapore</h2>
+              <div class="divider"></div>
+              <div class="project-card__details">
+                <p class="project-card__summary t-body-small">Visualizing sound through motion</p>
+                <p class="project-card__tags t-label-small">Employer Branding</p>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <img class="project-card__image" src="/assets/work/work-spotify.jpg" width="900" height="500" loading="lazy" alt="" />
+            <div class="project-card__copy">
+              <h2 class="project-card__title t-heading-h1">Spotify</h2>
+              <div class="divider"></div>
+              <div class="project-card__details">
+                <p class="project-card__summary t-body-small">Visualizing sound through motion</p>
+                <p class="project-card__tags t-label-small">Advertising · Campaign</p>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <img class="project-card__image" src="/assets/work/work-bandlab.jpg" width="900" height="500" loading="lazy" alt="" />
+            <div class="project-card__copy">
+              <h2 class="project-card__title t-heading-h1">Bandlab</h2>
+              <div class="divider"></div>
+              <div class="project-card__details">
+                <p class="project-card__summary t-body-small">A visualisation of sound through motion</p>
+                <p class="project-card__tags t-label-small">Advertising · Motion Design</p>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <img class="project-card__image" src="/assets/work/work-edb.jpg" width="900" height="500" loading="lazy" alt="" />
+            <div class="project-card__copy">
+              <h2 class="project-card__title t-heading-h1">EDB Singapore</h2>
+              <div class="divider"></div>
+              <div class="project-card__details">
+                <p class="project-card__summary t-body-small">Branding business in Singapore</p>
+                <p class="project-card__tags t-label-small">Branding · Motion Design</p>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <img class="project-card__image" src="/assets/work/work-comparesing.jpg" width="900" height="500" loading="lazy" alt="" />
+            <div class="project-card__copy">
+              <h2 class="project-card__title t-heading-h1">CompareSing</h2>
+              <div class="divider"></div>
+              <div class="project-card__details">
+                <p class="project-card__summary t-body-small">Design systems for a financial platform</p>
+                <p class="project-card__tags t-label-small">Creative Direction · Product Design</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Project rail: one marker per card, filled = card in view -->
+        <nav class="work__rail" aria-label="Projects">
+          <button class="work__dot" type="button" aria-label="Send.App" data-carousel-dot></button>
+          <button class="work__dot" type="button" aria-label="PIL Singapore" data-carousel-dot></button>
+          <button class="work__dot" type="button" aria-label="Spotify" data-carousel-dot></button>
+          <button class="work__dot" type="button" aria-label="Bandlab" data-carousel-dot></button>
+          <button class="work__dot" type="button" aria-label="EDB Singapore" data-carousel-dot></button>
+          <button class="work__dot" type="button" aria-label="CompareSing" data-carousel-dot></button>
+        </nav>
+      </section>
+
+      <footer class="work__base t-caption-footer">
+        <p>SGT <span data-clock>09:41</span></p>
+        <p>© 2026 Bryan Khua</p>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/pages/work.js"></script>
+  </body>
+</html>

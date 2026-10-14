@@ -17,6 +17,7 @@
 .t-body-list      { font-size: var(--body-list-size); line-height: var(--body-list-lh); font-weight: var(--font-weight-regular); }
 .t-display-metric { font-size: var(--display-metric-size); line-height: var(--display-metric-lh); font-weight: var(--font-weight-medium); letter-spacing: var(--tracking-metric); }
 .t-heading-lead   { font-size: var(--heading-lead-size); line-height: var(--heading-lead-lh); font-weight: var(--font-weight-regular); }
+.t-heading-h1     { font-size: var(--heading-h1-size); line-height: var(--heading-h1-lh); font-weight: var(--font-weight-medium); }
 .t-heading-h2     { font-size: var(--heading-h2-size); line-height: var(--heading-h2-lh); font-weight: var(--font-weight-medium); }
 .t-heading-h3     { font-size: var(--heading-h3-size); line-height: var(--heading-h3-lh); font-weight: var(--font-weight-medium); }
 .t-heading-project { font-size: var(--heading-project-size); line-height: var(--heading-project-lh); font-weight: var(--font-weight-regular); }

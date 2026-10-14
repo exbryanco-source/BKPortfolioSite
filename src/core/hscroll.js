@@ -6,6 +6,9 @@ import { prefersReducedMotion } from './scroll.js';
  * overflow scrolling (Lenis lets horizontal gestures through via
  * data-lenis-prevent-horizontal); mouse and pen get click-and-drag with a
  * short inertial glide. Vertical wheel still scrolls the page.
+ *
+ * Add data-hscroll-snap when the strip uses CSS scroll-snap: drags then
+ * glide onto the nearest item instead of stopping between items.
  */
 export function initHorizontalScrollers() {
   document.querySelectorAll('[data-hscroll]').forEach(dragToScroll);
@@ -14,6 +17,7 @@ export function initHorizontalScrollers() {
 const DRAG_THRESHOLD = 4; // px before a press becomes a drag (keeps clicks working)
 
 function dragToScroll(el) {
+  const snaps = el.hasAttribute('data-hscroll-snap');
   let pressed = false;
   let dragging = false;
   let startX = 0;
@@ -56,17 +60,26 @@ function dragToScroll(el) {
     if (!pressed) return;
     pressed = false;
     if (!dragging) return;
-    el.classList.remove('is-dragging');
     if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
     // Ignore stale velocity if the pointer paused before letting go.
-    if (prefersReducedMotion || performance.now() - lastT > 80) return;
+    const fresh = !prefersReducedMotion && performance.now() - lastT <= 80;
     const max = el.scrollWidth - el.clientWidth;
+    let target = gsap.utils.clamp(0, max, el.scrollLeft - (fresh ? velocity * 380 : 0));
+    if (snaps) target = nearestSnap(el, target);
+    // CSS snapping stays off (.is-dragging) until the glide lands on the snap point.
+    const done = () => el.classList.remove('is-dragging');
+    if (target === el.scrollLeft || prefersReducedMotion || (!fresh && !snaps)) {
+      if (snaps) el.scrollLeft = target;
+      return done();
+    }
     const state = { x: el.scrollLeft };
     glide = gsap.to(state, {
-      x: gsap.utils.clamp(0, max, el.scrollLeft - velocity * 380),
-      duration: 0.9,
+      x: target,
+      duration: fresh ? 0.9 : 0.5,
       ease: 'power3.out',
       onUpdate: () => (el.scrollLeft = state.x),
+      onComplete: done,
+      onInterrupt: done,
     });
   };
   el.addEventListener('pointerup', release);
@@ -87,4 +100,12 @@ function dragToScroll(el) {
   el.addEventListener('dragstart', (e) => e.preventDefault());
   el.addEventListener('wheel', stopGlide, { passive: true });
   el.addEventListener('touchstart', stopGlide, { passive: true });
+}
+
+/** Scroll position of the item start nearest to `x` (the last items share the max scroll). */
+function nearestSnap(el, x) {
+  const max = el.scrollWidth - el.clientWidth;
+  const first = el.firstElementChild?.offsetLeft ?? 0;
+  const points = [...el.children].map((item) => Math.min(item.offsetLeft - first, max));
+  return points.reduce((best, p) => (Math.abs(p - x) < Math.abs(best - x) ? p : best), 0);
 }

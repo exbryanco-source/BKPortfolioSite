@@ -13,6 +13,10 @@
   cursor: grabbing;
   user-select: none;
 }
+/* Snapping strips ([data-hscroll-snap]): JS drives the drag/glide, CSS snap resumes after */
+[data-hscroll-snap].is-dragging {
+  scroll-snap-type: none;
+}
 .thumbs img {
   -webkit-user-drag: none;
 }
