@@ -1,0 +1,269 @@
+/* Case study template — shared by every project page (send-app.html, pil.html).
+   Page files (pages/<project>.css) add the sections only they use and the
+   mobile proportions / spacing that differ between their Figma frames. */
+
+/* Image boxes keep Figma's proportions at any width (overrides the .card__media strip size) */
+.case-hero__media,
+.case-bleed,
+.case-context__media,
+.case-next__media {
+  display: block;
+  flex: none; /* not the strip's 600px basis — in a column that would set the height */
+  width: 100%;
+  height: auto;
+}
+
+/* Utility row — section label left, meta right (shared by every case section) */
+.utility-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--scale-016);
+  white-space: nowrap;
+}
+.utility-row__meta {
+  color: var(--text-secondary);
+}
+
+/* Project visual — clears the fixed header */
+.case-hero {
+  padding-top: var(--scale-144);
+  padding-bottom: var(--scale-040);
+}
+.case-hero__media {
+  aspect-ratio: 1360 / 596;
+}
+
+/* Premise — label + tags, then h1 with the description bottom-right */
+.case-premise {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-024);
+  padding-block: var(--scale-096);
+}
+.case-premise__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--scale-016);
+}
+.case-premise__copy {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--scale-040);
+}
+.case-premise__title {
+  flex: 0 1 910px;
+}
+.case-premise__desc {
+  flex: 0 1 360px;
+  color: var(--text-secondary);
+}
+
+/* System media — 6-column grid, 2880px wide, dragged sideways (core/hscroll.js).
+   Items fill it in row-major order; --wide spans two columns. */
+.case-strip {
+  padding-block: var(--scale-096);
+  background: var(--background-surface);
+}
+.case-strip__track.thumbs {
+  display: grid;
+  grid-template-columns: repeat(6, calc((2880px - 5 * var(--scale-040)) / 6));
+  grid-auto-rows: 240px;
+  gap: var(--scale-040);
+  height: auto;
+}
+.case-strip__item.card__media {
+  height: auto;
+}
+.case-strip__item--wide {
+  grid-column: span 2;
+}
+
+/* Project visual, full bleed */
+.case-bleed {
+  aspect-ratio: 1440 / 780;
+}
+
+/* Context section */
+.case-context {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-096);
+  padding-block: var(--scale-096);
+}
+.case-context__heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--scale-040);
+}
+.case-context__title {
+  flex: 0 1 820px;
+}
+.case-context__challenge {
+  flex: 0 1 380px;
+}
+.case-context__media {
+  aspect-ratio: 1360 / 500;
+}
+.case-context__details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--scale-024);
+}
+.case-context__body {
+  color: var(--text-secondary);
+}
+.case-context__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-040);
+}
+
+/* Outcomes — ruled impact statements, one equal column each (2 or 3) */
+.case-outcomes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-096);
+  padding-block: var(--scale-096);
+  background: var(--background-canvas);
+}
+.case-outcomes__grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--scale-040);
+}
+.impact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-048);
+  min-height: 230px;
+  padding: 20px var(--scale-024) 20px 0;
+  border-block: 1px solid var(--border-default);
+}
+.impact__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-008);
+}
+.impact__note {
+  color: var(--text-secondary);
+}
+
+/* Next project — the title and image are one link. Each page sets
+   --case-next-bg to the next project's accent. */
+.case-next {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-048);
+  padding-block: var(--scale-096);
+  background: var(--case-next-bg, var(--accent-blue));
+}
+.case-next__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-048);
+}
+.case-next__title {
+  display: block;
+}
+.case-next__media {
+  aspect-ratio: 1360 / 620;
+}
+.case-next__media img {
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.case-next__link:hover .case-next__media img {
+  transform: scale(1.03);
+}
+.case-next__link:focus-visible {
+  outline: 1px solid var(--text-primary);
+  outline-offset: var(--scale-008);
+}
+
+/* Tablet (not in Figma): Figma's fixed column widths give way before they overflow */
+@media (max-width: 1100px) {
+  .case-premise__copy,
+  .case-context__heading {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .case-premise__title,
+  .case-premise__desc,
+  .case-context__title,
+  .case-context__challenge {
+    flex-basis: auto;
+  }
+  .case-next__title { font-size: var(--heading-h1-size); line-height: var(--heading-h1-lh); }
+}
+
+/* ------------------------------------------------------------------
+   Mobile — structure + type shared by every case study's mobile frame
+------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  .utility-row .t-label-section,
+  .utility-row .t-label-eyebrow,
+  .case-next__label { font: var(--m-label-section); letter-spacing: var(--tracking-default); }
+  .utility-row__meta { font: var(--m-caption); }
+  .utility-row--stack {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--scale-008);
+    white-space: normal;
+  }
+
+  .case-hero {
+    padding-top: var(--scale-112);
+    padding-bottom: var(--scale-024);
+  }
+
+  .case-premise { padding-block: var(--scale-048); }
+  .case-premise__meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .case-premise__label { font: var(--m-label-section); letter-spacing: var(--tracking-default); }
+  .case-premise__copy { gap: var(--scale-024); }
+  .case-premise__title { font: var(--m-heading-h1); }
+  .case-premise__desc { font: var(--m-body-default); }
+
+  /* Strip → no drag on mobile; each page lays the items out */
+  .case-strip__track.thumbs {
+    overflow: visible;
+    cursor: auto;
+  }
+
+  .case-context__heading,
+  .case-context__details {
+    display: flex;
+    flex-direction: column;
+  }
+  .case-context__title { font: var(--m-heading-h2); }
+  .case-context__challenge,
+  .case-context__body { font: var(--m-body-default); }
+  .case-context__lead { font: var(--m-heading-lead); }
+
+  .case-outcomes__title { font: var(--m-heading-section); }
+  .case-outcomes__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--border-default);
+  }
+  .impact {
+    min-height: 0;
+    padding: var(--scale-024) 0;
+    border-bottom: 0;
+  }
+  .impact__value { font: var(--m-display-metric); letter-spacing: var(--m-tracking-metric); }
+  .impact__label { font: var(--m-heading-h4); }
+  .impact__note { font: var(--m-body-default); }
+
+  .case-next { gap: var(--scale-032); }
+  .case-next__link { gap: var(--scale-032); }
+  .case-next__title { font: var(--m-heading-project); }
+  .case-next__media { aspect-ratio: 342 / 156; }
+}

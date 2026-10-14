@@ -1,0 +1,53 @@
+/* PIL case study (pil.html) — Figma 174:3432 desktop / 176:1445 mobile.
+   Shared case-study sections live in components/case-study.css; this file
+   holds PIL's next-project accent and its mobile proportions. */
+
+/* Next project (201:607) — Spotify's accent */
+.case-next {
+  --case-next-bg: var(--accent-red);
+}
+
+/* ------------------------------------------------------------------
+   Mobile — Figma 176:1445 (390 wide)
+------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  .case-hero__media { aspect-ratio: 342 / 260; }
+
+  /* Strip (176:1471) → 2-column grid: wide items become full-width bands,
+     the last tile a tall one. Dense packing pulls tile 9 up beside tile 7,
+     as in Figma. */
+  .case-strip {
+    padding: var(--scale-048) var(--gutter);
+  }
+  .case-strip__track.thumbs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    grid-auto-flow: row dense;
+    gap: 12px;
+  }
+  .case-strip__item.card__media { height: 89px; }
+  .case-strip__item:last-child {
+    grid-column: span 2;
+    height: 184px;
+  }
+
+  .case-bleed { aspect-ratio: 390 / 212; }
+
+  .case-context {
+    gap: var(--scale-040);
+    padding-block: var(--scale-048);
+  }
+  .case-context__heading,
+  .case-context__details { gap: var(--scale-024); }
+  .case-context__media { aspect-ratio: 342 / 160; }
+  .case-context__gallery { gap: var(--scale-024); }
+  .case-context__gallery > :first-child { aspect-ratio: 342 / 184; }
+
+  .case-outcomes {
+    gap: var(--scale-040);
+    padding-block: var(--scale-048);
+  }
+  .impact { gap: var(--scale-024); }
+
+  .case-next { padding-block: var(--scale-048); }
+}
