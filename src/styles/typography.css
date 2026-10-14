@@ -8,6 +8,8 @@
 .t-label-small    { font-size: var(--label-small-size); line-height: var(--label-small-lh); font-weight: var(--font-weight-medium); letter-spacing: var(--tracking-small-label); }
 .t-label-link     { font-size: var(--label-link-size); line-height: var(--label-link-lh); font-weight: var(--font-weight-regular); }
 .t-label-action   { font-size: var(--label-action-size); line-height: var(--label-action-lh); font-weight: var(--font-weight-medium); }
+.t-label-section  { font-size: var(--label-section-size); line-height: var(--label-section-lh); font-weight: var(--font-weight-medium); }
+.t-label-eyebrow  { font-size: var(--label-eyebrow-size); line-height: var(--label-eyebrow-lh); font-weight: var(--font-weight-medium); letter-spacing: var(--tracking-eyebrow); }
 .t-label-footer-heading { font-size: var(--label-footer-heading-size); line-height: var(--label-footer-heading-lh); font-weight: var(--font-weight-regular); }
 .t-arrow-small    { font-size: var(--utility-arrow-small-size); line-height: var(--utility-arrow-small-lh); font-weight: var(--font-weight-medium); }
 .t-arrow          { font-size: var(--utility-arrow-size); line-height: var(--utility-arrow-lh); font-weight: var(--font-weight-medium); }

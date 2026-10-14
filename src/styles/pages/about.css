@@ -1,0 +1,86 @@
+/* About page (about.html) — Figma 240:544 desktop / 240:631 mobile */
+
+/* Introduction — eyebrow + h1, clears the fixed header */
+.about-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-024);
+  padding-top: var(--scale-144);
+  padding-bottom: var(--scale-048);
+}
+.about-intro > * {
+  max-width: 930px;
+}
+
+/* Biography — round portrait + copy. Columns keep Figma's 420 : 900 split as the page narrows. */
+.bio {
+  display: grid;
+  grid-template-columns: minmax(0, 420fr) minmax(0, 900fr);
+  gap: var(--scale-040);
+  align-items: start;
+  padding-block: var(--scale-096);
+}
+.bio__portrait {
+  aspect-ratio: 1;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.bio__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bio__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-024);
+}
+.bio__body {
+  color: var(--text-secondary);
+}
+
+/* Services / Notable Clients / Awards & Mentions — three equal columns */
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--scale-040);
+  padding-block: var(--scale-096);
+  background: var(--background-canvas);
+}
+.details__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-040);
+}
+.details__list {
+  color: var(--text-secondary);
+}
+.details__list--spaced {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-024);
+}
+
+@media (max-width: 720px) {
+  .about-intro {
+    padding-top: var(--scale-112);
+    padding-bottom: var(--scale-024);
+  }
+  .about-intro__eyebrow { font: var(--m-label-section); letter-spacing: var(--tracking-default); }
+  .about-intro__title { font: var(--m-heading-h1); }
+
+  .bio {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: var(--scale-048);
+  }
+  .bio__lead { font: var(--m-heading-lead); }
+  .bio__body { font: var(--m-body-default); }
+
+  .details {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: var(--scale-048);
+  }
+  .details__group { gap: var(--scale-024); }
+  .details__heading { font: var(--m-label-section); }
+  .details__list { font: var(--m-body-default); }
+}

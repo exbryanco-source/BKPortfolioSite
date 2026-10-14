@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Superpills</title>
+    <meta name="description" content="Bryan Khua is a multi-disciplinary Creative Director leading teams across brand and product." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Linked (not imported from JS) so they block first paint in dev too — no unstyled flash before the loader -->
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="stylesheet" href="/src/styles/pages/about.css" />
+  </head>
+  <body class="is-loading">
+    <!-- @include loader.html -->
+
+    <!-- @include header.html -->
+
+    <!-- About (240:544 desktop / 240:631 mobile) -->
+    <main id="top">
+      <!-- About introduction (240:547) -->
+      <section class="about-intro section">
+        <p class="about-intro__eyebrow t-label-eyebrow" data-hero-fade>About</p>
+        <h1 class="about-intro__title t-heading-h1" data-hero-title>I design and build brands &amp; products.</h1>
+      </section>
+
+      <!-- Biography (240:550) -->
+      <section class="bio section">
+        <div class="bio__portrait" data-reveal>
+          <img src="/assets/about/portrait.png" width="1024" height="1024" loading="lazy" alt="Portrait of Bryan Khua" />
+        </div>
+        <div class="bio__content" data-reveal>
+          <p class="bio__lead t-heading-lead">Bryan Khua, is a multi-disciplinary Creative Director leading teams across brand and product.</p>
+          <p class="bio__body t-body-default">Creating impactful experiences that connect brands to their audiences. With a background working with global clients such as Spotify, IKEA, and Google, I specialise in leading strategic creative projects and collaborating with product teams to enhance user experiences.</p>
+          <p class="bio__body t-body-default">For enquiries please reach out to <a href="mailto:Superpills@yahoo.com">superpills@yahoo.com</a></p>
+        </div>
+      </section>
+
+      <!-- Services, clients, press and awards (240:558) -->
+      <section class="details section">
+        <div class="details__group" data-reveal>
+          <h2 class="details__heading t-label-section">Services</h2>
+          <ul class="details__list t-body-default">
+            <li>3D Production</li>
+            <li>Art Direction</li>
+            <li>Branding</li>
+            <li>Content Creation</li>
+            <li>Illustration</li>
+            <li>Packaging Design</li>
+            <li>Product Design (UI/UX)</li>
+            <li>Product Visualisation</li>
+          </ul>
+        </div>
+        <div class="details__group" data-reveal>
+          <h2 class="details__heading t-label-section">Notable Clients</h2>
+          <ul class="details__list t-body-default">
+            <li>Adidas</li>
+            <li>BandLab</li>
+            <li>EDB Singapore</li>
+            <li>Google</li>
+            <li>IKEA</li>
+            <li>Lasalle School of the Arts</li>
+            <li>National Art Council</li>
+            <li>National Design Council</li>
+            <li>National University of Singapore</li>
+            <li>Pacific International Lines (PIL)</li>
+            <li>SkillsFuture Singapore</li>
+            <li>Spotify (APAC)</li>
+          </ul>
+        </div>
+        <div class="details__group" data-reveal>
+          <h2 class="details__heading t-label-section">Awards &amp; Mentions</h2>
+          <ul class="details__list details__list--spaced t-body-default">
+            <li>Communication Arts:<br />2023 Graphic Design award (shortlist)</li>
+            <li>Nanyang Technological University:<br />2020-2023 COHASS Deans List</li>
+            <li>Beautiful Bizarre Magazine:<br />2021 Illustration Feature.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- @include contact-card.html -->
+    </main>
+
+    <!-- @include footer.html -->
+
+    <script type="module" src="/src/pages/about.js"></script>
+  </body>
+</html>
