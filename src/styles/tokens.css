@@ -32,7 +32,10 @@
   --scale-048: 48px;
   --scale-056: 56px;
   --scale-072: 72px;
+  --scale-080: 80px;
   --scale-096: 96px;
+  --scale-112: 112px;
+  --scale-144: 144px;
   --scale-160: 160px;
 
   /* Radius */
@@ -50,6 +53,7 @@
   --tracking-default: 0px;
   --tracking-metric: -3px;
   --tracking-small-label: 0.1px;
+  --tracking-eyebrow: 0.2px;
 
   /* Type scale (desktop) — size / line-height */
   --caption-default-size: 12px;      --caption-default-lh: 12px;
@@ -60,6 +64,8 @@
   --label-link-size: 24px;           --label-link-lh: 24px;
   --label-action-size: 24px;         --label-action-lh: 24px;
   --label-footer-heading-size: 24px; --label-footer-heading-lh: 24px;
+  --label-section-size: 24px;        --label-section-lh: 24px;
+  --label-eyebrow-size: 24px;        --label-eyebrow-lh: 29px;
   --utility-arrow-small-size: 12px;  --utility-arrow-small-lh: 12px;
   --utility-arrow-size: 16px;        --utility-arrow-lh: 16px;
   --utility-arrow-large-size: 22px;  --utility-arrow-large-lh: 22px;
