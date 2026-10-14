@@ -63,18 +63,26 @@ export function initReveals() {
   });
 }
 
-/** Infinite horizontal text ticker that speeds up with scroll velocity. */
+/**
+ * Infinite horizontal text tickers ([data-ticker]) that speed up with scroll
+ * velocity. The track's children are duplicated so a -50% loop is seamless.
+ */
 export function initTicker() {
-  const track = document.querySelector('[data-ticker]');
-  if (!track || prefersReducedMotion) return;
+  const tracks = document.querySelectorAll('[data-ticker]');
+  if (!tracks.length || prefersReducedMotion) return;
 
-  const loop = gsap.to(track, { xPercent: -50, duration: 20, ease: 'none', repeat: -1 });
+  const loops = [...tracks].map((track) => {
+    [...track.children].forEach((child) => track.append(child.cloneNode(true)));
+    return gsap.to(track, { xPercent: -50, duration: 60, ease: 'none', repeat: -1 });
+  });
 
   ScrollTrigger.create({
     onUpdate: (self) => {
       const boost = 1 + Math.min(Math.abs(self.getVelocity()) / 400, 4);
-      gsap.to(loop, { timeScale: boost, duration: 0.2, overwrite: true });
-      gsap.to(loop, { timeScale: 1, duration: 1, delay: 0.2 });
+      loops.forEach((loop) => {
+        gsap.to(loop, { timeScale: boost, duration: 0.2, overwrite: true });
+        gsap.to(loop, { timeScale: 1, duration: 1, delay: 0.2 });
+      });
     },
   });
 }

@@ -4,7 +4,6 @@ import { scrollToTarget } from './scroll.js';
 /** Fullscreen hamburger menu with a GSAP open/close timeline. */
 export function initMenu(lenis) {
   const toggle = document.querySelector('[data-menu-toggle]');
-  const label = document.querySelector('[data-menu-label]');
   const menu = document.querySelector('[data-menu]');
   const links = menu.querySelectorAll('.menu__text');
   let isOpen = false;
@@ -14,14 +13,14 @@ export function initMenu(lenis) {
     .set(menu, { visibility: 'visible' })
     .fromTo(menu, { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 0.9 })
     .from(links, { yPercent: 110, duration: 0.8, stagger: 0.06, ease: 'expo.out' }, '-=0.35')
-    .from('[data-menu-fade], .menu__num', { opacity: 0, duration: 0.4, ease: 'none' }, '-=0.5');
+    .from('[data-menu-fade]', { opacity: 0, duration: 0.4, ease: 'none' }, '-=0.5');
 
   tl.eventCallback('onReverseComplete', () => gsap.set(menu, { visibility: 'hidden' }));
 
   function setOpen(open) {
     isOpen = open;
     toggle.setAttribute('aria-expanded', String(open));
-    label.textContent = open ? 'Close' : 'Menu';
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
     document.body.classList.toggle('menu-open', open);
     menu.inert = !open;
     if (open) {

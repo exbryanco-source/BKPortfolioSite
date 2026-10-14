@@ -3,132 +3,307 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Name — Portfolio</title>
-    <meta name="description" content="Portfolio of Your Name — designer & developer." />
+    <title>Superpills — Bryan Khua</title>
+    <meta name="description" content="A Creative Director at the intersection of Brand & Product." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body class="is-loading">
-    <!-- Boot loader (pattern from reference: "Loading (0%)") -->
+    <!-- Boot loader -->
     <div class="loader" data-loader aria-hidden="true">
-      <div class="loader__meta label">
-        <span>System status / initializing</span>
-        <span>Calibration in progress</span>
-      </div>
-      <div class="loader__count">
+      <div class="loader__count t-heading-lead">
         Loading (<span data-loader-count>0</span>%)
       </div>
     </div>
 
-    <!-- Fixed WebGL canvas behind all content -->
-    <canvas class="webgl" data-webgl aria-hidden="true"></canvas>
-
+    <!-- Header Navigation (139:950) -->
     <header class="header">
-      <a href="#top" class="header__logo" data-scroll-link>YN®</a>
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="menu"
-        data-menu-toggle
-      >
-        <span class="menu-toggle__label label" data-menu-label>Menu</span>
-        <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
-      </button>
+      <a href="#top" class="header__logo" data-scroll-link aria-label="Superpills — home">
+        <img src="/assets/brand-logo.svg" width="72" height="63" alt="" />
+      </a>
+      <div class="header__controls">
+        <button
+          class="control menu-toggle"
+          type="button"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="menu"
+          data-menu-toggle
+        >
+          <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+        </button>
+      </div>
     </header>
 
-    <!-- Fullscreen hamburger menu overlay -->
+    <!-- Fullscreen menu overlay -->
     <nav id="menu" class="menu" aria-label="Main" data-menu inert>
-      <div class="menu__bg" data-menu-bg></div>
       <ul class="menu__links">
-        <li><a href="#top" data-scroll-link><span class="menu__num label">01</span><span class="menu__text">Home</span></a></li>
-        <li><a href="#work" data-scroll-link><span class="menu__num label">02</span><span class="menu__text">Work</span></a></li>
-        <li><a href="#disciplines" data-scroll-link><span class="menu__num label">03</span><span class="menu__text">Disciplines</span></a></li>
-        <li><a href="#about" data-scroll-link><span class="menu__num label">04</span><span class="menu__text">About</span></a></li>
-        <li><a href="#contact" data-scroll-link><span class="menu__num label">05</span><span class="menu__text">Contact</span></a></li>
+        <li><a href="#top" data-scroll-link><span class="menu__text">Home</span></a></li>
+        <li><a href="#work" data-scroll-link><span class="menu__text">Work</span></a></li>
+        <li><a href="#about" data-scroll-link><span class="menu__text">About</span></a></li>
+        <li><a href="#contact" data-scroll-link><span class="menu__text">Contact</span></a></li>
       </ul>
-      <div class="menu__footer label" data-menu-fade>
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="menu__footer t-body-small" data-menu-fade>
         <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="mailto:hello@example.com">hello@example.com</a>
+        <a href="#" target="_blank" rel="noopener">Linkedin</a>
+        <a href="#" target="_blank" rel="noopener">Pinterest</a>
+        <a href="mailto:Superpills@yahoo.com">Superpills@yahoo.com</a>
       </div>
     </nav>
 
     <main id="top">
-      <!-- HERO -->
-      <section class="hero">
-        <p class="label hero__eyebrow" data-hero-fade>Portfolio / 2026</p>
-        <h1 class="hero__title" data-hero-title>Designing<br />digital worlds</h1>
-        <p class="hero__intro" data-hero-fade>
-          Independent designer &amp; developer crafting interactive experiences,
-          brands and 3D web.
-        </p>
-        <span class="label hero__scroll" data-hero-fade>Scroll ↓</span>
-      </section>
+      <!-- Hero (166:1188) — rendered by src/hero (React + R3F). Copy lives in src/hero/mount.tsx -->
+      <div data-hero-root></div>
 
-      <!-- WORK (01) -->
-      <section id="work" class="section">
-        <header class="section__head">
-          <span class="label">Works (01)</span>
-          <h2 class="section__title" data-split>Selected work</h2>
-        </header>
-        <div class="work-grid">
-          <!-- Replace .card__media divs with <img loading="lazy" ...> once you export images -->
-          <a href="#" class="card" data-reveal>
-            <div class="card__media"></div>
-            <div class="card__meta label"><span>Project One</span><span>Branding</span></div>
+      <!-- Selected client work (166:1196) -->
+      <section id="work" class="work">
+        <div class="marquee" aria-label="I craft end-to-end design systems, digital products, and brand identities that drive business growth through cohesive user experiences.">
+          <div class="divider"></div>
+          <div class="marquee__viewport" aria-hidden="true">
+            <div class="marquee__track t-heading-project" data-ticker>
+              <span>I craft </span><span>end-to-end</span><span>design systems, digital products, and brand identities </span><span>that drive business growth</span><span> through cohesive user experiences.</span>
+            </div>
+          </div>
+          <div class="divider"></div>
+        </div>
+
+        <div class="brands">
+          <a href="#" class="brand-card" data-reveal>
+            <div class="divider"></div>
+            <div class="brand-card__row">
+              <img src="/assets/logo-bandlab.svg" width="200" height="50" alt="Bandlab logo" />
+              <div class="brand-card__details">
+                <p class="brand-card__name t-body-list">Bandlab</p>
+                <p class="brand-card__desc t-body-default">Motion that takes the shape of sound</p>
+                <p class="t-label-link" aria-hidden="true">→</p>
+              </div>
+            </div>
+            <div class="divider"></div>
           </a>
-          <a href="#" class="card" data-reveal>
-            <div class="card__media"></div>
-            <div class="card__meta label"><span>Project Two</span><span>Web</span></div>
+          <a href="#" class="brand-card" data-reveal>
+            <div class="divider"></div>
+            <div class="brand-card__row">
+              <img src="/assets/logo-comparesing.svg" width="200" height="50" alt="CompareSing logo" />
+              <div class="brand-card__details">
+                <p class="brand-card__name t-body-list">CompareSing</p>
+                <p class="brand-card__desc t-body-default">Design systems for a financial platform</p>
+                <p class="t-label-link" aria-hidden="true">→</p>
+              </div>
+            </div>
+            <div class="divider"></div>
           </a>
-          <a href="#" class="card" data-reveal>
-            <div class="card__media"></div>
-            <div class="card__meta label"><span>Project Three</span><span>3D</span></div>
+          <a href="#" class="brand-card" data-reveal>
+            <div class="divider"></div>
+            <div class="brand-card__row">
+              <img src="/assets/logo-edb.svg" width="200" height="50" alt="EDB Singapore logo" />
+              <div class="brand-card__details">
+                <p class="brand-card__name t-body-list">EDB Singapore</p>
+                <p class="brand-card__desc t-body-default">Branding business in Singapore</p>
+                <p class="t-label-link" aria-hidden="true">→</p>
+              </div>
+            </div>
+            <div class="divider"></div>
           </a>
-          <a href="#" class="card" data-reveal>
-            <div class="card__media"></div>
-            <div class="card__meta label"><span>Project Four</span><span>Motion</span></div>
+          <a href="#" class="brand-card" data-reveal>
+            <div class="divider"></div>
+            <div class="brand-card__row">
+              <img src="/assets/logo-pil.svg" width="200" height="50" alt="PIL Singapore logo" />
+              <div class="brand-card__details">
+                <p class="brand-card__name t-body-list">PIL Singapore</p>
+                <p class="brand-card__desc t-body-default">Branding &amp; Identity for logistics in Asia</p>
+                <p class="t-label-link" aria-hidden="true">→</p>
+              </div>
+            </div>
+            <div class="divider"></div>
+          </a>
+          <a href="#" class="brand-card" data-reveal>
+            <div class="divider"></div>
+            <div class="brand-card__row">
+              <img src="/assets/logo-sendapp.svg" width="200" height="50" alt="Send.App logo" />
+              <div class="brand-card__details">
+                <p class="brand-card__name t-body-list">Send.App</p>
+                <p class="brand-card__desc t-body-default">Shaping Brand &amp; Product for a Super-app</p>
+                <p class="t-label-link" aria-hidden="true">→</p>
+              </div>
+            </div>
+            <div class="divider"></div>
+          </a>
+          <a href="#" class="brand-card" data-reveal>
+            <div class="divider"></div>
+            <div class="brand-card__row">
+              <img src="/assets/logo-spotify.svg" width="200" height="50" alt="Spotify logo" />
+              <div class="brand-card__details">
+                <p class="brand-card__name t-body-list">Spotify</p>
+                <p class="brand-card__desc t-body-default">Campaigns tailored to culture</p>
+                <p class="t-label-link" aria-hidden="true">→</p>
+              </div>
+            </div>
+            <div class="divider"></div>
           </a>
         </div>
-      </section>
 
-      <!-- Ticker -->
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker__track" data-ticker>
-          <span>Let's work together — </span><span>Let's work together — </span>
-          <span>Let's work together — </span><span>Let's work together — </span>
+        <div class="marquee" aria-label="Across 3 Disciplines">
+          <div class="divider"></div>
+          <div class="marquee__viewport" aria-hidden="true">
+            <div class="marquee__track t-heading-project" data-ticker>
+              <span>Across 3 Disciplines</span><span>Pillars of Work</span><span>Our Disciplines</span><span>Crafts</span><span>Our Disciplines</span><span>Selected work</span><span>Our Disciplines</span>
+            </div>
+          </div>
+          <div class="divider"></div>
         </div>
-      </div>
 
-      <!-- DISCIPLINES (02) -->
-      <section id="disciplines" class="section">
-        <header class="section__head">
-          <span class="label">Disciplines (02)</span>
-          <h2 class="section__title" data-split>What I do</h2>
-        </header>
-        <ol class="disciplines">
-          <li data-reveal><span class="label">01</span><h3>Branding</h3><p>Identity systems, art direction, guidelines.</p></li>
-          <li data-reveal><span class="label">02</span><h3>Web Development</h3><p>Creative front-end, WebGL, motion.</p></li>
-          <li data-reveal><span class="label">03</span><h3>3D &amp; Motion</h3><p>Real-time 3D, product renders, animation.</p></li>
-          <li data-reveal><span class="label">04</span><h3>UI / UX</h3><p>Product design from wireframe to prototype.</p></li>
-        </ol>
+        <!-- Services1 ×3 -->
+        <article class="service">
+          <div class="divider"></div>
+          <div class="service__intro">
+            <p class="service__num t-display-metric">01</p>
+            <div class="service__text">
+              <h2 class="t-body-default">Branding</h2>
+              <p class="service__desc t-body-small">
+                Crafting brand identities for global companies, developing effective design systems, and creating logos that truly resonate—whether through word-marks or monograms. With focus on type and color systems, delving into consumer psychology, and shape culture and emotion. Expertise includes designing key visuals and strategic frameworks, as well as formulating social strategies that authentically express your brand across various initiatives.
+              </p>
+              <a href="#" class="link t-body-small">Learn more <img src="/assets/arrow-up-right.svg" width="16" height="16" alt="" /></a>
+            </div>
+          </div>
+          <div class="service__projects">
+            <h3 class="t-body-default">Branding Projects</h3>
+            <div class="thumbs" tabindex="0" aria-label="Branding projects">
+              <div class="card__media"><img src="/assets/branding-01.jpg" width="600" height="300" loading="lazy" alt="" /></div>
+              <div class="card__media"><img src="/assets/branding-02.jpg" width="600" height="300" loading="lazy" alt="" /></div>
+              <div class="card__media"><img src="/assets/branding-03.jpg" width="600" height="300" loading="lazy" alt="" /></div>
+              <div class="card__media"><img src="/assets/branding-04.png" width="600" height="300" loading="lazy" alt="" /></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="divider"></div>
+          <div class="service__intro">
+            <p class="service__num t-display-metric">02</p>
+            <div class="service__text">
+              <h2 class="t-body-default">Product Design</h2>
+              <p class="service__desc t-body-small">
+                Specialised in crafting user-centric frontend designs using React, Next.js, and Three.js, along with WebGL builds. Creating intuitive UI/UX that enhances user experience, whether for mobile apps or web applications. Conducting thorough UI/UX research to inform design decisions, ensuring that each project resonates with users and meets their needs effectively.
+              </p>
+              <a href="#" class="link t-body-small">Learn more <img src="/assets/arrow-up-right.svg" width="16" height="16" alt="" /></a>
+            </div>
+          </div>
+          <div class="service__projects">
+            <h3 class="t-body-default">Product Projects</h3>
+            <div class="thumbs" tabindex="0" aria-label="Product projects">
+              <div class="card__media"><img src="/assets/product-01.png" width="600" height="300" loading="lazy" alt="" /></div>
+              <div class="card__media"><img src="/assets/product-02.jpg" width="600" height="300" loading="lazy" alt="" /></div>
+              <div class="card__media"><img src="/assets/product-03.png" width="600" height="300" loading="lazy" alt="" /></div>
+              <div class="card__media"><img src="/assets/product-04.jpg" width="600" height="300" loading="lazy" alt="" /></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="divider"></div>
+          <div class="service__intro">
+            <p class="service__num t-display-metric">03</p>
+            <div class="service__text">
+              <h2 class="t-body-default">Motion Design</h2>
+              <p class="service__desc t-body-small">
+                Specializing in motion design and video production, drafting concepts, providing creative direction, and writing scripts. With expertise spanning pre-production and post-production processes, delivering captivating motion design in both 2D and 3D formats. With additional skills in video optimization, editing, color grading, and sound design to ensure each project captivates and engages the audience.
+              </p>
+              <a href="#" class="link t-body-small">Learn more <img src="/assets/arrow-up-right.svg" width="16" height="16" alt="" /></a>
+            </div>
+          </div>
+          <div class="service__projects">
+            <h3 class="t-body-default">Motion Projects</h3>
+            <div class="thumbs" tabindex="0" aria-label="Motion projects">
+              <div class="card__media"><img src="/assets/motion-01.jpg" width="600" height="300" loading="lazy" alt="" /></div>
+              <div class="card__media"><img src="/assets/motion-02.png" width="600" height="300" loading="lazy" alt="" /></div>
+              <div class="card__media"><img src="/assets/motion-03.png" width="600" height="300" loading="lazy" alt="" /></div>
+              <div class="card__media"><img src="/assets/motion-04.jpg" width="600" height="300" loading="lazy" alt="" /></div>
+            </div>
+          </div>
+        </article>
       </section>
 
-      <!-- ABOUT / pull quote -->
-      <section id="about" class="section">
-        <span class="label">About (03)</span>
-        <blockquote class="quote" data-split>
-          Good design is invisible until it moves you.
-        </blockquote>
+      <!-- Skillset (166:1343) -->
+      <section id="about" class="skillset">
+        <h2 class="t-heading-h2" data-split>Forget about living forever, Create something that will.</h2>
+        <a href="#" class="feature" data-reveal>
+          <div class="feature__media">
+            <img src="/assets/showreel.jpg" loading="lazy" alt="Showreel" />
+            <span class="feature__cursor t-arrow-small" aria-hidden="true">→</span>
+          </div>
+          <div class="feature__meta">
+            <p class="feature__identity">
+              <span class="t-caption">Vimeo</span>
+              <span class="t-caption-strong">ShowReel — All Projects / Advertising / Branding / Motion / Product Design / Illustration</span>
+            </p>
+            <p class="t-caption-micro">(2025)</p>
+          </div>
+        </a>
+      </section>
+
+      <!-- Contact Card (166:1356) -->
+      <section id="contact" class="contact">
+        <div class="contact__eyebrow">
+          <p class="t-label-small">Outreach</p>
+          <img src="/assets/accent-dot.svg" width="14" height="14" alt="" />
+        </div>
+        <h2 class="contact__title t-heading-h3" data-split>Have something else in mind? Get in touch.</h2>
+        <a href="mailto:Superpills@yahoo.com" class="contact__action">
+          <span class="t-label-action">Contact</span>
+          <span class="t-arrow-large" aria-hidden="true">→</span>
+        </a>
+        <div class="divider"></div>
       </section>
     </main>
 
-    <!-- CONTACT / FOOTER -->
-    <footer id="contact" class="footer">
-      <span class="label">Contact (04)</span>
-      <a class="footer__email" href="mailto:hello@example.com" data-split>hello@example.com</a>
-      <div class="footer__bottom label">
-        <span>© 2026 Your Name</span>
-        <a href="#top" data-scroll-link>Back to top ↑</a>
+    <!-- Footer (166:1365) -->
+    <footer class="footer">
+      <div class="footer__brand">
+        <img src="/assets/footer-logo.svg" width="150" height="96" alt="" />
+        <p class="t-brand-wordmark">Superpills</p>
+      </div>
+      <div class="footer__body">
+        <div class="footer__links">
+          <nav class="footer__nav" aria-label="Footer">
+            <div class="footer__col">
+              <p class="t-label-footer-heading">Menu</p>
+              <ul class="footer__list t-body-small">
+                <li><a href="#top" data-scroll-link>Home</a></li>
+                <li><a href="#work" data-scroll-link>Work</a></li>
+                <li><a href="#about" data-scroll-link>About</a></li>
+                <li><a href="#contact" data-scroll-link>Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer__col">
+              <p class="t-label-footer-heading">Socials</p>
+              <ul class="footer__list t-body-small">
+                <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="#" target="_blank" rel="noopener">Linkedin</a></li>
+                <li><a href="#" target="_blank" rel="noopener">Pinterest</a></li>
+              </ul>
+            </div>
+            <div class="footer__col">
+              <p class="t-label-footer-heading">Contact</p>
+              <div class="footer__detail">
+                <p class="t-caption">Location</p>
+                <p class="t-body-small">Singapore</p>
+              </div>
+              <div class="footer__detail">
+                <p class="t-caption">Email</p>
+                <a class="t-body-small" href="mailto:Superpills@yahoo.com">Superpills@yahoo.com</a>
+              </div>
+            </div>
+          </nav>
+          <a href="#top" class="back-to-top" data-scroll-link>
+            <span class="t-label-link">Back to top</span>
+            <span class="back-to-top__button t-arrow" aria-hidden="true">↑</span>
+          </a>
+        </div>
+        <div class="footer__base t-caption-footer">
+          <p>SGT <span data-clock>09:41</span></p>
+          <p>© 2026 Bryan Khua</p>
+        </div>
       </div>
     </footer>
 
