@@ -10,47 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body class="is-loading">
-    <!-- Boot loader -->
-    <div class="loader" data-loader aria-hidden="true">
-      <div class="loader__count t-heading-lead">
-        Loading (<span data-loader-count>0</span>%)
-      </div>
-    </div>
+    <!-- @include loader.html -->
 
-    <!-- Header Navigation (139:950) -->
-    <header class="header">
-      <a href="#top" class="header__logo" data-scroll-link aria-label="Superpills — home">
-        <img src="/assets/brand-logo.svg" width="72" height="63" alt="" />
-      </a>
-      <div class="header__controls">
-        <button
-          class="control menu-toggle"
-          type="button"
-          aria-label="Menu"
-          aria-expanded="false"
-          aria-controls="menu"
-          data-menu-toggle
-        >
-          <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
-        </button>
-      </div>
-    </header>
-
-    <!-- Fullscreen menu overlay -->
-    <nav id="menu" class="menu" aria-label="Main" data-menu inert>
-      <ul class="menu__links">
-        <li><a href="#top" data-scroll-link><span class="menu__text">Home</span></a></li>
-        <li><a href="#work" data-scroll-link><span class="menu__text">Work</span></a></li>
-        <li><a href="#about" data-scroll-link><span class="menu__text">About</span></a></li>
-        <li><a href="#contact" data-scroll-link><span class="menu__text">Contact</span></a></li>
-      </ul>
-      <div class="menu__footer t-body-small" data-menu-fade>
-        <a href="https://www.instagram.com/superpills/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.linkedin.com/in/bryan-khua-a3a19b100" target="_blank" rel="noopener">Linkedin</a>
-        <a href="https://pin.it/JvBh5y7Co" target="_blank" rel="noopener">Pinterest</a>
-        <a href="mailto:Superpills@yahoo.com">Superpills@yahoo.com</a>
-      </div>
-    </nav>
+    <!-- @include header.html -->
 
     <main id="top">
       <!-- Hero (166:1188) — rendered by src/hero (React + R3F). Copy lives in src/hero/mount.tsx -->
@@ -68,14 +30,17 @@
           <div class="divider"></div>
         </div>
 
-        <div class="brands">
+        <div class="brands section">
           <a href="#" class="brand-card" data-reveal>
             <div class="divider"></div>
             <div class="brand-card__row">
-              <img src="/assets/logo-bandlab.svg" width="200" height="50" alt="Bandlab logo" />
+              <picture class="brand-card__logo">
+                <source media="(max-width: 720px)" srcset="/assets/logo-bandlab-m.svg" width="60" height="30" />
+                <img src="/assets/logo-bandlab.svg" width="200" height="50" alt="Bandlab logo" />
+              </picture>
               <div class="brand-card__details">
                 <p class="brand-card__name t-body-list">Bandlab</p>
-                <p class="brand-card__desc t-body-default">Motion that takes the shape of sound</p>
+                <p class="brand-card__desc t-body-default"><span class="only-desktop">Motion that takes the shape of sound</span><span class="only-mobile">Visualizing sound through motion</span></p>
                 <p class="t-label-link" aria-hidden="true">→</p>
               </div>
             </div>
@@ -84,10 +49,13 @@
           <a href="#" class="brand-card" data-reveal>
             <div class="divider"></div>
             <div class="brand-card__row">
-              <img src="/assets/logo-comparesing.svg" width="200" height="50" alt="CompareSing logo" />
+              <picture class="brand-card__logo">
+                <source media="(max-width: 720px)" srcset="/assets/logo-comparesing-m.svg" width="60" height="30" />
+                <img src="/assets/logo-comparesing.svg" width="200" height="50" alt="CompareSing logo" />
+              </picture>
               <div class="brand-card__details">
                 <p class="brand-card__name t-body-list">CompareSing</p>
-                <p class="brand-card__desc t-body-default">Design systems for a financial platform</p>
+                <p class="brand-card__desc t-body-default"><span class="only-desktop">Design systems for a financial platform</span><span class="only-mobile">Building Design systems for a financial platform</span></p>
                 <p class="t-label-link" aria-hidden="true">→</p>
               </div>
             </div>
@@ -96,7 +64,10 @@
           <a href="#" class="brand-card" data-reveal>
             <div class="divider"></div>
             <div class="brand-card__row">
-              <img src="/assets/logo-edb.svg" width="200" height="50" alt="EDB Singapore logo" />
+              <picture class="brand-card__logo">
+                <source media="(max-width: 720px)" srcset="/assets/logo-edb-m.svg" width="60" height="30" />
+                <img src="/assets/logo-edb.svg" width="200" height="50" alt="EDB Singapore logo" />
+              </picture>
               <div class="brand-card__details">
                 <p class="brand-card__name t-body-list">EDB Singapore</p>
                 <p class="brand-card__desc t-body-default">Branding business in Singapore</p>
@@ -108,7 +79,10 @@
           <a href="#" class="brand-card" data-reveal>
             <div class="divider"></div>
             <div class="brand-card__row">
-              <img src="/assets/logo-pil.svg" width="200" height="50" alt="PIL Singapore logo" />
+              <picture class="brand-card__logo">
+                <source media="(max-width: 720px)" srcset="/assets/logo-pil-m.svg" width="60" height="30" />
+                <img src="/assets/logo-pil.svg" width="200" height="50" alt="PIL Singapore logo" />
+              </picture>
               <div class="brand-card__details">
                 <p class="brand-card__name t-body-list">PIL Singapore</p>
                 <p class="brand-card__desc t-body-default">Branding &amp; Identity for logistics in Asia</p>
@@ -120,10 +94,13 @@
           <a href="#" class="brand-card" data-reveal>
             <div class="divider"></div>
             <div class="brand-card__row">
-              <img src="/assets/logo-sendapp.svg" width="200" height="50" alt="Send.App logo" />
+              <picture class="brand-card__logo">
+                <source media="(max-width: 720px)" srcset="/assets/logo-sendapp-m.svg" width="60" height="30" />
+                <img src="/assets/logo-sendapp.svg" width="200" height="50" alt="Send.App logo" />
+              </picture>
               <div class="brand-card__details">
                 <p class="brand-card__name t-body-list">Send.App</p>
-                <p class="brand-card__desc t-body-default">Shaping Brand &amp; Product for a Super-app</p>
+                <p class="brand-card__desc t-body-default"><span class="only-desktop">Shaping Brand &amp; Product for a Super-app</span><span class="only-mobile">Building a Super-app</span></p>
                 <p class="t-label-link" aria-hidden="true">→</p>
               </div>
             </div>
@@ -132,7 +109,10 @@
           <a href="#" class="brand-card" data-reveal>
             <div class="divider"></div>
             <div class="brand-card__row">
-              <img src="/assets/logo-spotify.svg" width="200" height="50" alt="Spotify logo" />
+              <picture class="brand-card__logo">
+                <source media="(max-width: 720px)" srcset="/assets/logo-spotify-m.svg" width="60" height="30" />
+                <img src="/assets/logo-spotify.svg" width="200" height="50" alt="Spotify logo" />
+              </picture>
               <div class="brand-card__details">
                 <p class="brand-card__name t-body-list">Spotify</p>
                 <p class="brand-card__desc t-body-default">Campaigns tailored to culture</p>
@@ -154,7 +134,7 @@
         </div>
 
         <!-- Services1 ×3 -->
-        <article class="service">
+        <article class="service section">
           <div class="divider"></div>
           <div class="service__intro">
             <p class="service__num t-display-metric">01</p>
@@ -163,7 +143,7 @@
               <p class="service__desc t-body-small">
                 Crafting brand identities for global companies, developing effective design systems, and creating logos that truly resonate—whether through word-marks or monograms. With focus on type and color systems, delving into consumer psychology, and shape culture and emotion. Expertise includes designing key visuals and strategic frameworks, as well as formulating social strategies that authentically express your brand across various initiatives.
               </p>
-              <a href="#" class="link t-body-small">Learn more <img src="/assets/arrow-up-right.svg" width="16" height="16" alt="" /></a>
+              <a href="#" class="link arrow-link t-body-small">Learn more <img src="/assets/arrow-up-right.svg" width="16" height="16" alt="" /></a>
             </div>
           </div>
           <div class="service__projects">
@@ -177,7 +157,7 @@
           </div>
         </article>
 
-        <article class="service">
+        <article class="service section">
           <div class="divider"></div>
           <div class="service__intro">
             <p class="service__num t-display-metric">02</p>
@@ -186,7 +166,7 @@
               <p class="service__desc t-body-small">
                 Specialised in crafting user-centric frontend designs using React, Next.js, and Three.js, along with WebGL builds. Creating intuitive UI/UX that enhances user experience, whether for mobile apps or web applications. Conducting thorough UI/UX research to inform design decisions, ensuring that each project resonates with users and meets their needs effectively.
               </p>
-              <a href="#" class="link t-body-small">Learn more <img src="/assets/arrow-up-right.svg" width="16" height="16" alt="" /></a>
+              <a href="#" class="link arrow-link t-body-small">Learn more <img src="/assets/arrow-up-right.svg" width="16" height="16" alt="" /></a>
             </div>
           </div>
           <div class="service__projects">
@@ -200,7 +180,7 @@
           </div>
         </article>
 
-        <article class="service">
+        <article class="service section">
           <div class="divider"></div>
           <div class="service__intro">
             <p class="service__num t-display-metric">03</p>
@@ -209,7 +189,7 @@
               <p class="service__desc t-body-small">
                 Specializing in motion design and video production, drafting concepts, providing creative direction, and writing scripts. With expertise spanning pre-production and post-production processes, delivering captivating motion design in both 2D and 3D formats. With additional skills in video optimization, editing, color grading, and sound design to ensure each project captivates and engages the audience.
               </p>
-              <a href="#" class="link t-body-small">Learn more <img src="/assets/arrow-up-right.svg" width="16" height="16" alt="" /></a>
+              <a href="#" class="link arrow-link t-body-small">Learn more <img src="/assets/arrow-up-right.svg" width="16" height="16" alt="" /></a>
             </div>
           </div>
           <div class="service__projects">
@@ -225,7 +205,7 @@
       </section>
 
       <!-- Skillset (166:1343) -->
-      <section id="about" class="skillset">
+      <section id="about" class="skillset section">
         <h2 class="t-heading-h2" data-split>Forget about living forever, Create something that will.</h2>
         <div class="feature" data-reveal>
           <div class="feature__media">
@@ -246,73 +226,14 @@
             <p class="t-caption-micro">(2025)</p>
           </div>
         </div>
+        <div class="divider only-mobile"></div>
       </section>
 
-      <!-- Contact Card (166:1356) -->
-      <section id="contact" class="contact">
-        <div class="contact__eyebrow">
-          <p class="t-label-small">Outreach</p>
-          <img src="/assets/accent-dot.svg" width="14" height="14" alt="" />
-        </div>
-        <h2 class="contact__title t-heading-h3" data-split>Have something else in mind? Get in touch.</h2>
-        <a href="mailto:Superpills@yahoo.com" class="contact__action">
-          <span class="t-label-action">Contact</span>
-          <span class="t-arrow-large" aria-hidden="true">→</span>
-        </a>
-        <div class="divider"></div>
-      </section>
+      <!-- @include contact-card.html -->
     </main>
 
-    <!-- Footer (166:1365) -->
-    <footer class="footer">
-      <div class="footer__brand">
-        <img src="/assets/footer-logo.svg" width="150" height="96" alt="" />
-        <p class="t-brand-wordmark">Superpills</p>
-      </div>
-      <div class="footer__body">
-        <div class="footer__links">
-          <nav class="footer__nav" aria-label="Footer">
-            <div class="footer__col">
-              <p class="t-label-footer-heading">Menu</p>
-              <ul class="footer__list t-body-small">
-                <li><a href="#top" data-scroll-link>Home</a></li>
-                <li><a href="#work" data-scroll-link>Work</a></li>
-                <li><a href="#about" data-scroll-link>About</a></li>
-                <li><a href="#contact" data-scroll-link>Contact</a></li>
-              </ul>
-            </div>
-            <div class="footer__col">
-              <p class="t-label-footer-heading">Socials</p>
-              <ul class="footer__list t-body-small">
-                <li><a href="https://www.instagram.com/superpills/" target="_blank" rel="noopener">Instagram</a></li>
-                <li><a href="https://www.linkedin.com/in/bryan-khua-a3a19b100" target="_blank" rel="noopener">Linkedin</a></li>
-                <li><a href="https://pin.it/JvBh5y7Co" target="_blank" rel="noopener">Pinterest</a></li>
-              </ul>
-            </div>
-            <div class="footer__col">
-              <p class="t-label-footer-heading">Contact</p>
-              <div class="footer__detail">
-                <p class="t-caption">Location</p>
-                <p class="t-body-small">Singapore</p>
-              </div>
-              <div class="footer__detail">
-                <p class="t-caption">Email</p>
-                <a class="t-body-small" href="mailto:Superpills@yahoo.com">Superpills@yahoo.com</a>
-              </div>
-            </div>
-          </nav>
-          <a href="#top" class="back-to-top" data-scroll-link>
-            <span class="t-label-link">Back to top</span>
-            <span class="back-to-top__button t-arrow" aria-hidden="true">↑</span>
-          </a>
-        </div>
-        <div class="footer__base t-caption-footer">
-          <p>SGT <span data-clock>09:41</span></p>
-          <p>© 2026 Bryan Khua</p>
-        </div>
-      </div>
-    </footer>
+    <!-- @include footer.html -->
 
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/pages/home.js"></script>
   </body>
 </html>

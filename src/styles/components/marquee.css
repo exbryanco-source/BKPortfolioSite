@@ -1,0 +1,23 @@
+/* Autoscroller heading band — a looping [data-ticker] track between dividers.
+   Markup: .marquee > .divider + .marquee__viewport > .marquee__track[data-ticker] > span… + .divider */
+.marquee {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-section-lg) var(--scale-000);
+  overflow: clip;
+}
+.marquee__viewport {
+  overflow: clip;
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+}
+.marquee__track span {
+  padding-right: var(--scale-096); /* = gap; padding keeps the -50% loop seamless */
+}
+
+@media (max-width: 720px) {
+  .marquee__track { font: var(--m-heading-h1); }
+}

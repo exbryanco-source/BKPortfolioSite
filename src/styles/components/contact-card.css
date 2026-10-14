@@ -1,0 +1,28 @@
+/* Contact card — "Outreach / Have something else in mind?" (partials/contact-card.html) */
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--scale-048);
+  padding-block: var(--space-section-md);
+  background: var(--background-canvas);
+}
+.contact__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.contact__title {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .contact { gap: var(--scale-032); padding-bottom: var(--gutter); }
+  .contact__eyebrow .t-label-small { font: var(--m-label-small); letter-spacing: var(--tracking-default); }
+  .contact__eyebrow img { width: 8px; height: 8px; }
+  .contact__title { font: var(--m-heading-h3); }
+  .contact__action .t-label-action { font: var(--m-label-action); }
+  .contact__action .t-arrow-large { font: var(--m-arrow-large); }
+}

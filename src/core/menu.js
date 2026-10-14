@@ -40,16 +40,23 @@ export function initMenu(lenis) {
     }
   });
 
-  // Smooth-scroll for every in-page link (menu, logo, back to top)
+  // [data-scroll-link]: smooth-scroll when the target is on this page
+  // ("#work", or "/#work" while on "/"); otherwise navigate normally, so the
+  // shared nav partial works from any page.
   document.querySelectorAll('[data-scroll-link]').forEach((a) => {
     a.addEventListener('click', (e) => {
+      const url = new URL(a.href, location.href);
+      const target = url.pathname === location.pathname && url.hash && document.querySelector(url.hash);
+      if (!target) {
+        if (isOpen) setOpen(false);
+        return;
+      }
       e.preventDefault();
-      const target = a.getAttribute('href');
       if (isOpen) {
         setOpen(false);
-        setTimeout(() => scrollToTarget(lenis, target), 400);
+        setTimeout(() => scrollToTarget(lenis, url.hash), 400);
       } else {
-        scrollToTarget(lenis, target);
+        scrollToTarget(lenis, url.hash);
       }
     });
   });

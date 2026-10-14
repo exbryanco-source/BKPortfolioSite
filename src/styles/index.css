@@ -1,0 +1,15 @@
+/* Shared styles for every page. Page-specific styles live in pages/*.css
+   and are imported by that page's entry (src/pages/*.js). */
+@import './tokens.css';
+@import './base.css';
+@import './typography.css';
+@import './utilities.css';
+
+@import './components/buttons.css';
+@import './components/loader.css';
+@import './components/header.css';
+@import './components/menu.css';
+@import './components/marquee.css';
+@import './components/hscroll.css';
+@import './components/contact-card.css';
+@import './components/footer.css';

@@ -1,0 +1,50 @@
+/* Header navigation — logo + menu toggle (partials/header.html) */
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--gutter);
+  pointer-events: none;
+}
+.header > * {
+  pointer-events: auto;
+}
+.header__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--scale-008);
+}
+
+/* Hamburger: two 20×2 bars, 4px apart, inside a 20×20 box; crosses when open */
+.menu-toggle__icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.menu-toggle__icon span {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: var(--icon-onsurface);
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.2, 1), top 0.5s cubic-bezier(0.7, 0, 0.2, 1);
+}
+.menu-toggle__icon span:first-child {
+  top: 6px;
+}
+.menu-toggle__icon span:last-child {
+  top: 12px;
+}
+.menu-open .menu-toggle__icon span {
+  top: 9px;
+}
+.menu-open .menu-toggle__icon span:first-child {
+  transform: rotate(45deg);
+}
+.menu-open .menu-toggle__icon span:last-child {
+  transform: rotate(-45deg);
+}

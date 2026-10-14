@@ -1,0 +1,105 @@
+/* ------------------------------------------------------------------
+   Design tokens — mirrored 1:1 from Figma variables
+   Desktop: "Superpills portfolio — Desktop" (node 71:16)
+   Mobile:  "Superpills portfolio — Mobile"  (node 84:657) → --m-* tokens
+------------------------------------------------------------------ */
+:root {
+  /* Color */
+  --background-surface: #fcfcf8;
+  --background-canvas: #f4f3ed;
+  --text-primary: #11120f;
+  --text-secondary: #686a62;
+  --icon-default: #11120f;
+  --icon-secondary: #686a62;
+  --icon-onsurface: #fcfcf8;
+  --border-default: #c9c9c0;
+  --action-indicator: #11120f;
+  --accent-primary: #c7ff18;
+
+  /* Spacing scale */
+  --scale-000: 0px;
+  --scale-004: 4px;
+  --scale-008: 8px;
+  --scale-016: 16px;
+  --scale-024: 24px;
+  --scale-040: 40px;
+  --scale-048: 48px;
+  --scale-056: 56px;
+  --scale-072: 72px;
+  --scale-096: 96px;
+  --scale-160: 160px;
+
+  /* Radius */
+  --radius-none: 0px;
+  --radius-full: 999px;
+
+  /* Font */
+  --font-family: 'Inter', system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --tracking-default: 0px;
+  --tracking-metric: -3px;
+  --tracking-small-label: 0.1px;
+
+  /* Type scale (desktop) — size / line-height */
+  --caption-default-size: 12px;      --caption-default-lh: 12px;
+  --caption-strong-size: 12px;       --caption-strong-lh: 12px;
+  --caption-micro-size: 10px;        --caption-micro-lh: 12px;
+  --caption-footer-size: 12px;       --caption-footer-lh: 15px;
+  --label-small-size: 12px;          --label-small-lh: 15px;
+  --label-link-size: 24px;           --label-link-lh: 24px;
+  --label-action-size: 24px;         --label-action-lh: 24px;
+  --label-footer-heading-size: 24px; --label-footer-heading-lh: 24px;
+  --utility-arrow-small-size: 12px;  --utility-arrow-small-lh: 12px;
+  --utility-arrow-size: 16px;        --utility-arrow-lh: 16px;
+  --utility-arrow-large-size: 22px;  --utility-arrow-large-lh: 22px;
+  --body-small-size: 15px;           --body-small-lh: 18px;
+  --body-default-size: 24px;         --body-default-lh: 36px;
+  --body-list-size: 40px;            --body-list-lh: 48px;
+  --display-metric-size: 64px;       --display-metric-lh: 77px;
+  --heading-lead-size: 48px;         --heading-lead-lh: 52.8px;
+  --heading-h2-size: 96px;           --heading-h2-lh: 105.6px;
+  --heading-h3-size: 96px;           --heading-h3-lh: 105.6px;
+  --heading-project-size: 128px;     --heading-project-lh: 128px;
+  --brand-wordmark-size: 96px;       --brand-wordmark-lh: 96px;
+
+  /* Spacing only used by the mobile frame */
+  --scale-032: 32px;
+  --scale-064: 64px;
+
+  /* Type scale (mobile, Figma "Mobile/…" styles, node 84:657) — font shorthands */
+  --m-caption: 400 12px/18px var(--font-family);
+  --m-caption-strong: 600 10px/14px var(--font-family);
+  --m-label-small: 500 12px/18px var(--font-family);
+  --m-label-link: 400 16px/24px var(--font-family);
+  --m-label-action: 500 16px/24px var(--font-family);
+  --m-arrow-small: 500 12px/12px var(--font-family);
+  --m-arrow: 400 16px/16px var(--font-family);
+  --m-arrow-large: 400 22px/27px var(--font-family);
+  --m-body-small: 400 15px/21px var(--font-family);
+  --m-body-default: 400 16px/24px var(--font-family);
+  --m-body-large: 400 18px/27px var(--font-family);
+  --m-heading-lead: 400 24px/28.8px var(--font-family);
+  --m-heading-h3: 500 32px/35.2px var(--font-family);
+  --m-heading-h1: 500 40px/44px var(--font-family);
+  --m-display-metric: 500 56px/56px var(--font-family);
+  --m-brand-wordmark: 700 42px/42px var(--font-family);
+  --m-tracking-metric: -2px;
+
+  /* Layout — shared page rhythm (desktop values; mobile below) */
+  --gutter: var(--scale-040);              /* page side padding */
+  --space-section-lg: var(--scale-160);    /* marquee bands, big section tops */
+  --space-section-md: var(--scale-096);    /* contact card top */
+  --header-logo-height: 63px;              /* brand logo; offsets the menu overlay */
+}
+
+/* Mobile breakpoint is 720px everywhere (CSS, <picture> sources, src/hero). */
+@media (max-width: 720px) {
+  :root {
+    --gutter: var(--scale-024);
+    --space-section-lg: var(--scale-096);
+    --space-section-md: var(--scale-064);
+  }
+}

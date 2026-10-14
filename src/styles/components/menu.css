@@ -1,0 +1,36 @@
+/* Fullscreen menu overlay (partials/header.html, core/menu.js) */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--gutter) * 2 + var(--header-logo-height)) var(--gutter) var(--gutter);
+  background: var(--background-canvas);
+  color: var(--text-primary);
+}
+.menu__links a {
+  display: block;
+  overflow: hidden; /* masks the slide-up text */
+  border-bottom: 1px solid var(--border-default);
+}
+.menu__text {
+  display: block;
+  font-size: var(--heading-project-size);
+  line-height: var(--heading-project-lh);
+  transition: transform 0.4s ease;
+}
+.menu__links a:hover .menu__text {
+  transform: translateX(var(--scale-016));
+}
+.menu__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--scale-024);
+}
+
+@media (max-width: 720px) {
+  .menu__text { font: var(--m-heading-h1); }
+}

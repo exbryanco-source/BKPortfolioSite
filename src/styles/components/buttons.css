@@ -1,0 +1,25 @@
+/* ------------------------------------------------------------------
+   Buttons
+------------------------------------------------------------------ */
+
+/* Square 40×40 icon button on the action colour (header menu toggle) */
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: var(--scale-000);
+  border: 0;
+  background: var(--action-indicator);
+  cursor: pointer;
+}
+
+/* Text + arrow link: "Learn more ↗", "Contact →", "Back to top ↑".
+   Typography comes from the .t-* classes on its children / itself. */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--scale-008);
+  white-space: nowrap;
+}

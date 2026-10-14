@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 /** Hero: masked line-by-line headline reveal after the loader exits. */
 export function playHeroIntro() {
-  if (prefersReducedMotion) return;
+  if (prefersReducedMotion || !document.querySelector('[data-hero-title]')) return;
 
   SplitText.create('[data-hero-title]', {
     type: 'lines',
@@ -54,6 +54,7 @@ export function initReveals() {
 
   if (prefersReducedMotion) return;
 
+  if (!document.querySelector('[data-reveal]')) return;
   gsap.set('[data-reveal]', { opacity: 0, y: 60 });
   ScrollTrigger.batch('[data-reveal]', {
     start: 'top 90%',

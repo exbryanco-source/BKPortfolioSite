@@ -1,0 +1,11 @@
+/* Boot loader — "Loading (n%)" (partials/loader.html, core/loader.js) */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--gutter);
+  background: var(--background-surface);
+  clip-path: inset(0 0 0% 0);
+}

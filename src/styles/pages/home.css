@@ -1,0 +1,237 @@
+/* ------------------------------------------------------------------
+   Landing page (index.html) — sections only used here.
+   Shared chrome (header, menu, marquee, strips, contact card, footer)
+   lives in ../components.
+------------------------------------------------------------------ */
+
+/* ---------------- Hero ---------------- */
+/* Two columns: ~54% HTML text, ~46% WebGL canvas flush with the top-right
+   corner. The disc stack is placed by fractions of that canvas and runs off
+   its top/right edges on purpose (see src/hero/DiscStack.tsx). */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 54fr) minmax(0, 46fr);
+  height: 704px;
+  overflow: clip;
+  background: var(--background-surface);
+}
+.hero__object {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+.glass-object,
+.glass-object canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero__statement {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-016);
+  padding: var(--gutter);
+}
+.hero__breadcrumb {
+  display: flex;
+  gap: var(--scale-004);
+  white-space: nowrap;
+}
+.hero__title {
+  max-width: 760px;
+}
+
+/* ---------------- Selected client work ---------------- */
+.work {
+  background: var(--background-surface);
+  overflow: clip;
+}
+
+/* Client list (Feature-LogoGrid) */
+.brands {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-016);
+}
+.brand-card {
+  display: flex;
+  flex-direction: column;
+}
+.brand-card__row {
+  display: flex;
+  align-items: center;
+  gap: var(--scale-016);
+  padding: var(--scale-000) var(--scale-024);
+  border-radius: 16px;
+}
+.brand-card__logo {
+  flex-shrink: 0;
+}
+.brand-card__details {
+  display: flex;
+  align-items: center;
+  gap: var(--scale-024);
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+.brand-card:hover .brand-card__details {
+  color: var(--text-primary);
+}
+.brand-card__name {
+  width: 300px;
+  flex-shrink: 0;
+}
+.brand-card__desc {
+  width: 550px;
+  flex-shrink: 1;
+}
+
+/* Services (Branding / Product / Motion) */
+.service {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-072);
+  padding-block: var(--scale-040);
+  overflow: clip;
+}
+.service__intro {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--scale-048);
+}
+.service__num,
+.service__text {
+  flex: 1 0 0;
+  min-width: 1px;
+}
+.service__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--scale-048);
+}
+.service__desc {
+  color: var(--text-secondary);
+}
+.service__projects {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-048);
+}
+
+/* ---------------- Skillset / showreel ---------------- */
+.skillset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-048);
+  padding-block: var(--space-section-lg) var(--scale-040);
+  background: var(--background-canvas);
+  overflow: clip;
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-024);
+}
+/* Showreel embed (Vimeo) — 16:9 at any width */
+.feature__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: clip;
+  background: var(--text-primary);
+}
+.feature__media iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.feature__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+.feature__identity {
+  display: flex;
+  align-items: center;
+  gap: var(--scale-008);
+}
+
+/* ------------------------------------------------------------------
+   Tablet — between the desktop and mobile Figma frames (not in Figma)
+------------------------------------------------------------------ */
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .brand-card__name { width: 220px; }
+  .brand-card__desc { width: auto; }
+}
+
+/* ------------------------------------------------------------------
+   Mobile — Figma "Superpills portfolio — Mobile" (node 84:657, 390 wide)
+------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  /* Hero — 700px, statement bottom-left, 3D object behind it */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 700px;
+    padding: var(--gutter);
+  }
+  .hero__object { position: absolute; inset: 0; }
+  .hero__statement { align-self: stretch; padding: var(--scale-000); }
+  .hero__breadcrumb .t-caption { font: var(--m-caption); }
+  .hero__title { font: var(--m-heading-h1); max-width: none; }
+
+  /* Client list — logo · name · arrow, description below */
+  .brand-card__row {
+    display: grid;
+    grid-template-columns: 60px minmax(0, 1fr) auto;
+    grid-template-rows: 40px auto;
+    align-items: center;
+    column-gap: var(--scale-016);
+    row-gap: var(--scale-008);
+    padding: var(--scale-016) var(--scale-000);
+  }
+  .brand-card__logo img { width: 60px; height: 30px; }
+  .brand-card__details { display: contents; }
+  .brand-card__name { grid-area: 1 / 2; width: auto; font: var(--m-heading-lead); }
+  .brand-card__details .t-label-link { grid-area: 1 / 3; font: var(--m-arrow-large); }
+  .brand-card__desc { grid-area: 2 / 1 / 3 / -1; width: auto; font: var(--m-caption); }
+
+  /* Services — stacked: number, overview, project strip */
+  .service { gap: var(--scale-040); padding-block: var(--scale-048); }
+  .service__intro { flex-direction: column; gap: var(--scale-040); }
+  .service__num,
+  .service__text { flex: none; width: 100%; }
+  .service__num { font: var(--m-display-metric); letter-spacing: var(--m-tracking-metric); }
+  .service__text { gap: var(--scale-024); }
+  .service__text h2 { font: var(--m-heading-lead); }
+  .service__desc { font: var(--m-body-default); }
+  .service .link { font: var(--m-caption-strong); }
+  .service .link img { width: 12px; height: 12px; }
+  .service__projects { gap: var(--scale-016); }
+  .service__projects h3 { font: var(--m-label-small); }
+
+  /* Skillset / showreel */
+  .skillset { gap: var(--scale-032); padding-bottom: var(--scale-064); }
+  .skillset > h2 { font: var(--m-heading-h1); text-align: center; }
+  .feature { gap: var(--scale-016); }
+  .feature__meta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: var(--scale-008);
+    white-space: normal;
+  }
+  .feature__identity { display: contents; }
+  .feature__meta .t-caption,
+  .feature__meta .t-caption-micro { font: var(--m-caption); }
+  .feature__meta .t-caption-strong { grid-column: 1 / -1; grid-row: 2; font: var(--m-caption-strong); }
+}

@@ -1,0 +1,72 @@
+/* ------------------------------------------------------------------
+   Base — reset, element defaults, Lenis, lazy images, reduced motion
+------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+body {
+  background: var(--background-surface);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--tracking-default);
+  -webkit-font-smoothing: antialiased;
+}
+body.is-loading {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+img {
+  display: block;
+}
+h1,
+h2,
+h3 {
+  font: inherit;
+}
+
+/* Page content sits above any fixed background layers */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Lazy images fade in once decoded (core/animations.js adds .is-loaded) */
+img[loading='lazy'] {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+img[loading='lazy'].is-loaded {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

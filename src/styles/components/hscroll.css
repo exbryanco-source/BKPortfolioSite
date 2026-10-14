@@ -1,0 +1,36 @@
+/* Horizontal image strip ([data-hscroll], core/hscroll.js).
+   Markup: .thumbs[data-hscroll][data-lenis-prevent-horizontal] > .card__media > img[loading=lazy] */
+.thumbs {
+  display: flex;
+  gap: var(--scale-016);
+  height: 300px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+}
+.thumbs.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.thumbs img {
+  -webkit-user-drag: none;
+}
+.thumbs::-webkit-scrollbar {
+  display: none;
+}
+.card__media {
+  flex: 0 0 600px;
+  height: 300px;
+  overflow: hidden;
+}
+.card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 720px) {
+  .thumbs { height: 140px; }
+  .card__media { flex-basis: 280px; height: 140px; }
+}

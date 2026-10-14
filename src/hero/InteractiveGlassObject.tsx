@@ -29,8 +29,8 @@ export interface InteractiveGlassObjectProps {
 // Front disc centred at ~30% / 67% of the right-hand column, as in the reference;
 // the larger discs behind it run off the top-right edge.
 const DEFAULT_COMPOSITION: Composition = { x: 0.3, y: 0.67, size: 0.34 };
-// Below the text on mobile the canvas top edge is mid-page, so keep it contained.
-const DEFAULT_COMPACT_COMPOSITION: Composition = { x: 0.34, y: 0.66, size: 0.22 };
+// Mobile (Figma 84:657): canvas fills the 700px hero behind the text; stack sits mid-right above the headline.
+const DEFAULT_COMPACT_COMPOSITION: Composition = { x: 0.56, y: 0.55, size: 0.125 };
 
 const COMPACT_QUERY = '(max-width: 720px)';
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
