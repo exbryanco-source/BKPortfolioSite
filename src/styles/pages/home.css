@@ -133,36 +133,6 @@
   background: var(--background-canvas);
   overflow: clip;
 }
-.feature {
-  display: flex;
-  flex-direction: column;
-  gap: var(--scale-024);
-}
-/* Showreel embed (Vimeo) — 16:9 at any width */
-.feature__media {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  overflow: clip;
-  background: var(--text-primary);
-}
-.feature__media iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.feature__meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  white-space: nowrap;
-}
-.feature__identity {
-  display: flex;
-  align-items: center;
-  gap: var(--scale-008);
-}
 
 /* ------------------------------------------------------------------
    Tablet — between the desktop and mobile Figma frames (not in Figma)
@@ -223,15 +193,4 @@
   /* Skillset / showreel */
   .skillset { gap: var(--scale-032); padding-bottom: var(--scale-064); }
   .skillset > h2 { font: var(--m-heading-h1); text-align: center; }
-  .feature { gap: var(--scale-016); }
-  .feature__meta {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    row-gap: var(--scale-008);
-    white-space: normal;
-  }
-  .feature__identity { display: contents; }
-  .feature__meta .t-caption,
-  .feature__meta .t-caption-micro { font: var(--m-caption); }
-  .feature__meta .t-caption-strong { grid-column: 1 / -1; grid-row: 2; font: var(--m-caption-strong); }
 }
