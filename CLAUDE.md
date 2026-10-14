@@ -9,11 +9,12 @@ Static portfolio built with Vite + vanilla JS. Layout/structure references https
 - **GSAP** (ScrollTrigger, SplitText) — `src/animations.js`
 - **Lenis** smooth scroll — `src/scroll.js`, driven by `gsap.ticker`
 - `src/menu.js` — fullscreen hamburger overlay timeline
+- Lenis starts stopped (`scroll.js`) and is started in `main.js` once the loader finishes
 - `src/loader.js` — "Loading (n%)" boot screen; finishes when the hero's first WebGL frame is drawn
 - `npm run typecheck` / `npm run build` run `tsc --noEmit` first
 
 ## Conventions
-- Animations are opt-in via data attributes: `data-split` (word reveal on scroll), `data-reveal` (staggered lazy fade-in), `data-hero-title`, `data-hero-fade`, `data-scroll-link` (smooth in-page anchor).
+- Animations are opt-in via data attributes: `data-split` (word reveal on scroll), `data-reveal` (staggered lazy fade-in), `data-hero-title`, `data-hero-fade`, `data-scroll-link` (smooth in-page anchor), `data-hscroll` (horizontal strip: native touch/trackpad scroll + mouse drag with glide, `src/hscroll.js` — pair with `data-lenis-prevent-horizontal` so Lenis lets horizontal gestures through).
 - Design tokens live at the top of `src/styles.css` (`:root`), mirrored 1:1 from Figma variables (`scale/040` → `--scale-040`, `text/primary` → `--text-primary`). Figma text styles map to `.t-*` classes (`Desktop/heading/lead` → `.t-heading-lead`). When applying Figma, update tokens first, then components.
 - Figma assets live in `public/assets/` (source: file `gXPm8y9DY39DrkYXWPZIdW`, node `71:16`).
 - Respect `prefers-reduced-motion` (see `prefersReducedMotion` in `scroll.js`).

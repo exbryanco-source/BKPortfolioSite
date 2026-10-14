@@ -2,10 +2,12 @@ import './styles.css';
 import { initSmoothScroll } from './scroll.js';
 import { initMenu } from './menu.js';
 import { createLoader } from './loader.js';
+import { initHorizontalScrollers } from './hscroll.js';
 import { playHeroIntro, initScrollText, initReveals, initTicker } from './animations.js';
 
 const lenis = initSmoothScroll();
 initMenu(lenis);
+initHorizontalScrollers();
 
 const loader = createLoader();
 
@@ -20,6 +22,7 @@ const heroReady = import('./hero/mount.tsx')
 
 Promise.all([heroReady, document.fonts.ready]).then(async () => {
   await loader.finish();
+  lenis?.start(); // scroll.js keeps Lenis locked while the loader is up
   playHeroIntro();
   initScrollText();
   initReveals();

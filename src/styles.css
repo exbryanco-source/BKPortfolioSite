@@ -405,7 +405,7 @@ main,
   gap: var(--scale-048);
 }
 
-/* scrollerframe / Project thumbnails */
+/* scrollerframe / Project thumbnails — horizontal scroll strip (src/hscroll.js) */
 .thumbs {
   display: flex;
   gap: var(--scale-016);
@@ -413,6 +413,14 @@ main,
   overflow-x: auto;
   scrollbar-width: none;
   overscroll-behavior-x: contain;
+  cursor: grab;
+}
+.thumbs.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.thumbs img {
+  -webkit-user-drag: none;
 }
 .thumbs::-webkit-scrollbar {
   display: none;
@@ -451,34 +459,19 @@ img[loading='lazy'].is-loaded {
   flex-direction: column;
   gap: var(--scale-024);
 }
+/* Showreel embed (Vimeo) — 16:9 at any width */
 .feature__media {
   position: relative;
-  height: 650px;
+  aspect-ratio: 16 / 9;
   overflow: clip;
+  background: var(--text-primary);
 }
-.feature__media img {
+.feature__media iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-.feature__cursor {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--scale-008);
-  border-radius: var(--radius-full);
-  background: var(--accent-primary);
-  color: var(--text-primary);
-  transition: scale 0.3s ease;
-}
-.feature:hover .feature__cursor {
-  scale: 1.5;
+  border: 0;
 }
 .feature__meta {
   display: flex;
@@ -626,7 +619,6 @@ img[loading='lazy'].is-loaded {
   .brand-card__name { width: auto; }
   .service__intro { flex-direction: column; }
   .card__media { flex-basis: 80vw; }
-  .feature__media { height: 60vw; }
   .feature__meta { white-space: normal; gap: var(--scale-016); }
   .footer__brand img { width: 88px; height: auto; }
   .footer__links,
