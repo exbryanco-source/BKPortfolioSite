@@ -2,13 +2,14 @@ import { initSmoothScroll } from './scroll.js';
 import { initMenu } from './menu.js';
 import { createLoader } from './loader.js';
 import { initHorizontalScrollers } from './hscroll.js';
+import { initCarousels } from './carousel.js';
 import { initClock } from './clock.js';
 import { playHeroIntro, initScrollText, initReveals, initTicker } from './animations.js';
 
 /**
  * Shared page bootstrap. Every page entry (src/pages/*.js) calls this once.
  *
- * Wires the shared chrome (smooth scroll, menu, horizontal strips, clock),
+ * Wires the shared chrome (smooth scroll, menu, horizontal strips, carousels, clock),
  * shows the boot loader until `load(loader)` and the fonts are ready, then
  * unlocks scrolling and starts the data-attribute animations.
  *
@@ -21,6 +22,7 @@ export function bootPage({ load } = {}) {
   const lenis = initSmoothScroll();
   initMenu(lenis);
   initHorizontalScrollers();
+  initCarousels();
   initClock();
 
   const loader = createLoader();

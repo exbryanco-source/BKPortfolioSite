@@ -1,0 +1,171 @@
+/* Work (work.html) — Figma 95:2886 / mobile 95:3063.
+   One fixed screen: the header overlays the top, the featured-work carousel
+   and its marker rail sit below it, the base line is pinned to the bottom. */
+.work {
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  overflow: hidden;
+  /* Clear the fixed header: gutter + logo + gutter */
+  padding-top: calc(var(--gutter) * 2 + var(--header-logo-height));
+}
+.work__featured {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Gallery — snap carousel of project cards (core/hscroll.js + core/carousel.js).
+   Cards are 500px tall and give up height first on short viewports. */
+.work__gallery.thumbs {
+  position: relative; /* offsetLeft of the cards is measured from here */
+  flex: 0 1 500px;
+  min-height: 0;
+  height: auto;
+  margin-block: var(--scale-048);
+  gap: var(--scale-024);
+  /* Inset both ends by the page gutter so cards never touch the screen edge */
+  padding-inline: var(--gutter);
+  scroll-padding-inline: var(--gutter);
+  scroll-snap-type: x mandatory;
+  outline: none;
+}
+.work__gallery:focus-visible {
+  outline: 1px solid var(--border-default);
+  outline-offset: -1px;
+}
+
+/* Project card — full-bleed image, bottom scrim, copy pinned to the bottom */
+.project-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex: 0 0 min(900px, 85vw);
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--scale-016);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  color: var(--text-on-dark-primary);
+  scroll-snap-align: start;
+}
+.project-card__image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+/* Image scrim (201:740) */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgba(16, 17, 14, 0.03) 10%,
+    rgba(16, 17, 14, 0) 55%,
+    rgba(16, 17, 14, 0.9) 100%
+  );
+}
+.project-card__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-016);
+  padding: var(--scale-008);
+}
+.project-card__title {
+  max-width: 710px;
+  overflow-wrap: break-word;
+}
+.project-card__details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--scale-016);
+  white-space: nowrap;
+}
+
+/* Project rail — one marker per card; filled = card in view */
+.work__rail {
+  display: flex;
+  justify-content: center;
+  gap: var(--scale-024);
+  padding-block: var(--scale-016);
+}
+.work__dot {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  padding: var(--scale-000);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--background-canvas);
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.work__dot::after {
+  content: ''; /* larger hit area than the 16px marker */
+  position: absolute;
+  inset: calc(var(--scale-008) * -1);
+}
+.work__dot:hover {
+  border-color: var(--icon-secondary);
+}
+.work__dot[aria-current] {
+  border-color: var(--icon-secondary);
+  background: var(--icon-secondary);
+}
+.work__dot:focus-visible {
+  outline: 1px solid var(--icon-secondary);
+  outline-offset: 3px;
+}
+
+/* Base line — clock + copyright, bottom right */
+.work__base {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: var(--scale-024);
+  padding: var(--scale-040) var(--gutter);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Tablet (not in Figma): keep the 96px title from overflowing narrower cards */
+@media (max-width: 1100px) {
+  .project-card__title { font-size: var(--display-metric-size); line-height: var(--display-metric-lh); }
+}
+
+@media (max-width: 720px) {
+  .work__gallery.thumbs { margin-block: var(--scale-024); gap: var(--scale-016); }
+  .project-card { flex-basis: 300px; }
+  /* Image scrim (201:914) */
+  .project-card::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(16, 17, 14, 0) 12%,
+      rgba(16, 17, 14, 0.15) 50.72%,
+      rgba(16, 17, 14, 0.96) 100%
+    );
+  }
+  .project-card__copy { padding: var(--scale-000); }
+  .project-card__title { max-width: none; font: var(--m-heading-project); }
+  .project-card__details {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--scale-008);
+    white-space: normal;
+  }
+  .project-card__summary { min-height: 42px; font: var(--m-label-section); }
+  .project-card__tags { font: var(--m-label-small); letter-spacing: var(--tracking-default); }
+  .work__base {
+    justify-content: space-between;
+    padding: var(--scale-040) var(--gutter) var(--scale-032);
+    font: var(--m-caption);
+  }
+}

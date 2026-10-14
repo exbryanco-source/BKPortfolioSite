@@ -11,7 +11,13 @@ export function initMenu(lenis) {
   const scrim = menu.querySelector('[data-menu-scrim]');
   const panel = menu.querySelector('[data-menu-panel]');
   const links = menu.querySelectorAll('.menu__text');
-  const sectionLinks = [...menu.querySelectorAll('[data-menu-section]')];
+  const onThisPage = (a) => new URL(a.href, location.href).pathname === location.pathname;
+  // Section links only track sections on their own page; a page link (e.g.
+  // Library) is current when it points at the page we're on.
+  const sectionLinks = [...menu.querySelectorAll('[data-menu-section]')].filter(onThisPage);
+  menu.querySelectorAll('.menu__link:not([data-menu-section])').forEach((a) => {
+    if (onThisPage(a)) a.setAttribute('aria-current', 'page');
+  });
   let isOpen = false;
 
   const tl = gsap

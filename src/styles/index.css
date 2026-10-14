@@ -1,5 +1,6 @@
 /* Shared styles for every page. Page-specific styles live in pages/*.css
-   and are imported by that page's entry (src/pages/*.js). */
+   and are <link>ed in that page's <head> next to this file (never imported
+   from JS — that delays styles until the module runs and flashes raw HTML). */
 @import './tokens.css';
 @import './base.css';
 @import './typography.css';
