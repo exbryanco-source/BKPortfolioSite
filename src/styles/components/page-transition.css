@@ -1,0 +1,17 @@
+/* Page transition frame (partials/page-transition.html, core/transition.js).
+   Hidden below the viewport by default; a project page (body.is-framing) starts
+   covered so nothing shows before the frame wipes up and off it. */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--text-primary);
+  clip-path: inset(100% 0 0 0);
+  pointer-events: none;
+}
+body.is-framing {
+  overflow: hidden;
+}
+body.is-framing .page-transition {
+  clip-path: inset(0 0 0 0);
+}

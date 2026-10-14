@@ -4,7 +4,7 @@ Static portfolio (Superpills / Bryan Khua) built with Vite + vanilla JS, with on
 - Desktop frame: file `gXPm8y9DY39DrkYXWPZIdW`, node `71:16`
 - Mobile frame: same file, node `84:657` (390 wide)
 
-The landing page (`index.html`), Work page (`work.html`, Figma `95:2886` / mobile `95:3063`) Library page (`library.html`, Figma `240:715` / mobile `240:834`) and About page (`about.html`, Figma `240:544` / mobile `240:631`) are complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
+The landing page (`index.html`), Work page (`work.html`, Figma `95:2886` / mobile `95:3063`), Library page (`library.html`, Figma `240:715` / mobile `240:834`), About page (`about.html`, Figma `240:544` / mobile `240:631`) and the Send.App case study (`send-app.html`, Figma `166:3048` / mobile `166:3214`) are complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
 
 ## Commands
 - `npm run dev` — dev server
@@ -20,34 +20,38 @@ src/
   pages/work.js            Work entry: bootPage() (the carousel is wired by boot)
   pages/library.js         Library entry: initArchive() then bootPage()
   pages/about.js           About entry: bootPage()
+  pages/send-app.js        Send.App case study entry: bootPage()
   core/                    Shared runtime — every page uses these via bootPage()
     boot.js                bootPage({ load }): scroll, menu, strips, clock, loader, animations
     scroll.js              Lenis smooth scroll (starts stopped; boot.js starts it after the loader)
     menu.js                Fullscreen menu timeline + [data-scroll-link] handling
-    loader.js              "Loading (n%)" boot screen
+    loader.js              "Loading (n%)" boot screen (skipped on pages without the loader partial)
+    transition.js          Frame out/in between Work and project pages ([data-transition-link], body.is-framing)
     animations.js          GSAP data-attribute animations (split text, reveals, ticker, hero intro)
     hscroll.js             [data-hscroll] horizontal strips (drag + native swipe; [data-hscroll-snap] glides onto items)
     carousel.js            [data-carousel] snap carousel: marker dots, ←/→, one wheel gesture = one slide
     clock.js               [data-clock] live Singapore time
     archive.js             [data-archive] endless horizontal pan (library page)
   partials/                Shared markup, inlined at build time
-    loader.html  header.html (header + menu overlay)  contact-card.html  footer.html
+    loader.html  page-transition.html  header.html (header + menu overlay)  contact-card.html  footer.html
   styles/
     index.css              Shared bundle (imports everything below except pages/)
     tokens.css             Figma variables (desktop + --m-* mobile) + layout tokens
     base.css               Reset, element defaults, Lenis, lazy-image fade, reduced motion
     typography.css         .t-* text styles (Figma "Desktop/…" styles)
     utilities.css          .section, .divider, .only-mobile / .only-desktop, .visually-hidden
-    components/            buttons, loader, header, menu, marquee, hscroll, contact-card, footer
+    components/            buttons, loader, page-transition, header, menu, marquee, hscroll, tag, feature, contact-card, footer
     pages/home.css         Landing-only sections (hero, client list, services, showreel)
     pages/work.css         Work-only (fixed screen, project cards, marker rail, base line)
     pages/library.css      Library-only (fixed screen, archive grid, base line)
     pages/about.css        About-only (intro, biography, details columns)
+    pages/send-app.css     Send.App case study (.case-* sections, .utility-row)
   hero/                    Landing-only React + R3F island (see "3D hero")
 public/assets/             Figma-exported images; *-m.svg = mobile-cropped variants
   work/                    Work page card images (Send.App reuses product-02.jpg)
   library/                 library-01…30 archive tiles (row-major; 21–24 are animated GIFs)
   about/                   portrait.png (same export for desktop + mobile)
+  send-app/                Case-study images (hero, strip-01…13, bleed, context-01…05, next-pil; *-m = mobile crops)
 ```
 
 ## Landing page structure (`index.html`, top → bottom)
@@ -59,13 +63,30 @@ public/assets/             Figma-exported images; *-m.svg = mobile-cropped varia
 6. **Contact card** `#contact` (partial) → **Footer** (partial).
 
 ## Work page (`work.html`)
-One fixed screen (`.work`, 100svh, no page scroll): header partial, `.work__featured` (gallery + marker rail) and `.work__base` (clock + ©; not the footer partial). The gallery is a `.thumbs[data-hscroll][data-hscroll-snap][data-carousel-track]` of 6 `.project-card` articles (900×500 desktop / 300×500 mobile, image + scrim + title/divider/details), inset from both screen edges by `--gutter` (track `padding-inline` + `scroll-padding-inline`); cards give up height first on short viewports. `.work__rail` has one `button.work__dot[data-carousel-dot]` per card (filled = in view). Drag, swipe, dots, ←/→ on the focused gallery and vertical wheel all move it. Cards are not links yet. To add a project, add a `.project-card` and a matching dot.
+One fixed screen (`.work`, 100svh, no page scroll): header partial, `.work__featured` (gallery + marker rail) and `.work__base` (clock + ©; not the footer partial). The gallery is a `.thumbs[data-hscroll][data-hscroll-snap][data-carousel-track]` of 6 `.project-card` articles (900×500 desktop / 300×500 mobile, image + scrim + title/divider/details; a card with a case study wraps its title in `a.project-card__link`, whose `::after` covers the card — drags don't click through), inset from both screen edges by `--gutter` (track `padding-inline` + `scroll-padding-inline`); cards give up height first on short viewports. `.work__rail` has one `button.work__dot[data-carousel-dot]` per card (filled = in view). Drag, swipe, dots, ←/→ on the focused gallery and vertical wheel all move it. Only Send.App links to a case study so far. To add a project, add a `.project-card` and a matching dot.
 
 ## Library page (`library.html`)
 One fixed screen (`.library`, 100svh, no page scroll): header partial, `.archive[data-archive]` filling the space between header and base line, and `.library__base` (clock + ©; not the footer partial). The archive is a 10 × 3 grid (`[data-archive-set]`, 240×129 tiles, 40px gap) inside `[data-archive-rail]`; `core/archive.js` clones the set to cover the viewport and wraps the rail's x offset modulo one set, so it pans endlessly. Drag (mouse/pen/touch), wheel on either axis and ←/→ pan it, with eased motion and release momentum (none under reduced motion). Tiles are not links yet. To add a tile, add a `.card__media` to the set and adjust `grid-template-columns` in `pages/library.css`.
 
 ## About page (`about.html`)
 Normal scrolling page: header partial, `.about-intro` (eyebrow `.t-label-eyebrow` + h1 with `data-hero-title`/`data-hero-fade` intro), `.bio` (round portrait + lead/body copy; grid keeps Figma's 420 : 900 split), `.details` (canvas band, three equal columns — Services / Notable Clients / Awards & Mentions, each `.t-label-section` h2 + list; one column on mobile), then the contact-card and footer partials. The landing page's `#about` (showreel) section still exists but nav no longer points at it.
+
+## Case study pages (`send-app.html`)
+Normal scrolling page with `<body class="is-framing" data-menu-parent="/work.html">` (the menu marks "Work" as current).
+
+**No boot loader.** Project pages include `page-transition.html` instead of `loader.html` and start with `body.is-framing`, so the dark frame (`components/page-transition.css`) covers the page from first paint. `bootPage()` sees there's no `[data-loader]` and runs `frameIn()` (frame wipes up and off; the hero intro starts while it lifts). Links into a project page carry `data-transition-link` (the Work card link, the case study's next-project link): `core/transition.js` wipes the frame up over the current page, then navigates. The Work page includes the frame partial too (it keeps its loader). New-tab clicks, drags (`hscroll.js` cancels the click) and reduced motion skip the animation; a bfcache restore resets the frame.
+
+Sections, top → bottom:
+1. `.case-hero` — project image (`data-hero-fade`, not lazy).
+2. `.case-premise` — label + `ul.tags > li.tag`, h1 (`data-hero-title`) with the description bottom-right.
+3. `.case-strip` — no side gutter; `.thumbs[data-hscroll]` laid out as a 6-column grid (2880px, 240px rows) that drags sideways; `.case-strip__item--wide` spans two columns. On mobile it becomes a vertical stack (wide items = short 342×88 bands). Items are in the grid's row-major order so both layouts share one DOM order.
+4. `.case-bleed` — full-bleed image.
+5. `.case-context` — `.utility-row` (label + meta), h2 + challenge copy, divider, image, lead/body columns, image gallery.
+6. `.case-video` — the shared `.feature` block with a Vimeo embed, kept at 16:9 (Figma's 1360 × 650 / 342 × 380 frames would letterbox it).
+7. `.case-outcomes` — `.impact` ×3 (metric, h4, note), ruled.
+8. `.case-credits` — two role lists + role note.
+9. `.case-next` — `--accent-blue` band; title + image are one link to the next case study.
+Then the contact-card and footer partials. Image boxes use `aspect-ratio` from Figma and `flex: none` (`.card__media`'s 600px flex-basis would otherwise set their height in column layouts). To add another case study, copy `send-app.html` (keep `is-framing` + the frame partial, no loader), add a `.project-card__link[data-transition-link]` to its Work card, and promote `.utility-row` / the `.case-*` rules from `pages/send-app.css` to a shared file.
 
 ## Shared components (reuse these on new pages)
 | Component | Markup / source | Styles |
@@ -76,6 +97,8 @@ Normal scrolling page: header partial, `.about-intro` (eyebrow `.t-label-eyebrow
 | Footer | `<!-- @include footer.html -->` | `components/footer.css` |
 | Marquee band | `.marquee > .divider + .marquee__viewport > .marquee__track[data-ticker] > span… + .divider` | `components/marquee.css` |
 | Image strip | `.thumbs[data-hscroll][data-lenis-prevent-horizontal] > .card__media > img[loading=lazy]` | `components/hscroll.css` |
+| Tag pill | `ul.tags > li.tag.t-caption-tag` | `components/tag.css` |
+| Featured video | `.feature > .feature__media > iframe` + `.feature__meta` | `components/feature.css` |
 | Snap carousel | `[data-carousel]` > `.thumbs[data-carousel-track][data-hscroll][data-hscroll-snap]` (CSS `scroll-snap-type`) + `[data-carousel-dot]` buttons | `core/carousel.js`; styles per page |
 | Icon button | `button.control` (40×40) | `components/buttons.css` |
 | Arrow link | `.arrow-link` + `.t-*` children ("Learn more ↗", "Contact →", "Back to top ↑") | `components/buttons.css` |
@@ -83,7 +106,7 @@ Normal scrolling page: header partial, `.about-intro` (eyebrow `.t-label-eyebrow
 | Divider | `.divider` | `utilities.css` |
 
 ### Adding a page
-Replace `<page>` with the new page's name (check the root first — `index`, `work`, `library` and `about` are taken).
+Replace `<page>` with the new page's name (check the root first — `index`, `work`, `library`, `about` and `send-app` are taken).
 1. Create `<page>.html` in the project root (it is picked up by the build automatically). In `<head>`, link the styles: `<link rel="stylesheet" href="/src/styles/index.css" />` and `<link rel="stylesheet" href="/src/styles/pages/<page>.css" />` — never import CSS from the JS entry (in dev, Vite injects JS-imported CSS only after the module runs, so the raw HTML flashes before the loader is styled). Include the partials, give `<main id="top">`, and add `<script type="module" src="/src/pages/<page>.js">`.
 2. `src/pages/<page>.js`: `import { bootPage } from '../core/boot.js'; bootPage();` — pass `{ load: (loader) => promise }` if the page has async setup the loader should wait for.
 3. Put page-only styles in `src/styles/pages/<page>.css`; promote anything reused to `components/`.

@@ -82,6 +82,27 @@
   max-width: 710px;
   overflow-wrap: break-word;
 }
+/* Cards with a case study: the title link covers the whole card
+   (core/hscroll.js swallows the click when the gallery was dragged) */
+.project-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.project-card:has(.project-card__link) .project-card__image {
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.project-card:has(.project-card__link:hover) .project-card__image {
+  transform: scale(1.03);
+}
+.project-card__link:focus-visible {
+  outline: none;
+}
+.project-card:has(.project-card__link:focus-visible) {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: -2px;
+}
 .project-card__details {
   display: flex;
   align-items: center;

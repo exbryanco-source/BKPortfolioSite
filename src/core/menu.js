@@ -13,10 +13,14 @@ export function initMenu(lenis) {
   const links = menu.querySelectorAll('.menu__text');
   const onThisPage = (a) => new URL(a.href, location.href).pathname === location.pathname;
   // Section links only track sections on their own page; a page link (e.g.
-  // Library) is current when it points at the page we're on.
+  // Library) is current when it points at the page we're on, or at the page's
+  // parent (<body data-menu-parent="/work.html"> on case studies).
+  const parent = document.body.dataset.menuParent;
   const sectionLinks = [...menu.querySelectorAll('[data-menu-section]')].filter(onThisPage);
   menu.querySelectorAll('.menu__link:not([data-menu-section])').forEach((a) => {
+    const isParent = parent && new URL(a.href, location.href).pathname === parent;
     if (onThisPage(a)) a.setAttribute('aria-current', 'page');
+    else if (isParent) a.setAttribute('aria-current', 'true');
   });
   let isOpen = false;
 

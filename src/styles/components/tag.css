@@ -1,0 +1,18 @@
+/* Project tag pill (Figma "Project Tag") — use with .t-caption-tag.
+   Markup: ul.tags > li.tag */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--scale-008);
+}
+.tag {
+  padding: var(--scale-004) var(--scale-008);
+  border-radius: var(--radius-full);
+  background: var(--background-canvas);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .tag { font: var(--m-caption-tag); }
+}

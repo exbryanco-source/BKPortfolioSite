@@ -1,0 +1,351 @@
+/* Send.App case study (send-app.html) — Figma 166:3048 desktop / 166:3214 mobile */
+
+/* Image boxes keep Figma's proportions at any width (overrides the .card__media strip size) */
+.case-hero__media,
+.case-bleed,
+.case-context__media,
+.case-next__media {
+  display: block;
+  flex: none; /* not the strip's 600px basis — in a column that would set the height */
+  width: 100%;
+  height: auto;
+}
+
+/* Utility row — section label left, meta right (shared by every case section) */
+.utility-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--scale-016);
+  white-space: nowrap;
+}
+.utility-row__meta {
+  color: var(--text-secondary);
+}
+
+/* Project visual (166:3052) — clears the fixed header */
+.case-hero {
+  padding-top: var(--scale-144);
+  padding-bottom: var(--scale-040);
+}
+.case-hero__media {
+  aspect-ratio: 1360 / 596;
+}
+
+/* Premise (166:3054) — label + tags, then h1 with the description bottom-right */
+.case-premise {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-024);
+  padding-block: var(--scale-096);
+}
+.case-premise__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--scale-016);
+}
+.case-premise__copy {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--scale-040);
+}
+.case-premise__title {
+  flex: 0 1 910px;
+}
+.case-premise__desc {
+  flex: 0 1 360px;
+  color: var(--text-secondary);
+}
+
+/* System media (166:3067) — 6 × 3 grid, 2880px wide, dragged sideways (core/hscroll.js) */
+.case-strip {
+  padding-block: var(--scale-096);
+  background: var(--background-surface);
+}
+.case-strip__track.thumbs {
+  display: grid;
+  grid-template-columns: repeat(6, calc((2880px - 5 * var(--scale-040)) / 6));
+  grid-auto-rows: 240px;
+  gap: var(--scale-040);
+  height: auto;
+}
+.case-strip__item.card__media {
+  height: auto;
+}
+.case-strip__item--wide {
+  grid-column: span 2;
+}
+
+/* Project visual, full bleed (166:3082) */
+.case-bleed {
+  aspect-ratio: 1440 / 780;
+}
+
+/* Context section (166:3083) */
+.case-context {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-096);
+  padding-block: var(--scale-096);
+}
+.case-context__heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--scale-040);
+}
+.case-context__title {
+  flex: 0 1 820px;
+}
+.case-context__challenge {
+  flex: 0 1 380px;
+}
+.case-context__media {
+  aspect-ratio: 1360 / 500;
+}
+.case-context__details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--scale-024);
+}
+.case-context__body {
+  color: var(--text-secondary);
+}
+.case-context__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-040);
+}
+
+/* Project video (166:3100) — the shared .feature block (Vimeo). Kept at the
+   video's own 16:9 rather than Figma's 1360 × 650 / 342 × 380 frames, which
+   would letterbox the embed. */
+.case-video {
+  padding: var(--scale-040);
+  background: var(--background-canvas);
+}
+
+/* Outcomes (166:3110) — three ruled impact statements */
+.case-outcomes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-096);
+  padding-block: var(--scale-096);
+  background: var(--background-canvas);
+}
+.case-outcomes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--scale-040);
+}
+.impact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-048);
+  min-height: 230px;
+  padding: 20px var(--scale-024) 20px 0;
+  border-block: 1px solid var(--border-default);
+}
+.impact__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-008);
+}
+.impact__note {
+  color: var(--text-secondary);
+}
+
+/* Credits (166:3131) — two role lists + contribution note */
+.case-credits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-096);
+  padding-block: var(--scale-096);
+}
+.case-credits__list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 400px);
+  gap: var(--scale-040);
+}
+.case-credits__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-016);
+}
+.case-credits__note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-016);
+  color: var(--text-secondary);
+}
+
+/* Next project (201:595) — the title and image are one link */
+.case-next {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-048);
+  padding-block: var(--scale-096);
+  background: var(--accent-blue);
+}
+.case-next__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-048);
+}
+.case-next__title {
+  display: block;
+}
+.case-next__media {
+  aspect-ratio: 1360 / 620;
+}
+.case-next__media img {
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.case-next__link:hover .case-next__media img {
+  transform: scale(1.03);
+}
+.case-next__link:focus-visible {
+  outline: 1px solid var(--text-primary);
+  outline-offset: var(--scale-008);
+}
+
+/* Tablet (not in Figma): Figma's fixed column widths give way before they overflow */
+@media (max-width: 1100px) {
+  .case-premise__copy,
+  .case-context__heading {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .case-premise__title,
+  .case-premise__desc,
+  .case-context__title,
+  .case-context__challenge {
+    flex-basis: auto;
+  }
+  .case-credits__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-credits__note { grid-column: 1 / -1; max-width: 600px; }
+  .case-next__title { font-size: var(--heading-h1-size); line-height: var(--heading-h1-lh); }
+}
+
+/* ------------------------------------------------------------------
+   Mobile — Figma 166:3214 (390 wide)
+------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  .utility-row .t-label-section,
+  .utility-row .t-label-eyebrow,
+  .case-next__label { font: var(--m-label-section); letter-spacing: var(--tracking-default); }
+  .utility-row__meta { font: var(--m-caption); }
+  .utility-row--stack {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--scale-008);
+    white-space: normal;
+  }
+
+  .case-hero {
+    padding-top: var(--scale-112);
+    padding-bottom: var(--scale-024);
+  }
+  .case-hero__media { aspect-ratio: 342 / 220; }
+
+  .case-premise { padding-block: var(--scale-048); }
+  .case-premise__meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .case-premise__label { font: var(--m-label-section); letter-spacing: var(--tracking-default); }
+  .case-premise__copy { gap: var(--scale-024); }
+  .case-premise__title { font: var(--m-heading-h1); }
+  .case-premise__desc { font: var(--m-body-default); }
+
+  /* Strip → plain vertical stack; wide items become short bands */
+  .case-strip {
+    padding: var(--scale-016) var(--gutter) var(--scale-048);
+  }
+  .case-strip__track.thumbs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--scale-016);
+    overflow: visible;
+    cursor: auto;
+  }
+  .case-strip__item.card__media {
+    flex: none;
+    aspect-ratio: 342 / 183;
+  }
+  .case-strip__item--wide.card__media { aspect-ratio: 342 / 88; }
+
+  .case-bleed { aspect-ratio: 390 / 260; }
+
+  .case-context {
+    gap: var(--scale-032);
+    padding-block: var(--scale-064);
+  }
+  .case-context__heading,
+  .case-context__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--scale-032);
+  }
+  .case-context__title { font: var(--m-heading-h2); }
+  .case-context__challenge,
+  .case-context__body { font: var(--m-body-default); }
+  .case-context__lead { font: var(--m-heading-lead); }
+  .case-context__media { aspect-ratio: 342 / 126; }
+  .case-context__gallery { gap: var(--scale-016); }
+
+  .case-video { padding: var(--gutter); }
+  .case-video .feature__meta .t-caption,
+  .case-video .feature__meta .t-caption-micro { font: var(--m-caption-micro); }
+
+  .case-outcomes {
+    gap: var(--scale-032);
+    padding-block: var(--scale-064);
+  }
+  .case-outcomes__title { font: var(--m-heading-section); }
+  .case-outcomes__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--border-default);
+  }
+  .impact {
+    gap: var(--scale-016);
+    min-height: 0;
+    padding: var(--scale-024) 0;
+    border-bottom: 0;
+  }
+  .impact__value { font: var(--m-display-metric); letter-spacing: var(--m-tracking-metric); }
+  .impact__label { font: var(--m-heading-h4); }
+  .impact__note { font: var(--m-body-default); }
+
+  .case-credits {
+    gap: var(--scale-032);
+    padding-block: var(--scale-064);
+  }
+  .case-credits__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--scale-008);
+  }
+  .case-credits__column {
+    gap: var(--scale-008);
+    font: var(--m-body-list);
+  }
+  .case-credits__note {
+    gap: var(--scale-008);
+    margin-top: var(--scale-024); /* 32px from the list, per Figma */
+  }
+  .case-credits__note-label { font: var(--m-label-secondary); }
+  .case-credits__note-body { font: var(--m-body-default); }
+
+  .case-next {
+    gap: var(--scale-032);
+    padding-block: var(--scale-064);
+  }
+  .case-next__link { gap: var(--scale-032); }
+  .case-next__title { font: var(--m-heading-project); }
+  .case-next__media { aspect-ratio: 342 / 156; }
+}
