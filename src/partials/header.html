@@ -17,18 +17,30 @@
   </div>
 </header>
 
-<!-- Fullscreen menu overlay -->
-<nav id="menu" class="menu" aria-label="Main" data-menu inert>
-  <ul class="menu__links">
-    <li><a href="/#top" data-scroll-link><span class="menu__text">Home</span></a></li>
-    <li><a href="/#work" data-scroll-link><span class="menu__text">Work</span></a></li>
-    <li><a href="/#about" data-scroll-link><span class="menu__text">About</span></a></li>
-    <li><a href="/#contact" data-scroll-link><span class="menu__text">Contact</span></a></li>
-  </ul>
-  <div class="menu__footer t-body-small" data-menu-fade>
-    <a href="https://www.instagram.com/superpills/" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://www.linkedin.com/in/bryan-khua-a3a19b100" target="_blank" rel="noopener">Linkedin</a>
-    <a href="https://pin.it/JvBh5y7Co" target="_blank" rel="noopener">Pinterest</a>
-    <a href="mailto:Superpills@yahoo.com">Superpills@yahoo.com</a>
-  </div>
-</nav>
+<!-- Menu — dimmed page + dark side panel (Figma 101:3677). The header's
+     menu toggle sits above the panel and doubles as its close (X) button. -->
+<div id="menu" class="menu" data-menu inert>
+  <div class="menu__scrim" data-menu-scrim></div>
+  <nav class="menu__panel" aria-label="Main" data-menu-panel>
+    <div class="menu__header"></div>
+    <div class="menu__rule"></div>
+    <div class="menu__body">
+      <ul class="menu__links">
+        <li><a class="menu__link t-body-list" href="/#top" data-scroll-link data-menu-section="top"><span class="menu__text">Home</span></a></li>
+        <li><a class="menu__link t-body-list" href="/#work" data-scroll-link data-menu-section="work"><span class="menu__text">Work</span></a></li>
+        <!-- Library = project archive page (library.html, not built yet) -->
+        <li><a class="menu__link t-body-list" href="/library.html"><span class="menu__text">Library</span></a></li>
+        <li><a class="menu__link t-body-list" href="/#about" data-scroll-link data-menu-section="about"><span class="menu__text">About</span></a></li>
+        <li><a class="menu__link t-body-list" href="/#contact" data-scroll-link data-menu-section="contact"><span class="menu__text">Contact</span></a></li>
+      </ul>
+      <div class="menu__footer" data-menu-fade>
+        <div class="menu__rule"></div>
+        <div class="menu__social t-caption-footer">
+          <a href="https://www.instagram.com/superpills/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.linkedin.com/in/bryan-khua-a3a19b100" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:Superpills@yahoo.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

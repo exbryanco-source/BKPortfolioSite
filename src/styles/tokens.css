@@ -15,6 +15,12 @@
   --border-default: #c9c9c0;
   --action-indicator: #11120f;
   --accent-primary: #c7ff18;
+  --foundation-black: #000000;
+  --text-on-dark-primary: #fcfcf8;
+  --border-on-dark: #34362f;
+  /* Raw values in the Figma menu (no variable defined there) */
+  --text-on-dark-secondary: #8a8d84;
+  --divider-on-dark: #2d2f29;
 
   /* Spacing scale */
   --scale-000: 0px;

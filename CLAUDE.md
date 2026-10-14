@@ -40,7 +40,7 @@ public/assets/             Figma-exported images; *-m.svg = mobile-cropped varia
 ```
 
 ## Landing page structure (`index.html`, top → bottom)
-1. **Loader** (partial) → **Header + menu** (partial): logo, 40×40 menu toggle, fullscreen overlay.
+1. **Loader** (partial) → **Header + menu** (partial): logo, 40×40 menu toggle; menu = dimmed page + 440px dark side panel (Figma `101:3677`). The header toggle stays on top as the panel's close (X); the item for the section in view gets `aria-current` (cream), others grey. "Library" links to `/library.html` (project archive page — not built yet) from both the menu and the footer.
 2. **Hero** `[data-hero-root]` — React; text left, disc stack right (mobile: stack behind text).
 3. **Selected client work** `#work` — marquee band, client list (`.brand-card` ×6), marquee band.
 4. **Services** — `.service` ×3 (Branding / Product / Motion): number, copy, "Learn more", project strip.
