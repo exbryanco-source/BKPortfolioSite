@@ -83,9 +83,10 @@ Normal scrolling page: header partial, `.about-intro` (eyebrow `.t-label-eyebrow
 | Divider | `.divider` | `utilities.css` |
 
 ### Adding a page
-1. Create `about.html` in the project root (it is picked up by the build automatically). In `<head>`, link the styles: `<link rel="stylesheet" href="/src/styles/index.css" />` and `<link rel="stylesheet" href="/src/styles/pages/about.css" />` — never import CSS from the JS entry (in dev, Vite injects JS-imported CSS only after the module runs, so the raw HTML flashes before the loader is styled). Include the partials, give `<main id="top">`, and add `<script type="module" src="/src/pages/about.js">`.
-2. `src/pages/about.js`: `import { bootPage } from '../core/boot.js'; bootPage();` — pass `{ load: (loader) => promise }` if the page has async setup the loader should wait for.
-3. Put page-only styles in `src/styles/pages/about.css`; promote anything reused to `components/`.
+Replace `<page>` with the new page's name (check the root first — `index`, `work`, `library` and `about` are taken).
+1. Create `<page>.html` in the project root (it is picked up by the build automatically). In `<head>`, link the styles: `<link rel="stylesheet" href="/src/styles/index.css" />` and `<link rel="stylesheet" href="/src/styles/pages/<page>.css" />` — never import CSS from the JS entry (in dev, Vite injects JS-imported CSS only after the module runs, so the raw HTML flashes before the loader is styled). Include the partials, give `<main id="top">`, and add `<script type="module" src="/src/pages/<page>.js">`.
+2. `src/pages/<page>.js`: `import { bootPage } from '../core/boot.js'; bootPage();` — pass `{ load: (loader) => promise }` if the page has async setup the loader should wait for.
+3. Put page-only styles in `src/styles/pages/<page>.css`; promote anything reused to `components/`.
 
 ## Conventions
 - **Tokens first.** `tokens.css` mirrors Figma variables 1:1 (`scale/040` → `--scale-040`, `text/primary` → `--text-primary`). When applying Figma, update tokens first, then components. Desktop text styles are `.t-*` classes (`Desktop/heading/lead` → `.t-heading-lead`); mobile text styles are font-shorthand tokens (`Mobile/heading/h1` → `font: var(--m-heading-h1)`).
