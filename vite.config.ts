@@ -3,6 +3,10 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { responsiveMedia } from './vite/responsive-media';
+import { seoHead } from './vite/seo-head';
+
+// Production origin — canonical URLs, Open Graph, sitemap.xml (override with SITE_URL=…)
+const SITE_URL = process.env.SITE_URL ?? 'https://bryankhua.com';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const partialsDir = `${root}src/partials/`;
@@ -29,14 +33,12 @@ function htmlPartials(): Plugin {
 }
 
 // Every .html file in the project root is a page (index.html → /, about.html → /about.html).
-const pages = Object.fromEntries(
-  readdirSync(root)
-    .filter((f) => f.endsWith('.html'))
-    .map((f) => [f.replace(/\.html$/, ''), `${root}${f}`])
-);
+const pageFiles = readdirSync(root).filter((f) => f.endsWith('.html'));
+const pages = Object.fromEntries(pageFiles.map((f) => [f.replace(/\.html$/, ''), `${root}${f}`]));
 
 // React is only used for the hero island (src/hero); the rest of the site is vanilla JS.
 export default defineConfig({
-  plugins: [htmlPartials(), responsiveMedia(root), react()],
+  appType: 'mpa', // unknown URLs 404 (and serve 404.html) like on Vercel, instead of falling back to index.html
+  plugins: [htmlPartials(), responsiveMedia(root), seoHead(SITE_URL, root, pageFiles), react()],
   build: { rollupOptions: { input: pages } },
 });
