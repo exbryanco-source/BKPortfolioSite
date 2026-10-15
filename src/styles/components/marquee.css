@@ -31,10 +31,10 @@
   padding-right: var(--scale-096); /* gap between repeats of the sentence; padding (not gap) keeps the -50% loop seamless */
 }
 /* Lines overlap the viewport's edges: top = cap line, bottom = baseline */
-.marquee > .divider:first-child {
+.marquee > .divider:has(+ .marquee__viewport) {
   margin-bottom: -1px;
 }
-.marquee > .divider:last-child {
+.marquee__viewport + .divider {
   margin-top: -1px;
 }
 

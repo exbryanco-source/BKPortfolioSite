@@ -1,0 +1,35 @@
+/* 404 page (404.html) — no Figma frame; follows the About intro (pages/about.css) */
+.not-found {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-024);
+  min-height: 70svh;
+  padding-top: var(--scale-144);
+  padding-bottom: var(--scale-096);
+}
+.not-found > * {
+  max-width: 930px;
+}
+.not-found__body {
+  color: var(--text-secondary);
+}
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--scale-040);
+  margin-top: var(--scale-024);
+}
+
+@media (max-width: 720px) {
+  .not-found {
+    min-height: 60svh;
+    padding-top: var(--scale-112);
+    padding-bottom: var(--scale-064);
+  }
+  .not-found__eyebrow { font: var(--m-label-section); letter-spacing: var(--tracking-default); }
+  .not-found__title { font: var(--m-heading-h1); }
+  .not-found__body { font: var(--m-body-default); }
+  .not-found__actions { gap: var(--scale-024); }
+  .not-found__actions .t-label-action { font: var(--m-label-action); }
+  .not-found__actions .t-arrow-large { font: var(--m-arrow-large); }
+}

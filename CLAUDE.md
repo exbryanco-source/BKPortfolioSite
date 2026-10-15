@@ -4,22 +4,26 @@ Static portfolio (Superpills / Bryan Khua) built with Vite + vanilla JS, with on
 - Desktop frame: file `gXPm8y9DY39DrkYXWPZIdW`, node `71:16`
 - Mobile frame: same file, node `84:657` (390 wide)
 
-The landing page (`index.html`), Work page (`work.html`, Figma `95:2886` / mobile `95:3063`), Library page (`library.html`, Figma `240:715` / mobile `240:834`), About page (`about.html`, Figma `240:544` / mobile `240:631`) and the case studies — Send.App (`send-app.html`, Figma `166:3048` / mobile `166:3214`), PIL (`pil.html`, Figma `174:3432` / mobile `176:1445`), Spotify (`spotify.html`, Figma `174:4113` / mobile `187:1216`), Bandlab (`bandlab.html`, Figma `184:4528` / mobile `194:563`), EDB (`edb.html`, Figma `201:92` / mobile `201:462`) and CompareSing (`comparesing.html`, Figma `211:955` / mobile `228:1134`) — are complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
+The landing page (`index.html`), Work page (`work.html`, Figma `95:2886` / mobile `95:3063`), Library page (`library.html`, Figma `240:715` / mobile `240:834`), About page (`about.html`, Figma `240:544` / mobile `240:631`) and the case studies — Send.App (`send-app.html`, Figma `166:3048` / mobile `166:3214`), PIL (`pil.html`, Figma `174:3432` / mobile `176:1445`), Spotify (`spotify.html`, Figma `174:4113` / mobile `187:1216`), Bandlab (`bandlab.html`, Figma `184:4528` / mobile `194:563`), EDB (`edb.html`, Figma `201:92` / mobile `201:462`) and CompareSing (`comparesing.html`, Figma `211:955` / mobile `228:1134`) — are complete for desktop + mobile, plus a `404.html` (no Figma frame). Live at **https://bryankhua.com** on Vercel. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
 
 ## Commands
 - `npm run dev` — dev server
 - `npm run build` — `tsc --noEmit` then `vite build` (every root `*.html` is a page)
 - `npm run typecheck`
 - `npm run optimize` — regenerate responsive media (`scripts/optimize-media.mjs`, sharp + ffmpeg-static) after adding or replacing any image/GIF; idempotent, outputs are committed
+- `node scripts/make-brand-assets.mjs` — regenerate the favicon set + `og-image.png` (from `public/assets/footer-logo.svg` and `scripts/og-image.html`)
 - `npm run lighthouse -- <label>` — Lighthouse every page (mobile + desktop) against `vite preview` on :4173 → `reports/lighthouse-<label>.md`
 
 ## Project structure
 ```
 index.html                 Landing page — page-specific sections + @include partials
 vite.config.ts             html-partials + responsive-media plugins, multi-page input (all root *.html)
+vite/seo-head.ts           Per-page canonical / Open Graph / Twitter / icon tags from each page's <title> + description; emits sitemap.xml (SITE_URL in vite.config.ts)
 vite/responsive-media.ts   Rewrites /assets rasters in the HTML to public/opt variants (<picture> AVIF/WebP, GIF → <video>)
 vercel.json                Cache headers (hashed js/css/fonts immutable; media 1 week)
-scripts/                   optimize-media.mjs, lighthouse.mjs
+scripts/                   optimize-media.mjs, lighthouse.mjs, make-brand-assets.mjs + og-image.html
+404.html                   Not-found page (noindex; Vercel serves it for unknown routes); styles pages/404.css
+public/                    robots.txt, favicon.ico/.svg, apple-touch-icon, icon-192/512, site.webmanifest, og-image.png
 reports/                   Lighthouse results (before / after)
 src/
   pages/home.js            Landing entry: calls bootPage(), mounts 3D hero (styles are <link>ed in the HTML)
@@ -31,6 +35,7 @@ src/
   pages/spotify.js         Spotify case study entry: bootPage()
   pages/bandlab.js         Bandlab case study entry: bootPage()
   pages/edb.js             EDB case study entry: bootPage()
+  pages/404.js             404 entry: bootPage()
   pages/comparesing.js     CompareSing case study entry: bootPage()
   core/                    Shared runtime — every page uses these via bootPage()
     boot.js                bootPage({ load }): scroll, menu, strips, clock, loader, animations
@@ -134,8 +139,8 @@ To add another case study: copy `pil.html` (keep `is-framing` + the frame partia
 | Divider | `.divider` | `utilities.css` |
 
 ### Adding a page
-Replace `<page>` with the new page's name (check the root first — `index`, `work`, `library`, `about`, `send-app`, `pil`, `spotify`, `bandlab`, `edb` and `comparesing` are taken).
-1. Create `<page>.html` in the project root (it is picked up by the build automatically). In `<head>`, add the favicon (`<link rel="icon" type="image/png" href="/favicon.png" />`, file in `public/`) and link the styles: `<link rel="stylesheet" href="/src/styles/index.css" />` and `<link rel="stylesheet" href="/src/styles/pages/<page>.css" />` — never import CSS from the JS entry (in dev, Vite injects JS-imported CSS only after the module runs, so the raw HTML flashes before the loader is styled). Include the partials, give `<main id="top">`, and add `<script type="module" src="/src/pages/<page>.js">`.
+Replace `<page>` with the new page's name (check the root first — `index`, `work`, `library`, `about`, `send-app`, `pil`, `spotify`, `bandlab`, `edb`, `comparesing` and `404` are taken).
+1. Create `<page>.html` in the project root (it is picked up by the build automatically). In `<head>`, give it a unique `<title>` and `<meta name="description">` (the seo-head plugin derives canonical, Open Graph, Twitter and icon tags from them and adds the page to `sitemap.xml` — don't hand-write those; add `<meta name="robots" content="noindex">` to keep a page out) and link the styles: `<link rel="stylesheet" href="/src/styles/index.css" />` and `<link rel="stylesheet" href="/src/styles/pages/<page>.css" />` — never import CSS from the JS entry (in dev, Vite injects JS-imported CSS only after the module runs, so the raw HTML flashes before the loader is styled). Include the partials, give `<main id="top">`, and add `<script type="module" src="/src/pages/<page>.js">`.
 2. `src/pages/<page>.js`: `import { bootPage } from '../core/boot.js'; bootPage();` — pass `{ load: (loader) => promise }` if the page has async setup the loader should wait for.
 3. Put page-only styles in `src/styles/pages/<page>.css`; promote anything reused to `components/`.
 
@@ -149,7 +154,8 @@ Replace `<page>` with the new page's name (check the root first — `index`, `wo
 - **Scrolling:** Lenis is locked while the loader shows and started by `bootPage()`. Horizontal scrollers need `data-lenis-prevent-horizontal` or Lenis swallows trackpad swipes.
 - **Hover + focus:** every link and button needs a hover state. Shared ones: `.control` greys, `.arrow-link` nudges its arrow (last child) the way it points, footer / menu-social / inline text links underline, the header logo dims (`components/buttons.css`, `header.css`). Keyboard focus is one site-wide ring in `base.css` (`:focus-visible`, 2px `--action-indicator`, light on the dark menu); only add a page-specific ring when that one can't show (e.g. Work's card, whose link is clipped).
 - **Menu is modal:** while it's open, `core/menu.js` makes everything but the menu and the toggle `inert`, so Tab cycles inside it.
-- Respect `prefers-reduced-motion` (`prefersReducedMotion` in `core/scroll.js`): no smooth scroll, no split/reveal/ticker, minimal 3D motion.
+- Respect `prefers-reduced-motion` (`prefersReducedMotion` in `core/scroll.js`): no smooth scroll, no split/reveal/ticker, no page-transition wipe, no loader count/wipe, the menu opens/closes instantly, autoplay clips stay on their poster, minimal 3D motion (no float, damped pointer response). `base.css` disables CSS transitions with `transition: none` — never `transition-duration: 0.01ms` on `*`, which gives every element a transition and breaks GSAP's inline styles.
+- **Accessibility:** `header.html` starts with a skip link (first Tab stop → `#top`). SplitText runs with `aria: 'none'` (its default puts a prohibited `aria-label` on `<p>` titles). Decorative-but-meaningful motion text gets real copy too: each marquee has its sentence in a `p.visually-hidden`. Focusable scrollers are `role="region"` with an `aria-label`. Repeated link text gets a visually-hidden suffix ("Learn more about branding").
 - **Images:** author plain `<img src="/assets/…" loading="lazy">` (original path) inside `.card__media`, always with `width`/`height`; they fade in on load. Then run `npm run optimize`: the responsive-media plugin swaps in `<picture>` (AVIF/WebP srcset, `sizes` from the slot class via `SLOT_SIZES`, else full width) and turns GIFs into autoplaying `<video>`s. The first non-lazy image on a page gets `fetchpriority="high"`. A new slot size → add it to `SLOT_SIZES` in `vite/responsive-media.ts`.
 - **Fonts:** Inter is self-hosted via `@fontsource/inter` (imported in `styles/index.css`); don't add Google Fonts links.
 

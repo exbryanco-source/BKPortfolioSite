@@ -1,3 +1,19 @@
+/* Skip link — first Tab stop on every page; hidden until focused */
+.skip-link {
+  position: fixed;
+  top: var(--scale-016);
+  left: var(--scale-016);
+  z-index: 100;
+  padding: var(--scale-008) var(--scale-016);
+  background: var(--action-indicator);
+  color: var(--text-on-dark-primary);
+  transform: translateY(calc(-100% - var(--scale-024)));
+}
+.skip-link:focus-visible {
+  transform: none;
+  outline-color: var(--accent-primary);
+}
+
 /* Header navigation — logo + menu toggle (partials/header.html) */
 .header {
   position: fixed;
