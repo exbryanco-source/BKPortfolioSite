@@ -4,7 +4,7 @@ Static portfolio (Superpills / Bryan Khua) built with Vite + vanilla JS, with on
 - Desktop frame: file `gXPm8y9DY39DrkYXWPZIdW`, node `71:16`
 - Mobile frame: same file, node `84:657` (390 wide)
 
-The landing page (`index.html`), Work page (`work.html`, Figma `95:2886` / mobile `95:3063`), Library page (`library.html`, Figma `240:715` / mobile `240:834`), About page (`about.html`, Figma `240:544` / mobile `240:631`) and the case studies — Send.App (`send-app.html`, Figma `166:3048` / mobile `166:3214`), PIL (`pil.html`, Figma `174:3432` / mobile `176:1445`), Spotify (`spotify.html`, Figma `174:4113` / mobile `187:1216`), Bandlab (`bandlab.html`, Figma `184:4528` / mobile `194:563`) and EDB (`edb.html`, Figma `201:92` / mobile `201:462`) — are complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
+The landing page (`index.html`), Work page (`work.html`, Figma `95:2886` / mobile `95:3063`), Library page (`library.html`, Figma `240:715` / mobile `240:834`), About page (`about.html`, Figma `240:544` / mobile `240:631`) and the case studies — Send.App (`send-app.html`, Figma `166:3048` / mobile `166:3214`), PIL (`pil.html`, Figma `174:3432` / mobile `176:1445`), Spotify (`spotify.html`, Figma `174:4113` / mobile `187:1216`), Bandlab (`bandlab.html`, Figma `184:4528` / mobile `194:563`), EDB (`edb.html`, Figma `201:92` / mobile `201:462`) and CompareSing (`comparesing.html`, Figma `211:955` / mobile `228:1134`) — are complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
 
 ## Commands
 - `npm run dev` — dev server
@@ -25,6 +25,7 @@ src/
   pages/spotify.js         Spotify case study entry: bootPage()
   pages/bandlab.js         Bandlab case study entry: bootPage()
   pages/edb.js             EDB case study entry: bootPage()
+  pages/comparesing.js     CompareSing case study entry: bootPage()
   core/                    Shared runtime — every page uses these via bootPage()
     boot.js                bootPage({ load }): scroll, menu, strips, clock, loader, animations
     scroll.js              Lenis smooth scroll (starts stopped; boot.js starts it after the loader)
@@ -49,11 +50,12 @@ src/
     pages/work.css         Work-only (fixed screen, project cards, marker rail, base line)
     pages/library.css      Library-only (fixed screen, archive grid, base line)
     pages/about.css        About-only (intro, biography, details columns)
-    pages/send-app.css     Send.App-only: credits section, Send's looser mobile spacing + proportions
+    pages/send-app.css     Send.App-only: Send's looser mobile spacing (credits included) + proportions
     pages/pil.css          PIL-only: next-project accent, mobile 2-column strip + image proportions
     pages/spotify.css      Spotify-only: next-project accent, mobile hero/type tweaks
     pages/bandlab.css      Bandlab-only: next-project accent, mobile hero/type + video-caption tweaks
     pages/edb.css          EDB-only: next-project accent, lead-sized context title, 3-column motion grid, mobile tweaks
+    pages/comparesing.css  CompareSing-only: 4-column strip, next-project accent, mobile stacked strip + type tweaks
   hero/                    Landing-only React + R3F island (see "3D hero")
 public/assets/             Figma-exported images; *-m.svg = mobile-cropped variants
   work/                    Work page card images (Send.App reuses product-02.jpg)
@@ -64,6 +66,7 @@ public/assets/             Figma-exported images; *-m.svg = mobile-cropped varia
   spotify/                 Case-study images (hero, bleed, context-01, gallery-01…04, square-01…04, next-bandlab; the .gif ones have *-m.jpg stills for mobile)
   bandlab/                 Case-study images (hero, context-01, square-01…04, gallery-01/02, next-edb; the .gif ones have *-m.png stills for mobile)
   edb/                     Case-study images (hero, bleed-01/02, context-01, gallery-01…03, square-01…04, motion-01…09, next-comparesing = work/work-comparesing.jpg; the GIFs are used on mobile too)
+  comparesing/             Case-study images (strip-01…10, bleed, context-01, gallery-01…06; hero = work/work-comparesing.jpg, next = product-02.jpg; same files on mobile)
 ```
 
 ## Landing page structure (`index.html`, top → bottom)
@@ -75,7 +78,7 @@ public/assets/             Figma-exported images; *-m.svg = mobile-cropped varia
 6. **Contact card** `#contact` (partial) → **Footer** (partial).
 
 ## Work page (`work.html`)
-One fixed screen (`.work`, 100svh, no page scroll): header partial, `.work__featured` (gallery + marker rail) and `.work__base` (clock + ©; not the footer partial). The gallery is a `.thumbs[data-hscroll][data-hscroll-snap][data-carousel-track]` of 6 `.project-card` articles (900×500 desktop / 300×500 mobile, image + scrim + title/divider/details; a card with a case study wraps its title in `a.project-card__link`, whose `::after` covers the card — drags don't click through), inset from both screen edges by `--gutter` (track `padding-inline` + `scroll-padding-inline`); cards give up height first on short viewports. `.work__rail` has one `button.work__dot[data-carousel-dot]` per card (filled = in view). Drag, swipe, dots, ←/→ on the focused gallery and vertical wheel all move it. Send.App, PIL, Spotify, Bandlab and EDB link to case studies so far. To add a project, add a `.project-card` and a matching dot.
+One fixed screen (`.work`, 100svh, no page scroll): header partial, `.work__featured` (gallery + marker rail) and `.work__base` (clock + ©; not the footer partial). The gallery is a `.thumbs[data-hscroll][data-hscroll-snap][data-carousel-track]` of 6 `.project-card` articles (900×500 desktop / 300×500 mobile, image + scrim + title/divider/details; a card with a case study wraps its title in `a.project-card__link`, whose `::after` covers the card — drags don't click through), inset from both screen edges by `--gutter` (track `padding-inline` + `scroll-padding-inline`); cards give up height first on short viewports. `.work__rail` has one `button.work__dot[data-carousel-dot]` per card (filled = in view). Drag, swipe, dots, ←/→ on the focused gallery and vertical wheel all move it. All six cards link to their case studies. To add a project, add a `.project-card` and a matching dot.
 
 ## Library page (`library.html`)
 One fixed screen (`.library`, 100svh, no page scroll): header partial, `.archive[data-archive]` filling the space between header and base line, and `.library__base` (clock + ©; not the footer partial). The archive is a 10 × 3 grid (`[data-archive-set]`, 240×129 tiles, 40px gap) inside `[data-archive-rail]`; `core/archive.js` clones the set to cover the viewport and wraps the rail's x offset modulo one set, so it pans endlessly. Drag (mouse/pen/touch), wheel on either axis and ←/→ pan it, with eased motion and release momentum (none under reduced motion). Tiles are not links yet. To add a tile, add a `.card__media` to the set and adjust `grid-template-columns` in `pages/library.css`.
@@ -83,8 +86,8 @@ One fixed screen (`.library`, 100svh, no page scroll): header partial, `.archive
 ## About page (`about.html`)
 Normal scrolling page: header partial, `.about-intro` (eyebrow `.t-label-eyebrow` + h1 with `data-hero-title`/`data-hero-fade` intro), `.bio` (round portrait + lead/body copy; grid keeps Figma's 420 : 900 split), `.details` (canvas band, three equal columns — Services / Notable Clients / Awards & Mentions, each `.t-label-section` h2 + list; one column on mobile), then the contact-card and footer partials. The landing page's `#about` (showreel) section still exists but nav no longer points at it.
 
-## Case study pages (`send-app.html`, `pil.html`, `spotify.html`, `bandlab.html`, `edb.html`)
-The shared template — `.utility-row` and every `.case-*` section below except credits — lives in `components/case-study.css` (part of `index.css`). It also holds the shared mobile spacing (section `padding-block` 48, context/outcomes gap 40, inner gaps 24, mobile bleed 390/212 and context image 342/126), which PIL and Spotify use as-is. Each page's `pages/<project>.css` holds only the sections it alone uses and whatever differs from that baseline in its Figma frames (e.g. the hero ratio; Send.App's looser 64/32 spacing). New case studies should start from the shared values and override only real differences. The next-project band's colour comes from `--case-next-bg` (default `--accent-blue`; PIL sets `--accent-red`, Spotify `--accent-primary`, Bandlab `--accent-orange`, EDB `--accent-yellow`).
+## Case study pages (`send-app.html`, `pil.html`, `spotify.html`, `bandlab.html`, `edb.html`, `comparesing.html`)
+The shared template — `.utility-row` and every `.case-*` section below — lives in `components/case-study.css` (part of `index.css`). It also holds the shared mobile spacing (section `padding-block` 48, context/outcomes gap 40, inner gaps 24, mobile bleed 390/212 and context image 342/126), which PIL and Spotify use as-is. Each page's `pages/<project>.css` holds only the sections it alone uses and whatever differs from that baseline in its Figma frames (e.g. the hero ratio; Send.App's looser 64/32 spacing). New case studies should start from the shared values and override only real differences. The next-project band's colour comes from `--case-next-bg` (default `--accent-blue`; PIL sets `--accent-red`, Spotify `--accent-primary`, Bandlab `--accent-orange`, EDB `--accent-yellow`, CompareSing `--accent-orange`).
 
 Normal scrolling page with `<body class="is-framing" data-menu-parent="/work.html">` (the menu marks "Work" as current).
 
@@ -100,7 +103,7 @@ Sections, top → bottom:
 7. `.case-outcomes` — `.impact` ×3 (metric, h4, note), ruled.
 8. `.case-credits` — two role lists + role note.
 9. `.case-next` — `--accent-blue` band; title + image are one link to the next case study.
-Then the contact-card and footer partials. Image boxes use `aspect-ratio` from Figma and `flex: none` (`.card__media`'s 600px flex-basis would otherwise set their height in column layouts). Section 8 is Send.App-only; section 6 is on Send.App and Bandlab (Bandlab's sits right after the premise); PIL has two impact statements (the outcomes grid makes one equal column per item) and, on mobile, a 2-column strip (`--wide` items span both columns, `grid-auto-flow: dense` matches Figma's order). A `.case-context__gallery--campaign` gallery (Spotify, Bandlab) has 1360 × 800 wide visuals and a 2 × 2 `.case-context__grid` of `--square` items (one column on mobile); Spotify puts the grid last, Bandlab first. Spotify has no strip (premise goes straight to the bleed); Bandlab has no strip or bleed. EDB has no strip or video, two bleeds in a row, a lead-sized context title, and a campaign gallery (wide, 2 × 2 squares, wide, `.case-context__grid--motion` 3-column grid of 9 tiles, wide). EDB's next-project link already points at `/comparesing.html` (CompareSing is not built yet).
+Then the contact-card and footer partials. Image boxes use `aspect-ratio` from Figma and `flex: none` (`.card__media`'s 600px flex-basis would otherwise set their height in column layouts). Section 8 is on Send.App and CompareSing (Send.App overrides its tighter mobile lists); section 6 is on Send.App and Bandlab (Bandlab's sits right after the premise); PIL has two impact statements (the outcomes grid makes one equal column per item) and, on mobile, a 2-column strip (`--wide` items span both columns, `grid-auto-flow: dense` matches Figma's order). A `.case-context__gallery--campaign` gallery (Spotify, Bandlab) has 1360 × 800 wide visuals and a 2 × 2 `.case-context__grid` of `--square` items (one column on mobile); Spotify puts the grid last, Bandlab first. Spotify has no strip (premise goes straight to the bleed); Bandlab has no strip or bleed. EDB has no strip or video, two bleeds in a row, a lead-sized context title, and a campaign gallery (wide, 2 × 2 squares, wide, `.case-context__grid--motion` 3-column grid of 9 tiles, wide). CompareSing's strip is a 4-column grid (1907px, 3 rows; stacked on mobile like Send.App's), it has no video, a plain 6-image context gallery, and its next project loops back to Send.App.
 
 To add another case study: copy `pil.html` (keep `is-framing` + the frame partial, no loader), keep only the sections it uses, add `pages/<project>.css` with its `--case-next-bg` and only the mobile values that differ from the shared baseline, point the previous case study's `.case-next__link` at it, and add a `.project-card__link[data-transition-link]` to its Work card.
 
@@ -123,7 +126,7 @@ To add another case study: copy `pil.html` (keep `is-framing` + the frame partia
 | Divider | `.divider` | `utilities.css` |
 
 ### Adding a page
-Replace `<page>` with the new page's name (check the root first — `index`, `work`, `library`, `about`, `send-app`, `pil`, `spotify`, `bandlab` and `edb` are taken).
+Replace `<page>` with the new page's name (check the root first — `index`, `work`, `library`, `about`, `send-app`, `pil`, `spotify`, `bandlab`, `edb` and `comparesing` are taken).
 1. Create `<page>.html` in the project root (it is picked up by the build automatically). In `<head>`, link the styles: `<link rel="stylesheet" href="/src/styles/index.css" />` and `<link rel="stylesheet" href="/src/styles/pages/<page>.css" />` — never import CSS from the JS entry (in dev, Vite injects JS-imported CSS only after the module runs, so the raw HTML flashes before the loader is styled). Include the partials, give `<main id="top">`, and add `<script type="module" src="/src/pages/<page>.js">`.
 2. `src/pages/<page>.js`: `import { bootPage } from '../core/boot.js'; bootPage();` — pass `{ load: (loader) => promise }` if the page has async setup the loader should wait for.
 3. Put page-only styles in `src/styles/pages/<page>.css`; promote anything reused to `components/`.

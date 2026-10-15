@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CompareSing — Superpills</title>
+    <meta name="description" content="CompareSing: build, maintain and scale a tokenised design system for a personal finance comparison, content and advisory platform operating in Singapore." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Linked (not imported from JS) so they block first paint in dev too — no unstyled flash before the loader -->
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="stylesheet" href="/src/styles/pages/comparesing.css" />
+  </head>
+  <!-- Project page: no boot loader — it starts under the transition frame (is-framing) and frames in.
+       data-menu-parent: the menu marks "Work" as current on case-study pages -->
+  <body class="is-framing" data-menu-parent="/work.html">
+    <!-- @include page-transition.html -->
+
+    <!-- @include header.html -->
+
+    <!-- CompareSing case study (211:955 desktop / 228:1134 mobile) -->
+    <main id="top">
+      <!-- Project visual (211:959) — same image as the Work card -->
+      <section class="case-hero section">
+        <div class="case-hero__media card__media" data-hero-fade>
+          <img src="/assets/work/work-comparesing.jpg" width="3840" height="2160" alt="Laptop on a lilac sofa showing the CompareSing home page, “Your Comparison Kaki”" />
+        </div>
+      </section>
+
+      <!-- Premise (211:961) -->
+      <section class="case-premise section">
+        <div class="case-premise__meta" data-hero-fade>
+          <p class="case-premise__label t-label-eyebrow">CompareSing</p>
+          <ul class="tags" aria-label="Disciplines">
+            <li class="tag t-caption-tag">Brand</li>
+            <li class="tag t-caption-tag">Product</li>
+            <li class="tag t-caption-tag">Finance</li>
+          </ul>
+        </div>
+        <div class="case-premise__copy">
+          <h1 class="case-premise__title t-heading-h1" data-hero-title>Build, maintain &amp; scale a tokenised design system.</h1>
+          <p class="case-premise__desc t-body-default" data-hero-fade>A personal finance comparison, content, and advisory platform operating in Singapore.</p>
+        </div>
+      </section>
+
+      <!-- System media (211:974) — drag strip on desktop, stacked on mobile (228:1153).
+           Items are in row-major order of the 4-column desktop grid; --wide spans two columns. -->
+      <section class="case-strip" aria-label="Brand and product gallery">
+        <div class="case-strip__track thumbs" data-hscroll data-lenis-prevent-horizontal>
+          <div class="case-strip__item card__media"><img src="/assets/comparesing/strip-01.jpg" width="3840" height="2160" loading="lazy" alt="“Your Comparison Kaki” search banner over a blurred Jewel Changi waterfall" /></div>
+          <div class="case-strip__item card__media"><img src="/assets/comparesing/strip-02.jpg" width="3840" height="2160" loading="lazy" alt="CompareSing colour palette: neutrals, indigo and pink, orange, red and green ramps" /></div>
+          <div class="case-strip__item card__media"><img src="/assets/comparesing/strip-03.jpg" width="3840" height="2160" loading="lazy" alt="Grid of CompareSing social posts explaining MCC codes and miles cards" /></div>
+          <div class="case-strip__item card__media"><img src="/assets/comparesing/strip-04.jpg" width="3840" height="2161" loading="lazy" alt="CompareSing display ad set in banner, square and skyscraper sizes" /></div>
+          <div class="case-strip__item card__media"><img src="/assets/comparesing/strip-05.jpg" width="3840" height="2161" loading="lazy" alt="CompareSing wordmark" /></div>
+          <div class="case-strip__item card__media"><img src="/assets/comparesing/strip-06.jpg" width="3840" height="2160" loading="lazy" alt="CompareSing character illustrations, including a figure crouching with a magnifying glass" /></div>
+          <div class="case-strip__item case-strip__item--wide card__media"><img src="/assets/comparesing/strip-07.jpg" width="3840" height="2160" loading="lazy" alt="3D icons: map pin on a phone, calendar, suitcase with a plane and discount vouchers" /></div>
+          <div class="case-strip__item case-strip__item--wide card__media"><img src="/assets/comparesing/strip-08.jpg" width="2460" height="1080" loading="lazy" alt="CompareSing banner: “Helping you make finance and lifestyle decisions with confidence”" /></div>
+          <div class="case-strip__item card__media"><img src="/assets/comparesing/strip-09.jpg" width="3840" height="2160" loading="lazy" alt="Illustration of a scientist, an engineer and two professionals at work" /></div>
+          <div class="case-strip__item card__media"><img src="/assets/comparesing/strip-10.jpg" width="3840" height="2160" loading="lazy" alt="CompareSing business cards, front and back" /></div>
+        </div>
+      </section>
+
+      <!-- Project visual, full bleed (211:989) -->
+      <div class="case-bleed card__media" data-reveal>
+        <img src="/assets/comparesing/bleed.jpg" width="3840" height="2160" loading="lazy" alt="CompareSing home page: “Your Comparison Kaki” search above “Compare For What Fits your needs”" />
+      </div>
+
+      <!-- Context section (211:990) -->
+      <section class="case-context section">
+        <div class="utility-row utility-row--stack" data-reveal>
+          <h2 class="utility-row__label t-label-section">The Challenge</h2>
+          <p class="utility-row__meta t-caption">FROM FRAGMENTATION TO FLOW</p>
+        </div>
+        <div class="case-context__heading">
+          <p class="case-context__title t-heading-h2" data-split>Navigating complex data aggregation, and high user trust requirements</p>
+          <p class="case-context__challenge t-body-default" data-reveal>Translating complex financial terms, interest formulas, and fine print into clear, actionable insights without oversimplifying the risks was a major design challenge.</p>
+        </div>
+        <div class="divider"></div>
+        <div class="case-context__media card__media" data-reveal>
+          <img src="/assets/comparesing/context-01.jpg" width="3840" height="2160" loading="lazy" alt="CompareSing screens: account sign-up, savings comparison table, rewards dashboard and product listings" />
+        </div>
+        <div class="case-context__details" data-reveal>
+          <p class="case-context__lead t-heading-lead">A shared visual language that builds trust.</p>
+          <p class="case-context__body t-body-default">Moving away from aggressive product pushing and focusing on impartiality. The core UX leads with Side-by-Side Evaluation Matrices and clarify true costs.</p>
+        </div>
+        <!-- Context media gallery (211:1002 / 228:1177) — same images and order on mobile -->
+        <div class="case-context__gallery">
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/comparesing/gallery-01.jpg" width="3840" height="2160" loading="lazy" alt="Four persona cards: The Early Jobber, The Young Family, The Sandwiched and The Income Navigator" />
+          </div>
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/comparesing/gallery-02.jpg" width="3840" height="2161" loading="lazy" alt="CompareSing About page: “What Makes Us Different?”" />
+          </div>
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/comparesing/gallery-03.jpg" width="3840" height="2160" loading="lazy" alt="Four phone screens: travel insurance comparison, credit card filters, insurance guides and a rewards dashboard" />
+          </div>
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/comparesing/gallery-04.jpg" width="3840" height="2161" loading="lazy" alt="Three “Compare Credit Cards” page layouts: list view and side-by-side comparison" />
+          </div>
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/comparesing/gallery-05.jpg" width="3840" height="2160" loading="lazy" alt="Design-system components: logo, arrow and close buttons, and the Compare search-field states" />
+          </div>
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/comparesing/gallery-06.jpg" width="3840" height="2160" loading="lazy" alt="Design-system components: navigation headers and savings-account comparison cards" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Outcomes (211:1017) -->
+      <section class="case-outcomes section">
+        <div class="utility-row" data-reveal>
+          <h2 class="utility-row__label t-label-section">Outcomes</h2>
+          <p class="utility-row__meta t-caption">ILLUSTRATIVE</p>
+        </div>
+        <p class="case-outcomes__title t-heading-section" data-split>A clearer everyday ecosystem.</p>
+        <ul class="case-outcomes__grid">
+          <li class="impact" data-reveal>
+            <p class="impact__value t-display-metric">100K+</p>
+            <div class="impact__copy">
+              <h3 class="impact__label t-heading-h4">In partnership revenue</h3>
+              <p class="impact__note t-body-supporting">A brand that resonated with partners and clients.</p>
+            </div>
+          </li>
+          <li class="impact" data-reveal>
+            <p class="impact__value t-display-metric">3x</p>
+            <div class="impact__copy">
+              <h3 class="impact__label t-heading-h4">Website engagement</h3>
+              <p class="impact__note t-body-supporting">Product interface was well received by users.</p>
+            </div>
+          </li>
+          <li class="impact" data-reveal>
+            <p class="impact__value t-display-metric">200k+</p>
+            <div class="impact__copy">
+              <h3 class="impact__label t-heading-h4">Social Reach</h3>
+              <p class="impact__note t-body-supporting">Social first marketing that resonated with target audience.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Credits (211:1038) -->
+      <section class="case-credits section">
+        <div class="utility-row" data-reveal>
+          <h2 class="utility-row__label case-credits__label t-label-eyebrow">CREDITS + ROLE</h2>
+          <p class="utility-row__meta t-caption">comparesing.com</p>
+        </div>
+        <div class="divider"></div>
+        <div class="case-credits__list" data-reveal>
+          <ul class="case-credits__column t-body-list">
+            <li>Creative Direction</li>
+            <li>Product Design</li>
+          </ul>
+          <ul class="case-credits__column t-body-list">
+            <li>System Design</li>
+            <li>Brand Strategy</li>
+          </ul>
+          <div class="case-credits__note">
+            <p class="case-credits__note-label t-caption">Role</p>
+            <p class="case-credits__note-body t-body-default">Creative Director. Brand strategy and art direction set across all brand touch-points.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next project (222:1277) — back to the first case study -->
+      <section class="case-next section">
+        <h2 class="case-next__label t-label-section">NEXT PROJECT</h2>
+        <a class="case-next__link" href="/send-app.html" data-transition-link>
+          <span class="case-next__title t-heading-project" data-reveal>Send.App — Shaping Brand &amp; Product for a Super-app<span aria-hidden="true">→</span></span>
+          <span class="case-next__media card__media" data-reveal>
+            <img src="/assets/product-02.jpg" width="3950" height="1920" loading="lazy" alt="" />
+          </span>
+        </a>
+      </section>
+
+      <!-- @include contact-card.html -->
+    </main>
+
+    <!-- @include footer.html -->
+
+    <script type="module" src="/src/pages/comparesing.js"></script>
+  </body>
+</html>
