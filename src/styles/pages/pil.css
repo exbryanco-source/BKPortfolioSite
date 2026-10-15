@@ -31,23 +31,6 @@
     height: 184px;
   }
 
-  .case-bleed { aspect-ratio: 390 / 212; }
-
-  .case-context {
-    gap: var(--scale-040);
-    padding-block: var(--scale-048);
-  }
-  .case-context__heading,
-  .case-context__details { gap: var(--scale-024); }
   .case-context__media { aspect-ratio: 342 / 160; }
-  .case-context__gallery { gap: var(--scale-024); }
   .case-context__gallery > :first-child { aspect-ratio: 342 / 184; }
-
-  .case-outcomes {
-    gap: var(--scale-040);
-    padding-block: var(--scale-048);
-  }
-  .impact { gap: var(--scale-024); }
-
-  .case-next { padding-block: var(--scale-048); }
 }

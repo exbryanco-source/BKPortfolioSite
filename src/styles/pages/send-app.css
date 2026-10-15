@@ -69,7 +69,6 @@
   }
   .case-context__heading,
   .case-context__details { gap: var(--scale-032); }
-  .case-context__media { aspect-ratio: 342 / 126; }
   .case-context__gallery { gap: var(--scale-016); }
 
   .case-video { padding: var(--gutter); }

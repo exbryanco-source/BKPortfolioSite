@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify — Superpills</title>
+    <meta name="description" content="Spotify: a 10-year anniversary campaign. A love-letter to Mandopop in the shape of a campaign." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Linked (not imported from JS) so they block first paint in dev too — no unstyled flash before the loader -->
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="stylesheet" href="/src/styles/pages/spotify.css" />
+  </head>
+  <!-- Project page: no boot loader — it starts under the transition frame (is-framing) and frames in.
+       data-menu-parent: the menu marks "Work" as current on case-study pages -->
+  <body class="is-framing" data-menu-parent="/work.html">
+    <!-- @include page-transition.html -->
+
+    <!-- @include header.html -->
+
+    <!-- Spotify case study (174:4113 desktop / 187:1216 mobile) -->
+    <main id="top">
+      <!-- Project visual (174:4117) -->
+      <section class="case-hero section">
+        <div class="case-hero__media card__media" data-hero-fade>
+          <img src="/assets/spotify/hero.jpg" width="3840" height="2161" alt="“Mandopop Memories” Spotify billboard wrapped around the corner of a city building" />
+        </div>
+      </section>
+
+      <!-- Premise (174:4119) -->
+      <section class="case-premise section">
+        <div class="case-premise__meta" data-hero-fade>
+          <p class="case-premise__label t-label-eyebrow">Spotify</p>
+          <ul class="tags" aria-label="Disciplines">
+            <li class="tag t-caption-tag">Campaign</li>
+            <li class="tag t-caption-tag">Advertising</li>
+          </ul>
+        </div>
+        <div class="case-premise__copy">
+          <h1 class="case-premise__title t-heading-h1" data-hero-title>A 10-Year Anniversary Campaign</h1>
+          <p class="case-premise__desc t-body-default" data-hero-fade>A love-letter to Mandopop in the shape of a campaign.</p>
+        </div>
+      </section>
+
+      <!-- Project visual, full bleed (174:4145) -->
+      <div class="case-bleed card__media">
+        <img src="/assets/spotify/bleed.jpg" width="3840" height="2160" loading="lazy" alt="Campaign summary: “We turned Spotify into a music time machine with the help of Mandopop singers” — 1.7M YouTube views, 91M total impressions, 218K social clicks" />
+      </div>
+
+      <!-- Context section (174:4146) -->
+      <section class="case-context section">
+        <div class="utility-row utility-row--stack" data-reveal>
+          <h2 class="utility-row__label t-label-section">The Challenge</h2>
+          <p class="utility-row__meta t-caption">FROM FRAGMENTATION TO FLOW</p>
+        </div>
+        <div class="case-context__heading">
+          <p class="case-context__title t-heading-h2" data-split>Celebrating Mandopop Music</p>
+          <p class="case-context__challenge t-body-default" data-reveal>To celebrate 10 years of Spotify in Taiwan, we started the #MyMandopopMemory challenge that transported listeners back to the good ol’ days while helping them create new memories to look back to. The best part? Everyone’s favourite Mandopop artists were in on the reminiscing too!</p>
+        </div>
+        <div class="divider"></div>
+        <picture class="case-context__media card__media" data-reveal>
+          <source media="(max-width: 720px)" srcset="/assets/spotify/context-01-m.jpg" width="1892" height="1052" />
+          <img src="/assets/spotify/context-01.gif" width="1892" height="1052" loading="lazy" alt="Animated Mandopop Memories stickers — ticket, badges and stamps on a green background" />
+        </picture>
+        <div class="case-context__details" data-reveal>
+          <p class="case-context__lead t-heading-lead">Mandopop has been with listeners in every milestone of their lives</p>
+          <p class="case-context__body t-body-default">Through content pieces that trigger oh-so-good nostalgic feels and ones that introduce emerging music, we celebrate the diverse stories of artists and listeners 10 years into the past and future.</p>
+        </div>
+        <!-- Context media gallery (174:4158): four wide visuals, then a 2 × 2 grid of squares -->
+        <div class="case-context__gallery">
+          <picture class="case-context__media card__media" data-reveal>
+            <source media="(max-width: 720px)" srcset="/assets/spotify/gallery-01-m.jpg" width="1900" height="1058" />
+            <img src="/assets/spotify/gallery-01.gif" width="1900" height="1058" loading="lazy" alt="Mandopop artists sharing their memories in vertical social videos" />
+          </picture>
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/spotify/gallery-02.jpg" width="3840" height="2159" loading="lazy" alt="Mandopop Memories billboards in Toronto, Seoul and London" />
+          </div>
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/spotify/gallery-03.jpg" width="3840" height="2160" loading="lazy" alt="Mandopop Memories enamel pin cards beside a coffee and a tablet" />
+          </div>
+          <picture class="case-context__media card__media" data-reveal>
+            <source media="(max-width: 720px)" srcset="/assets/spotify/gallery-04-m.jpg" width="1140" height="1282" />
+            <img src="/assets/spotify/gallery-04.gif" width="1140" height="1282" loading="lazy" alt="Animated Mandopop Memories logo on pink" />
+          </picture>
+          <div class="case-context__grid">
+            <div class="case-context__media case-context__media--square card__media" data-reveal>
+              <img src="/assets/spotify/square-01.jpg" width="1920" height="1922" loading="lazy" alt="Mandopop Memories sticker pack in a phone keyboard" />
+            </div>
+            <div class="case-context__media case-context__media--square card__media" data-reveal>
+              <img src="/assets/spotify/square-02.jpg" width="1920" height="1920" loading="lazy" alt="Social ad celebrating 10 years of Spotify in Taiwan with portraits of Mandopop artists" />
+            </div>
+            <div class="case-context__media case-context__media--square card__media" data-reveal>
+              <img src="/assets/spotify/square-03.jpg" width="1920" height="1920" loading="lazy" alt="Green and pink Mandopop Memories tote bags" />
+            </div>
+            <div class="case-context__media case-context__media--square card__media" data-reveal>
+              <img src="/assets/spotify/square-04.jpg" width="1920" height="1922" loading="lazy" alt="Mandopop Memories mailer with a Spotify code and sticker sheet" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Outcomes (174:4161) -->
+      <section class="case-outcomes section">
+        <div class="utility-row" data-reveal>
+          <h2 class="utility-row__label t-label-section">Outcomes</h2>
+          <p class="utility-row__meta t-caption">ILLUSTRATIVE</p>
+        </div>
+        <p class="case-outcomes__title t-heading-section" data-split>Social first activation to a global campaign.</p>
+        <ul class="case-outcomes__grid">
+          <li class="impact" data-reveal>
+            <p class="impact__value t-display-metric">91M</p>
+            <div class="impact__copy">
+              <h3 class="impact__label t-heading-h4">Total impressions</h3>
+              <p class="impact__note t-body-supporting">2x more than projected results</p>
+            </div>
+          </li>
+          <li class="impact" data-reveal>
+            <p class="impact__value t-display-metric">1.7M</p>
+            <div class="impact__copy">
+              <h3 class="impact__label t-heading-h4">Youtube views</h3>
+              <p class="impact__note t-body-supporting">4x more than projected results</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Next project (174:4177) -->
+      <section class="case-next section">
+        <h2 class="case-next__label t-label-section">NEXT PROJECT</h2>
+        <a class="case-next__link" href="/bandlab.html" data-transition-link>
+          <span class="case-next__title t-heading-project" data-reveal>Bandlab — A visualisation of sound through motion <span aria-hidden="true">→</span></span>
+          <div class="case-next__media card__media" data-reveal>
+            <img src="/assets/spotify/next-bandlab.jpg" width="3840" height="2160" loading="lazy" alt="" />
+          </div>
+        </a>
+      </section>
+
+      <!-- @include contact-card.html -->
+    </main>
+
+    <!-- @include footer.html -->
+
+    <script type="module" src="/src/pages/spotify.js"></script>
+  </body>
+</html>
