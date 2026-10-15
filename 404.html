@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found — Superpills</title>
+    <meta name="description" content="This page doesn't exist. Head back to the Superpills home page or see the work." />
+    <meta name="robots" content="noindex" />
+    <!-- Linked (not imported from JS) so they block first paint in dev too -->
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="stylesheet" href="/src/styles/pages/404.css" />
+  </head>
+  <!-- Vercel serves this for any unknown route (with a 404 status). No Figma frame:
+       built from the About intro pattern + shared arrow links. No loader — it boots straight in. -->
+  <body>
+    <!-- @include header.html -->
+
+    <main id="top">
+      <section class="not-found section">
+        <p class="not-found__eyebrow t-label-eyebrow" data-hero-fade>404</p>
+        <h1 class="not-found__title t-heading-h1" data-hero-title>This page doesn&rsquo;t exist.</h1>
+        <p class="not-found__body t-body-default" data-hero-fade>The link may be broken, or the page may have moved.</p>
+        <div class="not-found__actions" data-hero-fade>
+          <a href="/" class="arrow-link"><span class="t-label-action">Back to home</span><span class="t-arrow-large" aria-hidden="true">→</span></a>
+          <a href="/work.html" class="arrow-link"><span class="t-label-action">See the work</span><span class="t-arrow-large" aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <!-- @include contact-card.html -->
+    </main>
+
+    <!-- @include footer.html -->
+
+    <script type="module" src="/src/pages/404.js"></script>
+  </body>
+</html>

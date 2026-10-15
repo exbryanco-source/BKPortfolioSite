@@ -8,7 +8,7 @@ import path from 'node:path';
 const label = process.argv[2] || 'run';
 const base = process.env.LH_URL || 'http://localhost:4173';
 const chrome = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-const pages = fs.readdirSync('.').filter((f) => f.endsWith('.html')).sort().map((f) => (f === 'index.html' ? '/' : '/' + f));
+const pages = fs.readdirSync('.').filter((f) => f.endsWith('.html') && !/name="robots" content="[^"]*noindex/.test(fs.readFileSync(f, 'utf8'))).sort().map((f) => (f === 'index.html' ? '/' : '/' + f));
 const lh = path.resolve('node_modules/.bin/lighthouse');
 const rows = [];
 
