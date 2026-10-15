@@ -1,14 +1,6 @@
 /* Send.App case study (send-app.html) — Figma 166:3048 desktop / 166:3214 mobile.
    Shared case-study sections live in components/case-study.css; this file
-   holds the video + credits sections and Send's mobile proportions. */
-
-/* Project video (166:3100) — the shared .feature block (Vimeo). Kept at the
-   video's own 16:9 rather than Figma's 1360 × 650 / 342 × 380 frames, which
-   would letterbox the embed. */
-.case-video {
-  padding: var(--scale-040);
-  background: var(--background-canvas);
-}
+   holds the credits section and Send's mobile proportions. */
 
 /* Credits (166:3131) — two role lists + contribution note */
 .case-credits {
@@ -71,7 +63,6 @@
   .case-context__details { gap: var(--scale-032); }
   .case-context__gallery { gap: var(--scale-016); }
 
-  .case-video { padding: var(--gutter); }
   .case-video .feature__meta .t-caption,
   .case-video .feature__meta .t-caption-micro { font: var(--m-caption-micro); }
 

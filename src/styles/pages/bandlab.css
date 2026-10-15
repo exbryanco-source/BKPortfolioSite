@@ -1,0 +1,32 @@
+/* Bandlab case study (bandlab.html) — Figma 184:4528 desktop / 194:563 mobile.
+   Shared case-study sections live in components/case-study.css; this file
+   holds Bandlab's next-project accent and its mobile proportions. */
+
+/* Next project (184:4584) — EDB's accent */
+.case-next {
+  --case-next-bg: var(--accent-orange);
+}
+
+/* ------------------------------------------------------------------
+   Mobile — Figma 194:563 (390 wide)
+------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  .case-hero__media { aspect-ratio: 342 / 260; }
+
+  /* Short client name — label and tags stay on one row (194:568) */
+  .case-premise__meta {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Video caption (194:581) — source above title, year bottom-right */
+  .case-video .feature { gap: var(--scale-024); }
+  .case-video .feature__meta {
+    row-gap: var(--scale-004);
+    align-items: end;
+  }
+  .case-video .feature__meta .t-caption-strong { grid-column: 1; font: var(--m-label-small); }
+  .case-video .feature__meta .t-caption-micro { grid-row: 2; grid-column: 2; font: var(--m-caption-micro); }
+
+  .utility-row__meta { font: var(--m-caption-micro); }
+}
