@@ -2,6 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
+import { responsiveMedia } from './vite/responsive-media';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const partialsDir = `${root}src/partials/`;
@@ -36,6 +37,6 @@ const pages = Object.fromEntries(
 
 // React is only used for the hero island (src/hero); the rest of the site is vanilla JS.
 export default defineConfig({
-  plugins: [htmlPartials(), react()],
+  plugins: [htmlPartials(), responsiveMedia(root), react()],
   build: { rollupOptions: { input: pages } },
 });

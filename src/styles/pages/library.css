@@ -45,7 +45,8 @@
   width: 240px;
   height: 129px;
 }
-.archive img {
+.archive img,
+.archive video {
   -webkit-user-drag: none;
 }
 

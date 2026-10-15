@@ -4,13 +4,14 @@ import { createLoader } from './loader.js';
 import { initHorizontalScrollers } from './hscroll.js';
 import { initCarousels } from './carousel.js';
 import { initClock } from './clock.js';
+import { initAutoplayVideos } from './media.js';
 import { initPageTransitions, frameIn } from './transition.js';
 import { playHeroIntro, initScrollText, initReveals, initTicker } from './animations.js';
 
 /**
  * Shared page bootstrap. Every page entry (src/pages/*.js) calls this once.
  *
- * Wires the shared chrome (smooth scroll, menu, horizontal strips, carousels, clock),
+ * Wires the shared chrome (smooth scroll, menu, horizontal strips, carousels, clock, autoplay clips),
  * shows the boot loader until `load(loader)` and the fonts are ready, then
  * unlocks scrolling and starts the data-attribute animations. Project pages
  * have no loader partial: they start under the transition frame (body.is-framing)
@@ -27,6 +28,7 @@ export function bootPage({ load } = {}) {
   initHorizontalScrollers();
   initCarousels();
   initClock();
+  initAutoplayVideos();
   initPageTransitions();
 
   const loader = document.querySelector('[data-loader]') ? createLoader() : null;
