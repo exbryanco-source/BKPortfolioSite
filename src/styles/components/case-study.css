@@ -1,4 +1,4 @@
-/* Case study template — shared by every project page (send-app, pil, spotify, bandlab).
+/* Case study template — shared by every project page (send-app, pil, spotify, bandlab, edb, comparesing).
    Page files (pages/<project>.css) add the sections only they use and the
    mobile proportions / spacing that differ between their Figma frames. */
 
@@ -173,6 +173,30 @@
   color: var(--text-secondary);
 }
 
+/* Credits (Send.App, CompareSing) — two role lists + contribution note */
+.case-credits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-096);
+  padding-block: var(--scale-096);
+}
+.case-credits__list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 400px);
+  gap: var(--scale-040);
+}
+.case-credits__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-016);
+}
+.case-credits__note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-016);
+  color: var(--text-secondary);
+}
+
 /* Next project — the title and image are one link. Each page sets
    --case-next-bg to the next project's accent. */
 .case-next {
@@ -218,6 +242,8 @@
     flex-basis: auto;
   }
   .case-next__title { font-size: var(--heading-h1-size); line-height: var(--heading-h1-lh); }
+  .case-credits__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-credits__note { grid-column: 1 / -1; max-width: 600px; }
 }
 
 /* ------------------------------------------------------------------
@@ -301,6 +327,20 @@
   .impact__value { font: var(--m-display-metric); letter-spacing: var(--m-tracking-metric); }
   .impact__label { font: var(--m-heading-h4); }
   .impact__note { font: var(--m-body-default); }
+
+  .case-credits {
+    gap: var(--scale-040);
+    padding-block: var(--scale-048);
+  }
+  .case-credits__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--scale-016);
+  }
+  .case-credits__column { font: var(--m-body-list); }
+  .case-credits__note { margin-top: var(--scale-024); } /* 40px from the list, per Figma */
+  .case-credits__note-label { font: var(--m-caption); }
+  .case-credits__note-body { font: var(--m-body-default); }
 
   .case-next {
     gap: var(--scale-032);

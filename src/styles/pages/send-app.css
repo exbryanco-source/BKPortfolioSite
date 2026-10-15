@@ -1,36 +1,6 @@
 /* Send.App case study (send-app.html) — Figma 166:3048 desktop / 166:3214 mobile.
    Shared case-study sections live in components/case-study.css; this file
-   holds the credits section and Send's mobile proportions. */
-
-/* Credits (166:3131) — two role lists + contribution note */
-.case-credits {
-  display: flex;
-  flex-direction: column;
-  gap: var(--scale-096);
-  padding-block: var(--scale-096);
-}
-.case-credits__list {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 400px);
-  gap: var(--scale-040);
-}
-.case-credits__column {
-  display: flex;
-  flex-direction: column;
-  gap: var(--scale-016);
-}
-.case-credits__note {
-  display: flex;
-  flex-direction: column;
-  gap: var(--scale-016);
-  color: var(--text-secondary);
-}
-
-/* Tablet (not in Figma) */
-@media (max-width: 1100px) {
-  .case-credits__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .case-credits__note { grid-column: 1 / -1; max-width: 600px; }
-}
+   holds Send's mobile proportions and its looser mobile spacing. */
 
 /* ------------------------------------------------------------------
    Mobile — Figma 166:3214 (390 wide)
@@ -72,25 +42,16 @@
   }
   .impact { gap: var(--scale-016); }
 
+  /* Credits (166:3131) — tighter lists than the shared mobile credits;
+     the note still sits 32 below them (8 gap + 24 margin) */
   .case-credits {
     gap: var(--scale-032);
     padding-block: var(--scale-064);
   }
-  .case-credits__list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--scale-008);
-  }
-  .case-credits__column {
-    gap: var(--scale-008);
-    font: var(--m-body-list);
-  }
-  .case-credits__note {
-    gap: var(--scale-008);
-    margin-top: var(--scale-024); /* 32px from the list, per Figma */
-  }
+  .case-credits__list,
+  .case-credits__column,
+  .case-credits__note { gap: var(--scale-008); }
   .case-credits__note-label { font: var(--m-label-secondary); }
-  .case-credits__note-body { font: var(--m-body-default); }
 
   .case-next { padding-block: var(--scale-064); }
 }

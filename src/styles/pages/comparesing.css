@@ -1,0 +1,47 @@
+/* CompareSing case study (comparesing.html) — Figma 211:955 desktop / 228:1134 mobile.
+   Shared case-study sections (credits included) live in components/case-study.css;
+   this file holds CompareSing's 4-column strip, next-project accent and its
+   mobile proportions. */
+
+/* System media (211:974) — 4 columns, 1907px wide, 3 rows */
+.case-strip__track.thumbs {
+  grid-template-columns: repeat(4, calc((1907px - 3 * var(--scale-040)) / 4));
+}
+
+/* Next project (222:1277) — Send.App's accent */
+.case-next {
+  --case-next-bg: var(--accent-orange);
+}
+
+/* ------------------------------------------------------------------
+   Mobile — Figma 228:1134 (390 wide)
+------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  .case-hero__media { aspect-ratio: 342 / 300; }
+
+  /* Client name and tags share one row (228:1141) */
+  .case-premise__meta {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Strip (228:1153) → plain vertical stack; wide items become short bands */
+  .case-strip {
+    padding: var(--scale-016) var(--gutter) var(--scale-048);
+  }
+  .case-strip__track.thumbs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--scale-016);
+  }
+  .case-strip__item.card__media {
+    flex: none;
+    aspect-ratio: 342 / 184;
+  }
+  .case-strip__item--wide.card__media { aspect-ratio: 342 / 88; }
+
+  .case-context .utility-row__meta,
+  .case-outcomes .utility-row__meta { font: var(--m-caption-micro); }
+
+  .impact__note { font: var(--m-caption); }
+}
