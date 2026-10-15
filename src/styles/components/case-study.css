@@ -236,16 +236,29 @@
     cursor: auto;
   }
 
+  .case-bleed { aspect-ratio: 390 / 212; }
+
+  .case-context {
+    gap: var(--scale-040);
+    padding-block: var(--scale-048);
+  }
   .case-context__heading,
   .case-context__details {
     display: flex;
     flex-direction: column;
+    gap: var(--scale-024);
   }
+  .case-context__media { aspect-ratio: 342 / 126; }
+  .case-context__gallery { gap: var(--scale-024); }
   .case-context__title { font: var(--m-heading-h2); }
   .case-context__challenge,
   .case-context__body { font: var(--m-body-default); }
   .case-context__lead { font: var(--m-heading-lead); }
 
+  .case-outcomes {
+    gap: var(--scale-040);
+    padding-block: var(--scale-048);
+  }
   .case-outcomes__title { font: var(--m-heading-section); }
   .case-outcomes__grid {
     display: flex;
@@ -254,6 +267,7 @@
     border-bottom: 1px solid var(--border-default);
   }
   .impact {
+    gap: var(--scale-024);
     min-height: 0;
     padding: var(--scale-024) 0;
     border-bottom: 0;
@@ -262,7 +276,10 @@
   .impact__label { font: var(--m-heading-h4); }
   .impact__note { font: var(--m-body-default); }
 
-  .case-next { gap: var(--scale-032); }
+  .case-next {
+    gap: var(--scale-032);
+    padding-block: var(--scale-048);
+  }
   .case-next__link { gap: var(--scale-032); }
   .case-next__title { font: var(--m-heading-project); }
   .case-next__media { aspect-ratio: 342 / 156; }
