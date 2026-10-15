@@ -1,4 +1,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
+
+const PLACEHOLDER = /\{\{([A-Z0-9_]+)\}\}/g;
+const placeholders = (text: string) => [...new Set([...text.matchAll(PLACEHOLDER)].map((m) => m[1]))];
 import { fileURLToPath } from 'node:url';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -25,9 +28,30 @@ function htmlPartials(): Plugin {
       return include(readFileSync(partialsDir + file, 'utf8').trimEnd(), depth + 1);
     });
 
+  let isBuild = false;
   return {
     name: 'html-partials',
-    transformIndexHtml: { order: 'pre', handler: (html) => include(html) },
+    transformIndexHtml: {
+      order: 'pre',
+      handler: (html, ctx) => {
+        // A page scaffolded from templates/case-study/ must have every {{PLACEHOLDER}}
+        // filled before it ships (dev still renders, so pages can be filled in place).
+        const left = placeholders(html);
+        if (left.length && !ctx.server) throw new Error(`[html-partials] ${ctx.filename} still has placeholders: ${left.join(', ')}`);
+        return include(html);
+      },
+    },
+    // …and so must its page stylesheet (an unfilled value would just be invalid CSS)
+    buildStart() {
+      if (!isBuild) return;
+      for (const f of readdirSync(`${root}src/styles/pages`)) {
+        const left = placeholders(readFileSync(`${root}src/styles/pages/${f}`, 'utf8'));
+        if (left.length) throw new Error(`[html-partials] src/styles/pages/${f} still has placeholders: ${left.join(', ')}`);
+      }
+    },
+    configResolved(c) {
+      isBuild = c.command === 'build';
+    },
     handleHotUpdate({ file, server }) {
       if (file.startsWith(partialsDir)) server.ws.send({ type: 'full-reload' });
     },

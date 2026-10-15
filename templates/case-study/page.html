@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{NAME}} — Superpills</title>
+    <meta name="description" content="{{META_DESCRIPTION}}" />
+    <!-- Linked (not imported from JS) so they block first paint in dev too — no unstyled flash before the loader -->
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="stylesheet" href="/src/styles/pages/{{SLUG}}.css" />
+  </head>
+  <!-- Case study template (templates/case-study/page.html, scaffolded by `npm run new-project`).
+       Every {{…}} placeholder must be filled — the build fails while any remain.
+       Keep only the sections the Figma frames have: delete each unused OPTIONAL
+       block, from its opening comment through its /OPTIONAL comment; keep the rest in order.
+       Project page: no boot loader — it starts under the transition frame (is-framing) and frames in.
+       data-menu-parent: the menu marks "Work" as current on case-study pages -->
+  <body class="is-framing" data-menu-parent="/work.html">
+    <!-- @include page-transition.html -->
+
+    <!-- @include header.html -->
+
+    <!-- {{NAME}} case study ({{FIGMA_DESKTOP}} desktop / {{FIGMA_MOBILE}} mobile) -->
+    <main id="top">
+      <!-- Project visual — the LCP image: no loading="lazy" -->
+      <section class="case-hero section">
+        <div class="case-hero__media card__media" data-hero-fade>
+          <img src="/assets/{{SLUG}}/hero.jpg" width="{{W}}" height="{{H}}" alt="{{ALT}}" />
+        </div>
+      </section>
+
+      <!-- Premise -->
+      <section class="case-premise section">
+        <div class="case-premise__meta" data-hero-fade>
+          <p class="case-premise__label t-label-eyebrow">{{CLIENT}}</p>
+          <ul class="tags" aria-label="Disciplines">
+            <li class="tag t-caption-tag">{{TAG}}</li>
+            <li class="tag t-caption-tag">{{TAG}}</li>
+          </ul>
+        </div>
+        <div class="case-premise__copy">
+          <h1 class="case-premise__title t-heading-h1" data-hero-title>{{TITLE}}</h1>
+          <p class="case-premise__desc t-body-default" data-hero-fade>{{SUMMARY}}</p>
+        </div>
+      </section>
+
+      <!-- OPTIONAL video (Bandlab puts it here, right after the premise; Send.App after the context) -->
+      <section class="case-video">
+        <div class="case-video__feature feature" data-reveal>
+          <div class="feature__media">
+            <iframe
+              src="https://player.vimeo.com/video/{{VIMEO_ID}}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;dnt=1"
+              title="{{VIDEO_TITLE}}"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="feature__meta">
+            <p class="feature__identity">
+              <span class="t-caption">Vimeo</span>
+              <span class="t-caption-strong">{{VIDEO_TITLE}}</span>
+            </p>
+            <p class="t-caption-micro">{{YEAR}}</p>
+          </div>
+        </div>
+      </section>
+      <!-- /OPTIONAL video -->
+
+      <!-- OPTIONAL strip — drag strip on desktop, stacked on mobile. Items in row-major order of
+           the desktop grid; --wide spans two columns. Column count / width: pages/{{SLUG}}.css -->
+      <section class="case-strip" aria-label="Brand and product gallery">
+        <div class="case-strip__track thumbs" data-hscroll data-lenis-prevent-horizontal>
+          <div class="case-strip__item card__media"><img src="/assets/{{SLUG}}/strip-01.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" /></div>
+          <div class="case-strip__item case-strip__item--wide card__media"><img src="/assets/{{SLUG}}/strip-02.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" /></div>
+        </div>
+      </section>
+      <!-- /OPTIONAL strip -->
+
+      <!-- OPTIONAL bleed — full-width visual (repeat the div for two in a row, as EDB) -->
+      <div class="case-bleed card__media" data-reveal>
+        <img src="/assets/{{SLUG}}/bleed.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
+      </div>
+      <!-- /OPTIONAL bleed -->
+
+      <!-- Context section -->
+      <section class="case-context section">
+        <div class="utility-row utility-row--stack" data-reveal>
+          <h2 class="utility-row__label t-label-section">The Challenge</h2>
+          <p class="utility-row__meta t-caption">{{CONTEXT_META}}</p>
+        </div>
+        <div class="case-context__heading">
+          <!-- t-heading-h2 by default; a long statement can be t-heading-lead (EDB) -->
+          <p class="case-context__title t-heading-h2" data-split>{{CONTEXT_TITLE}}</p>
+          <p class="case-context__challenge t-body-default" data-reveal>{{CHALLENGE}}</p>
+        </div>
+        <div class="divider"></div>
+        <div class="case-context__media card__media" data-reveal>
+          <img src="/assets/{{SLUG}}/context-01.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
+        </div>
+        <div class="case-context__details" data-reveal>
+          <p class="case-context__lead t-heading-lead">{{LEAD}}</p>
+          <p class="case-context__body t-body-default">{{BODY}}</p>
+        </div>
+
+        <!-- Context media gallery — keep ONE of the two variants below -->
+        <!-- OPTIONAL plain gallery — 1360 × 500 visuals stacked -->
+        <div class="case-context__gallery">
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/{{SLUG}}/gallery-01.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
+          </div>
+        </div>
+        <!-- /OPTIONAL plain gallery -->
+
+        <!-- OPTIONAL campaign gallery — 1360 × 800 visuals, a 2 × 2 grid of squares (one column on
+             mobile), and optionally a 3-column motion grid (EDB). Order the blocks as in Figma. -->
+        <div class="case-context__gallery case-context__gallery--campaign">
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/{{SLUG}}/gallery-01.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
+          </div>
+          <div class="case-context__grid">
+            <div class="case-context__media case-context__media--square card__media" data-reveal>
+              <img src="/assets/{{SLUG}}/square-01.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
+            </div>
+            <div class="case-context__media case-context__media--square card__media" data-reveal>
+              <img src="/assets/{{SLUG}}/square-02.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
+            </div>
+            <div class="case-context__media case-context__media--square card__media" data-reveal>
+              <img src="/assets/{{SLUG}}/square-03.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
+            </div>
+            <div class="case-context__media case-context__media--square card__media" data-reveal>
+              <img src="/assets/{{SLUG}}/square-04.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
+            </div>
+          </div>
+          <!-- OPTIONAL motion grid — needs the .case-context__grid--motion rules from pages/edb.css -->
+          <div class="case-context__grid case-context__grid--motion">
+            <div class="case-context__media case-context__media--motion card__media" data-reveal>
+              <img src="/assets/{{SLUG}}/motion-01.gif" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
+            </div>
+          </div>
+          <!-- /OPTIONAL motion grid -->
+        </div>
+        <!-- /OPTIONAL campaign gallery -->
+      </section>
+
+      <!-- Outcomes — one equal column per impact (2 or 3) -->
+      <section class="case-outcomes section">
+        <div class="utility-row" data-reveal>
+          <h2 class="utility-row__label t-label-section">Outcomes</h2>
+          <p class="utility-row__meta t-caption">ILLUSTRATIVE</p>
+        </div>
+        <p class="case-outcomes__title t-heading-section" data-split>{{OUTCOMES_TITLE}}</p>
+        <ul class="case-outcomes__grid">
+          <li class="impact" data-reveal>
+            <p class="impact__value t-display-metric">{{METRIC}}</p>
+            <div class="impact__copy">
+              <h3 class="impact__label t-heading-h4">{{METRIC_LABEL}}</h3>
+              <p class="impact__note t-body-supporting">{{METRIC_NOTE}}</p>
+            </div>
+          </li>
+          <li class="impact" data-reveal>
+            <p class="impact__value t-display-metric">{{METRIC}}</p>
+            <div class="impact__copy">
+              <h3 class="impact__label t-heading-h4">{{METRIC_LABEL}}</h3>
+              <p class="impact__note t-body-supporting">{{METRIC_NOTE}}</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- OPTIONAL credits — two role lists + role note -->
+      <section class="case-credits section">
+        <div class="utility-row" data-reveal>
+          <h2 class="utility-row__label case-credits__label t-label-eyebrow">CREDITS + ROLE</h2>
+          <p class="utility-row__meta t-caption">{{WEBSITE}}</p>
+        </div>
+        <div class="divider"></div>
+        <div class="case-credits__list" data-reveal>
+          <ul class="case-credits__column t-body-list">
+            <li>{{ROLE}}</li>
+          </ul>
+          <ul class="case-credits__column t-body-list">
+            <li>{{ROLE}}</li>
+          </ul>
+          <div class="case-credits__note">
+            <p class="case-credits__note-label t-caption">Role</p>
+            <p class="case-credits__note-body t-body-default">{{ROLE_NOTE}}</p>
+          </div>
+        </div>
+      </section>
+      <!-- /OPTIONAL credits -->
+
+      <!-- Next project — title + image are one link. Band colour: --case-next-bg in pages/{{SLUG}}.css -->
+      <section class="case-next section">
+        <h2 class="case-next__label t-label-section">NEXT PROJECT</h2>
+        <a class="case-next__link" href="/{{NEXT_SLUG}}.html" data-transition-link>
+          <span class="case-next__title t-heading-project" data-reveal>{{NEXT_TITLE}}<span aria-hidden="true">→</span></span>
+          <span class="case-next__media card__media" data-reveal>
+            <img src="{{NEXT_IMAGE}}" width="{{W}}" height="{{H}}" loading="lazy" alt="" />
+          </span>
+        </a>
+      </section>
+
+      <!-- @include contact-card.html -->
+    </main>
+
+    <!-- @include footer.html -->
+
+    <script type="module" src="/src/pages/{{SLUG}}.js"></script>
+  </body>
+</html>
