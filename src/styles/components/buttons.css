@@ -13,6 +13,10 @@
   border: 0;
   background: var(--action-indicator);
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.control:hover {
+  background: var(--text-secondary);
 }
 
 /* Text + arrow link: "Learn more ↗", "Contact →", "Back to top ↑".
@@ -22,4 +26,33 @@
   align-items: center;
   gap: var(--scale-008);
   white-space: nowrap;
+}
+/* Hover: the arrow nudges the way it points (the last child is the arrow) */
+.arrow-link > :last-child {
+  transition: transform 0.3s ease;
+}
+.arrow-link:hover > :last-child {
+  transform: translateX(var(--scale-004));
+}
+.arrow-link:hover > img:last-child {
+  transform: translate(var(--scale-004), calc(-1 * var(--scale-004)));
+}
+.back-to-top:hover > :last-child {
+  transform: translateY(calc(-1 * var(--scale-004)));
+}
+
+/* Plain text links (footer, menu socials, inline email): underline on hover */
+.footer__list a,
+.footer__detail a,
+.menu__social a,
+.bio__body a {
+  text-decoration: underline transparent;
+  text-underline-offset: var(--scale-004);
+  transition: text-decoration-color 0.3s ease;
+}
+.footer__list a:hover,
+.footer__detail a:hover,
+.menu__social a:hover,
+.bio__body a:hover {
+  text-decoration-color: currentColor;
 }
