@@ -70,9 +70,9 @@ public/assets/             Figma-exported images; *-m.svg = mobile-cropped varia
 ```
 
 ## Landing page structure (`index.html`, top → bottom)
-1. **Loader** (partial) → **Header + menu** (partial): logo, 40×40 menu toggle; menu = dimmed page + 440px dark side panel (Figma `101:3677`). The header toggle stays on top as the panel's close (X); the item for the section in view gets `aria-current` (cream), others grey. "Work" links to `/work.html` (featured work page), "Library" to `/library.html` (project archive page) and "About" to `/about.html` from both the menu and the footer. Page links in the menu (no `data-menu-section`) get `aria-current="page"` on their own page; section links only track sections on their own page.
+1. **Loader** (partial) + **page-transition frame** (partial, for the client-list links) → **Header + menu** (partial): logo, 40×40 menu toggle; menu = dimmed page + 440px dark side panel (Figma `101:3677`). The header toggle stays on top as the panel's close (X); the item for the section in view gets `aria-current` (cream), others grey. "Work" links to `/work.html` (featured work page), "Library" to `/library.html` (project archive page) and "About" to `/about.html` from both the menu and the footer. Page links in the menu (no `data-menu-section`) get `aria-current="page"` on their own page; section links only track sections on their own page.
 2. **Hero** `[data-hero-root]` — React; text left, disc stack right (mobile: stack behind text).
-3. **Selected client work** `#work` — marquee band, client list (`.brand-card` ×6), marquee band.
+3. **Selected client work** `#work` — marquee band, client list (`a.brand-card[data-transition-link]` ×6, each linking to its case study), marquee band.
 4. **Services** — `.service` ×3 (Branding / Product / Motion): number, copy, "Learn more", project strip.
 5. **Skillset** `#about` — h2 + Vimeo showreel embed + metadata.
 6. **Contact card** `#contact` (partial) → **Footer** (partial).
@@ -91,7 +91,7 @@ The shared template — `.utility-row` and every `.case-*` section below — liv
 
 Normal scrolling page with `<body class="is-framing" data-menu-parent="/work.html">` (the menu marks "Work" as current).
 
-**No boot loader.** Project pages include `page-transition.html` instead of `loader.html` and start with `body.is-framing`, so the dark frame (`components/page-transition.css`) covers the page from first paint. `bootPage()` sees there's no `[data-loader]` and runs `frameIn()` (frame wipes up and off; the hero intro starts while it lifts). Links into a project page carry `data-transition-link` (the Work card link, the case study's next-project link): `core/transition.js` wipes the frame up over the current page, then navigates. The Work page includes the frame partial too (it keeps its loader). New-tab clicks, drags (`hscroll.js` cancels the click) and reduced motion skip the animation; a bfcache restore resets the frame.
+**No boot loader.** Project pages include `page-transition.html` instead of `loader.html` and start with `body.is-framing`, so the dark frame (`components/page-transition.css`) covers the page from first paint. `bootPage()` sees there's no `[data-loader]` and runs `frameIn()` (frame wipes up and off; the hero intro starts while it lifts). Links into a project page carry `data-transition-link` (the Work card link, the landing page's client-list cards, the case study's next-project link): `core/transition.js` wipes the frame up over the current page, then navigates. The Work and landing pages include the frame partial too (they keep their loader). New-tab clicks, drags (`hscroll.js` cancels the click) and reduced motion skip the animation; a bfcache restore resets the frame.
 
 Sections, top → bottom:
 1. `.case-hero` — project image (`data-hero-fade`, not lazy).
