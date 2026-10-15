@@ -1,0 +1,44 @@
+/* EDB case study (edb.html) — Figma 201:92 desktop / 201:462 mobile.
+   Shared case-study sections live in components/case-study.css; this file
+   holds EDB's next-project accent, its lead-sized context title, the
+   3-column motion grid and its mobile proportions. */
+
+/* Context heading (201:123) — a long lead-sized statement that fills the row */
+.case-context__title {
+  flex: 1 1 0;
+}
+
+@media (max-width: 1100px) {
+  .case-context__title { flex-basis: auto; }
+}
+
+/* Motion gallery (201:348) — 3 columns of 426 × 200 tiles */
+.case-context__grid--motion {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.case-context__media.case-context__media--motion {
+  aspect-ratio: 1280 / 600;
+}
+
+/* Next project (201:155) — CompareSing's accent */
+.case-next {
+  --case-next-bg: var(--accent-yellow);
+}
+
+/* ------------------------------------------------------------------
+   Mobile — Figma 201:462 (390 wide)
+------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  .case-hero__media { aspect-ratio: 342 / 260; }
+
+  /* Long client name — label stacks over the tags, 8 apart (201:469) */
+  .case-premise__meta { gap: var(--scale-008); }
+
+  .case-context__title { font: var(--m-heading-lead); }
+
+  /* Motion gallery (201:500) — one column of 342 × 159 tiles */
+  .case-context__grid--motion { grid-template-columns: minmax(0, 1fr); }
+  .case-context__media.case-context__media--motion { aspect-ratio: 342 / 159; }
+
+  .utility-row__meta { font: var(--m-caption-micro); }
+}
