@@ -1,19 +1,6 @@
 /* Spotify case study (spotify.html) — Figma 174:4113 desktop / 187:1216 mobile.
    Shared case-study sections live in components/case-study.css; this file
-   holds Spotify's campaign gallery, next-project accent and mobile proportions. */
-
-/* Context media gallery (174:4158) — wide visuals, then a 2 × 2 grid of squares */
-.case-context__gallery > .case-context__media {
-  aspect-ratio: 1360 / 800;
-}
-.case-context__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--scale-040);
-}
-.case-context__media.case-context__media--square {
-  aspect-ratio: 1;
-}
+   holds Spotify's next-project accent and mobile proportions. */
 
 /* Next project (174:4177) — Bandlab's accent */
 .case-next {
@@ -32,10 +19,6 @@
     align-items: center;
   }
 
-  .case-context__grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--scale-024);
-  }
   .utility-row__meta { font: var(--m-caption-micro); }
   .impact__note { font: var(--m-caption); }
 }

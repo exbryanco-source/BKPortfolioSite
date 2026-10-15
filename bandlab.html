@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bandlab — Superpills</title>
+    <meta name="description" content="Bandlab: visualising sound through motion graphics. A creative campaign that blends motion and sound into an animated TV Spot." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Linked (not imported from JS) so they block first paint in dev too — no unstyled flash before the loader -->
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="stylesheet" href="/src/styles/pages/bandlab.css" />
+  </head>
+  <!-- Project page: no boot loader — it starts under the transition frame (is-framing) and frames in.
+       data-menu-parent: the menu marks "Work" as current on case-study pages -->
+  <body class="is-framing" data-menu-parent="/work.html">
+    <!-- @include page-transition.html -->
+
+    <!-- @include header.html -->
+
+    <!-- Bandlab case study (184:4528 desktop / 194:563 mobile) -->
+    <main id="top">
+      <!-- Project visual (184:4532) -->
+      <section class="case-hero section">
+        <div class="case-hero__media card__media" data-hero-fade>
+          <img src="/assets/bandlab/hero.jpg" width="3840" height="2160" alt="Blue “Natural” can floating in the sky among blurred yellow spheres and bubbles" />
+        </div>
+      </section>
+
+      <!-- Premise (184:4534) -->
+      <section class="case-premise section">
+        <div class="case-premise__meta" data-hero-fade>
+          <p class="case-premise__label t-label-eyebrow">Bandlab</p>
+          <ul class="tags" aria-label="Disciplines">
+            <li class="tag t-caption-tag">Campaign</li>
+            <li class="tag t-caption-tag">Advertising</li>
+          </ul>
+        </div>
+        <div class="case-premise__copy">
+          <h1 class="case-premise__title t-heading-h1" data-hero-title>Visualising sound through motion graphics</h1>
+          <p class="case-premise__desc t-body-default" data-hero-fade>A creative campaign that blends motion and sound into an animated TV Spot.</p>
+        </div>
+      </section>
+
+      <!-- Project video (184:4787) -->
+      <section class="case-video">
+        <div class="case-video__feature feature" data-reveal>
+          <div class="feature__media">
+            <iframe
+              src="https://player.vimeo.com/video/1028071835?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+              title="Band Lab 2024 Autopitch Campaign"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="feature__meta">
+            <p class="feature__identity">
+              <span class="t-caption">Youtube</span>
+              <span class="t-caption-strong">Product Launch TV Spot</span>
+            </p>
+            <p class="t-caption-micro">2025</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Context section (184:4546) -->
+      <section class="case-context section">
+        <div class="utility-row utility-row--stack" data-reveal>
+          <h2 class="utility-row__label t-label-section">The Challenge</h2>
+          <p class="utility-row__meta t-caption">FROM FRAGMENTATION TO FLOW</p>
+        </div>
+        <div class="case-context__heading">
+          <p class="case-context__title t-heading-h2" data-split>A pitch correction tool for musicians</p>
+          <p class="case-context__challenge t-body-default" data-reveal>BandLab’s new feature, Autopitch, is a real-time pitch correction tool designed to enhance musical creativity, empower vocal performances, and inspire exploration.</p>
+        </div>
+        <div class="divider"></div>
+        <div class="case-context__media card__media" data-reveal>
+          <img src="/assets/bandlab/context-01.jpg" width="3840" height="2160" loading="lazy" alt="Red can spinning in a blue sky, motion-blurred" />
+        </div>
+        <div class="case-context__details" data-reveal>
+          <p class="case-context__lead t-heading-lead">End-to-end concept to animation translation</p>
+          <p class="case-context__body t-body-default">Leading visual development and storytelling to capture the creative essence of BandLab's Autopitch tool from art direction to animation.</p>
+        </div>
+        <!-- Context media gallery (184:4558): a 2 × 2 grid of squares, then two wide visuals.
+             The animated GIFs fall back to Figma's stills on mobile. -->
+        <div class="case-context__gallery case-context__gallery--campaign">
+          <div class="case-context__grid">
+            <picture class="case-context__media case-context__media--square card__media" data-reveal>
+              <source media="(max-width: 720px)" srcset="/assets/bandlab/square-01-m.png" width="600" height="600" />
+              <img src="/assets/bandlab/square-01.gif" width="600" height="600" loading="lazy" alt="Animated Gorgon “Bold, Dark &amp; Deep” can label unwrapping in the sky" />
+            </picture>
+            <picture class="case-context__media case-context__media--square card__media" data-reveal>
+              <source media="(max-width: 720px)" srcset="/assets/bandlab/square-02-m.png" width="600" height="600" />
+              <img src="/assets/bandlab/square-02.gif" width="600" height="600" loading="lazy" alt="Animated black AutoPitch can drifting through clouds" />
+            </picture>
+            <picture class="case-context__media case-context__media--square card__media" data-reveal>
+              <source media="(max-width: 720px)" srcset="/assets/bandlab/square-03-m.png" width="600" height="600" />
+              <img src="/assets/bandlab/square-03.gif" width="600" height="600" loading="lazy" alt="Animated iridescent pink and blue can tumbling through the sky" />
+            </picture>
+            <picture class="case-context__media case-context__media--square card__media" data-reveal>
+              <source media="(max-width: 720px)" srcset="/assets/bandlab/square-04-m.png" width="600" height="600" />
+              <img src="/assets/bandlab/square-04.gif" width="600" height="600" loading="lazy" alt="Animated red can surrounded by floating chrome droplets" />
+            </picture>
+          </div>
+          <picture class="case-context__media card__media" data-reveal>
+            <source media="(max-width: 720px)" srcset="/assets/bandlab/gallery-01-m.png" width="600" height="600" />
+            <img src="/assets/bandlab/gallery-01.gif" width="600" height="600" loading="lazy" alt="Animated red can rushing past in a motion-blurred sky" />
+          </picture>
+          <div class="case-context__media card__media" data-reveal>
+            <img src="/assets/bandlab/gallery-02.jpg" width="3840" height="2160" loading="lazy" alt="Back of the AutoPitch “Vocal Effects” can, listing its pitch-correction presets" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Outcomes (184:4568) -->
+      <section class="case-outcomes section">
+        <div class="utility-row" data-reveal>
+          <h2 class="utility-row__label t-label-section">Outcomes</h2>
+          <p class="utility-row__meta t-caption">ILLUSTRATIVE</p>
+        </div>
+        <p class="case-outcomes__title t-heading-section" data-split>Successfully positioned the feature as a leading, accessible pitch-correction tool for musicians of all skill levels.</p>
+        <ul class="case-outcomes__grid">
+          <li class="impact" data-reveal>
+            <p class="impact__value t-display-metric">100M+</p>
+            <div class="impact__copy">
+              <h3 class="impact__label t-heading-h4">Boosted user growth</h3>
+              <p class="impact__note t-body-supporting">Growing the existing community of Bandlab’s users</p>
+            </div>
+          </li>
+          <li class="impact" data-reveal>
+            <p class="impact__value t-display-metric">230k+</p>
+            <div class="impact__copy">
+              <h3 class="impact__label t-heading-h4">Social Impressions</h3>
+              <p class="impact__note t-body-supporting">Measured over Instagram, Tiktok and Youtube</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Next project (184:4584) -->
+      <section class="case-next section">
+        <h2 class="case-next__label t-label-section">NEXT PROJECT</h2>
+        <a class="case-next__link" href="/edb.html" data-transition-link>
+          <span class="case-next__title t-heading-project" data-reveal>EDB — Branding business in Singapore <span aria-hidden="true">→</span></span>
+          <div class="case-next__media card__media" data-reveal>
+            <img src="/assets/bandlab/next-edb.jpg" width="3840" height="2161" loading="lazy" alt="" />
+          </div>
+        </a>
+      </section>
+
+      <!-- @include contact-card.html -->
+    </main>
+
+    <!-- @include footer.html -->
+
+    <script type="module" src="/src/pages/bandlab.js"></script>
+  </body>
+</html>
