@@ -4,7 +4,7 @@ Static portfolio (Superpills / Bryan Khua) built with Vite + vanilla JS, with on
 - Desktop frame: file `gXPm8y9DY39DrkYXWPZIdW`, node `71:16`
 - Mobile frame: same file, node `84:657` (390 wide)
 
-The landing page (`index.html`), Work page (`work.html`, Figma `95:2886` / mobile `95:3063`), Library page (`library.html`, Figma `240:715` / mobile `240:834`), About page (`about.html`, Figma `240:544` / mobile `240:631`) and the case studies — Send.App (`send-app.html`, Figma `166:3048` / mobile `166:3214`) PIL (`pil.html`, Figma `174:3432` / mobile `176:1445`) and Spotify (`spotify.html`, Figma `174:4113` / mobile `187:1216`) — are complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
+The landing page (`index.html`), Work page (`work.html`, Figma `95:2886` / mobile `95:3063`), Library page (`library.html`, Figma `240:715` / mobile `240:834`), About page (`about.html`, Figma `240:544` / mobile `240:631`) and the case studies — Send.App (`send-app.html`, Figma `166:3048` / mobile `166:3214`), PIL (`pil.html`, Figma `174:3432` / mobile `176:1445`) and Spotify (`spotify.html`, Figma `174:4113` / mobile `187:1216`) — are complete for desktop + mobile. Remote: `origin` → github.com/exbryanco-source/BKPortfolioSite.
 
 ## Commands
 - `npm run dev` — dev server
@@ -94,7 +94,7 @@ Sections, top → bottom:
 7. `.case-outcomes` — `.impact` ×3 (metric, h4, note), ruled.
 8. `.case-credits` — two role lists + role note.
 9. `.case-next` — `--accent-blue` band; title + image are one link to the next case study.
-Then the contact-card and footer partials. Image boxes use `aspect-ratio` from Figma and `flex: none` (`.card__media`'s 600px flex-basis would otherwise set their height in column layouts). Sections 6 and 8 are Send.App-only; PIL has two impact statements (the outcomes grid makes one equal column per item) and, on mobile, a 2-column strip (`--wide` items span both columns, `grid-auto-flow: dense` matches Figma's order). Spotify has no strip (premise goes straight to the bleed) and ends its context gallery with a 2 × 2 `.case-context__grid` of squares (one column on mobile).
+Then the contact-card and footer partials. Image boxes use `aspect-ratio` from Figma and `flex: none` (`.card__media`'s 600px flex-basis would otherwise set their height in column layouts). Sections 6 and 8 are Send.App-only; PIL has two impact statements (the outcomes grid makes one equal column per item) and, on mobile, a 2-column strip (`--wide` items span both columns, `grid-auto-flow: dense` matches Figma's order). Spotify has no strip (premise goes straight to the bleed) and ends its context gallery with a 2 × 2 `.case-context__grid` of squares (one column on mobile). Its next-project link already points at `/bandlab.html` (Bandlab is not built yet; `public/assets/spotify/next-bandlab.jpg` = `work/work-bandlab.jpg`).
 
 To add another case study: copy `pil.html` (keep `is-framing` + the frame partial, no loader), keep only the sections it uses, add `pages/<project>.css` with its `--case-next-bg` and only the mobile values that differ from the shared baseline, point the previous case study's `.case-next__link` at it, and add a `.project-card__link[data-transition-link]` to its Work card.
 
