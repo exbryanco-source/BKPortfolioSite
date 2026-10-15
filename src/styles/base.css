@@ -48,10 +48,30 @@ h3 {
   font: inherit;
 }
 
+/* Keyboard focus — one ring site-wide; light on the dark menu panel */
+:focus-visible {
+  outline: 2px solid var(--action-indicator);
+  outline-offset: var(--scale-004);
+}
+.menu :focus-visible,
+.menu-open .menu-toggle:focus-visible {
+  outline-color: var(--text-on-dark-primary);
+}
+
 /* Page content sits above any fixed background layers */
 main {
   position: relative;
   z-index: 1;
+}
+
+/* SplitText line masks (core/animations.js) clip to the line box; Inter's
+   descenders hang below a 1.1 line-height, so let the clip extend past it
+   without changing the layout (padding grows the clip box downwards, the
+   matching negative margin cancels it out). Bottom only: a top pair would
+   collapse with the line above's margin and add space. */
+.split-line-mask {
+  padding-bottom: 0.25em;
+  margin-bottom: -0.25em;
 }
 
 /* Lazy images fade in once decoded (core/animations.js adds .is-loaded) */

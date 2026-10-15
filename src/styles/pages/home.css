@@ -139,8 +139,18 @@
 ------------------------------------------------------------------ */
 @media (max-width: 1100px) {
   .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .brand-card__name { width: 220px; }
-  .brand-card__desc { width: auto; }
+  /* Client list: name over description, arrow on the right — side by side,
+     the name column is too narrow for "CompareSing" / "PIL Singapore" */
+  .brand-card__details {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--scale-024);
+    padding-block: var(--scale-016);
+  }
+  .brand-card__name { grid-area: 1 / 1; width: auto; }
+  .brand-card__desc { grid-area: 2 / 1; width: auto; }
+  .brand-card__details .t-label-link { grid-area: 1 / 2 / 3 / 3; align-self: center; }
 }
 
 /* ------------------------------------------------------------------

@@ -23,6 +23,13 @@ export function initMenu(lenis) {
     else if (isParent) a.setAttribute('aria-current', 'true');
   });
   let isOpen = false;
+  // Everything but the menu and the toggle (its close button) — made inert
+  // while the menu is open so Tab can't reach the page hidden behind it.
+  const header = toggle.closest('header');
+  const background = [
+    ...[...document.body.children].filter((el) => el !== menu && el !== header && el.tagName !== 'SCRIPT'),
+    ...[...header.children].filter((el) => !el.contains(toggle)),
+  ];
 
   const tl = gsap
     .timeline({ paused: true, defaults: { ease: 'expo.inOut' } })
@@ -52,6 +59,7 @@ export function initMenu(lenis) {
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
     document.body.classList.toggle('menu-open', open);
     menu.inert = !open;
+    background.forEach((el) => (el.inert = open));
     if (open) {
       markCurrent();
       lenis?.stop();

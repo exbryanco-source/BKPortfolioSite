@@ -12,9 +12,10 @@ export function playHeroIntro() {
   SplitText.create('[data-hero-title]', {
     type: 'lines',
     mask: 'lines',
+    linesClass: 'split-line', // masks become .split-line-mask (base.css lets descenders through)
     autoSplit: true, // re-splits on resize / font swap
     onSplit: (self) =>
-      gsap.from(self.lines, { yPercent: 110, duration: 1.3, stagger: 0.12, ease: 'expo.out' }),
+      gsap.from(self.lines, { yPercent: 125, duration: 1.3, stagger: 0.12, ease: 'expo.out' }),
   });
 
   gsap.from('[data-hero-fade]', { opacity: 0, y: 20, duration: 1, stagger: 0.1, delay: 0.5, ease: 'power3.out' });
@@ -28,10 +29,11 @@ export function initScrollText() {
     SplitText.create(el, {
       type: 'lines,words',
       mask: 'lines',
+      linesClass: 'split-line',
       autoSplit: true,
       onSplit: (self) =>
         gsap.from(self.words, {
-          yPercent: 110,
+          yPercent: 125,
           duration: 1,
           stagger: 0.04,
           ease: 'expo.out',
