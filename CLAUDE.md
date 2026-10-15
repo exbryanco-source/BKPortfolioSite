@@ -127,7 +127,7 @@ To add another case study: copy `pil.html` (keep `is-framing` + the frame partia
 
 ### Adding a page
 Replace `<page>` with the new page's name (check the root first — `index`, `work`, `library`, `about`, `send-app`, `pil`, `spotify`, `bandlab`, `edb` and `comparesing` are taken).
-1. Create `<page>.html` in the project root (it is picked up by the build automatically). In `<head>`, link the styles: `<link rel="stylesheet" href="/src/styles/index.css" />` and `<link rel="stylesheet" href="/src/styles/pages/<page>.css" />` — never import CSS from the JS entry (in dev, Vite injects JS-imported CSS only after the module runs, so the raw HTML flashes before the loader is styled). Include the partials, give `<main id="top">`, and add `<script type="module" src="/src/pages/<page>.js">`.
+1. Create `<page>.html` in the project root (it is picked up by the build automatically). In `<head>`, add the favicon (`<link rel="icon" type="image/png" href="/favicon.png" />`, file in `public/`) and link the styles: `<link rel="stylesheet" href="/src/styles/index.css" />` and `<link rel="stylesheet" href="/src/styles/pages/<page>.css" />` — never import CSS from the JS entry (in dev, Vite injects JS-imported CSS only after the module runs, so the raw HTML flashes before the loader is styled). Include the partials, give `<main id="top">`, and add `<script type="module" src="/src/pages/<page>.js">`.
 2. `src/pages/<page>.js`: `import { bootPage } from '../core/boot.js'; bootPage();` — pass `{ load: (loader) => promise }` if the page has async setup the loader should wait for.
 3. Put page-only styles in `src/styles/pages/<page>.css`; promote anything reused to `components/`.
 
