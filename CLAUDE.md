@@ -10,6 +10,7 @@ The landing page (`index.html`), Work page (`work.html`, Figma `95:2886` / mobil
 - `npm run dev` — dev server
 - `npm run build` — `tsc --noEmit` then `vite build` (every root `*.html` is a page)
 - `npm run typecheck`
+- `npm run new-project -- --slug <slug> --name "<Name>" --figma <desktop node> --figma-mobile <mobile node> [--next <slug>]` — scaffold a case study from `templates/case-study/` (see "How to add a new project")
 - `npm run optimize` — regenerate responsive media (`scripts/optimize-media.mjs`, sharp + ffmpeg-static) after adding or replacing any image/GIF; idempotent, outputs are committed
 - `node scripts/make-brand-assets.mjs` — regenerate the favicon set + `og-image.png` (from `public/assets/footer-logo.svg` and `scripts/og-image.html`)
 - `npm run lighthouse -- <label>` — Lighthouse every page (mobile + desktop) against `vite preview` on :4173 → `reports/lighthouse-<label>.md`
@@ -21,7 +22,8 @@ vite.config.ts             html-partials + responsive-media plugins, multi-page 
 vite/seo-head.ts           Per-page canonical / Open Graph / Twitter / icon tags from each page's <title> + description; emits sitemap.xml (SITE_URL in vite.config.ts)
 vite/responsive-media.ts   Rewrites /assets rasters in the HTML to public/opt variants (<picture> AVIF/WebP, GIF → <video>)
 vercel.json                Cache headers (hashed js/css/fonts immutable; media 1 week)
-scripts/                   optimize-media.mjs, lighthouse.mjs, make-brand-assets.mjs + og-image.html
+scripts/                   optimize-media.mjs, lighthouse.mjs, make-brand-assets.mjs + og-image.html, new-project.mjs
+templates/case-study/      page.html / page.css / page.js — the case-study template (every section, OPTIONAL blocks, {{PLACEHOLDERS}})
 404.html                   Not-found page (noindex; Vercel serves it for unknown routes); styles pages/404.css
 public/                    robots.txt, favicon.ico/.svg, apple-touch-icon, icon-192/512, site.webmanifest, og-image.png
 reports/                   Lighthouse results (before / after)
@@ -118,7 +120,40 @@ Sections, top → bottom:
 9. `.case-next` — `--accent-blue` band; title + image are one link to the next case study.
 Then the contact-card and footer partials. Image boxes use `aspect-ratio` from Figma and `flex: none` (`.card__media`'s 600px flex-basis would otherwise set their height in column layouts). Section 8 is on Send.App and CompareSing (Send.App overrides its tighter mobile lists); section 6 is on Send.App and Bandlab (Bandlab's sits right after the premise); PIL has two impact statements (the outcomes grid makes one equal column per item) and, on mobile, a 2-column strip (`--wide` items span both columns, `grid-auto-flow: dense` matches Figma's order). A `.case-context__gallery--campaign` gallery (Spotify, Bandlab) has 1360 × 800 wide visuals and a 2 × 2 `.case-context__grid` of `--square` items (one column on mobile); Spotify puts the grid last, Bandlab first. Spotify has no strip (premise goes straight to the bleed); Bandlab has no strip or bleed. EDB has no strip or video, two bleeds in a row, a lead-sized context title, and a campaign gallery (wide, 2 × 2 squares, wide, `.case-context__grid--motion` 3-column grid of 9 tiles, wide). CompareSing's strip is a 4-column grid (1907px, 3 rows; stacked on mobile like Send.App's), it has no video, a plain 6-image context gallery, and its next project loops back to Send.App.
 
-To add another case study: copy `pil.html` (keep `is-framing` + the frame partial, no loader), keep only the sections it uses, add `pages/<project>.css` with its `--case-next-bg` and only the mobile values that differ from the shared baseline, point the previous case study's `.case-next__link` at it, and add a `.project-card__link[data-transition-link]` to its Work card.
+To add another case study, follow **How to add a new project** below.
+
+## How to add a new project
+Adding a case study should take one prompt. **The prompt needs:** the project name, the Figma desktop and mobile frame links, and where it sits in the next-project loop (default: after the current last project, CompareSing, so its next project is Send.App). Optional: the Work-card summary + tags, and whether it joins the landing page's client list (that needs desktop + mobile logo SVGs). Example:
+> Add a case study for **Acme**: desktop https://www.figma.com/design/gXPm8y9DY39DrkYXWPZIdW/…?node-id=300-1, mobile …?node-id=300-2. Put it after CompareSing. Work card: "Rebranding a fintech" · Branding · Product Design.
+
+Anything missing that can't be read from Figma (Work-card copy, the loop position, logos), ask for first. Then:
+
+1. **Branch** off `main` (e.g. `<slug>-case-study`).
+2. **Scaffold:** `npm run new-project -- --slug <slug> --name "<Name>" --figma <desktop node> --figma-mobile <mobile node> --next <next slug>`. It creates `<slug>.html`, `src/pages/<slug>.js`, `src/styles/pages/<slug>.css` and `public/assets/<slug>/`, refuses a slug that's taken, and lists the placeholders left to fill.
+3. **Read Figma:** load the `figma-design-to-code` skill, run `get_metadata` on both frames for the section list and heights, then `get_design_context` on each section, in parallel.
+4. **Assets:** download every image into `public/assets/<slug>/` using the template's names (`hero`, `strip-01…`, `bleed`, `context-01`, `gallery-01…`, `square-01…`, `motion-01…`). Run `file` on each download and save it under its real extension: Figma calls JPEGs and GIFs `.png`. md5 desktop against mobile downloads to find which mobile slot is which image, and only add a `-m` variant where mobile genuinely differs (`<picture><source media="(max-width: 720px)">`). Flag GIFs over about 10 MB.
+5. **Fill the page:**
+   - Delete every OPTIONAL block the Figma frames don't have; keep the rest in order.
+   - Replace every `{{…}}`: copy, `width`/`height`, alt text, Vimeo id, next-project title and image. The build fails while any remain, in the HTML or the page CSS.
+   - In `pages/<slug>.css`, keep only what differs from the shared baseline in `components/case-study.css`:
+     - the mobile hero ratio
+     - the strip's column count, if it isn't 6
+     - the mobile strip layout: the stack is on by default; PIL's 2-column grid is the alternative
+     - any spacing that differs
+     - `--case-next-bg` = the **next** project's accent
+6. **Media:** `npm run optimize`. If an image sits in a new slot size, add it to `SLOT_SIZES` in `vite/responsive-media.ts`.
+7. **Wire it in:**
+   - **Previous case study:** point its `.case-next__link` at `/<slug>.html`, with this project's title and image (use the Work-card image), and set its `--case-next-bg` to this project's accent.
+   - **`work.html`:** add a `.project-card` in loop order, with the image at `public/assets/work/work-<slug>.jpg` and the title wrapped in `a.project-card__link[data-transition-link]`. Add a matching `button.work__dot`.
+   - **`index.html`** (if it joins the client list): add an `a.brand-card[data-transition-link]` with `logo-<slug>.svg` + `logo-<slug>-m.svg`.
+   - **CLAUDE.md:** add the page to the "complete" list at the top (with its Figma nodes), to the project structure (`pages/<slug>.js/.css`, `public/assets/<slug>/`), to the case-study page list and section variants, and to the "taken" names under *Adding a page*.
+8. **Verify:**
+   - `npm run build`
+   - compare `main > *` section heights with the Figma frames at 390 and 1440 (headless Chrome over CDP)
+   - QA sweep: no horizontal overflow, links, console errors, hover/focus
+   - click through the Work card and the previous project's next link
+   - the SEO plugin adds the page to `sitemap.xml` and generates its meta automatically
+9. **Ship:** stop for approval before each of commit, push, PR and merge.
 
 ## Shared components (reuse these on new pages)
 | Component | Markup / source | Styles |

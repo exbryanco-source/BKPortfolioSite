@@ -1,0 +1,32 @@
+/* {{NAME}} case study ({{SLUG}}.html) — Figma {{FIGMA_DESKTOP}} desktop / {{FIGMA_MOBILE}} mobile.
+   Shared case-study sections and the shared mobile baseline live in
+   components/case-study.css. This file holds ONLY what differs in this
+   project's Figma frames — delete anything below that matches the baseline. */
+
+/* Next project — the NEXT project's accent: --accent-blue (default) / -red / -orange / -yellow / -primary */
+.case-next {
+  --case-next-bg: var({{NEXT_ACCENT}});
+}
+
+/* OPTIONAL strip column grid, if it isn't the shared 6 × 2880px
+   (CompareSing: 4 columns, 1907px wide) */
+/* .case-strip__track.thumbs {
+  grid-template-columns: repeat(4, calc((1907px - 3 * var(--scale-040)) / 4));
+} */
+
+/* ------------------------------------------------------------------
+   Mobile — Figma {{FIGMA_MOBILE}} (390 wide)
+------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  /* Hero ratio from the mobile frame (342 wide) — the most common override */
+  .case-hero__media { aspect-ratio: 342 / {{MOBILE_HERO_H}}; }
+
+  /* Strip → vertical stack (Send.App / CompareSing). REQUIRED if the page has a strip:
+     the shared CSS keeps the 6-column desktop grid, which overflows on mobile.
+     For a 2-column mobile strip copy PIL's rules (pages/pil.css) instead.
+     Delete this block if the page has no strip. */
+  .case-strip { padding: var(--scale-016) var(--gutter) var(--scale-048); }
+  .case-strip__track.thumbs { display: flex; flex-direction: column; gap: var(--scale-016); }
+  .case-strip__item.card__media { flex: none; aspect-ratio: 342 / 184; }
+  .case-strip__item--wide.card__media { aspect-ratio: 342 / 88; }
+}
