@@ -12,7 +12,9 @@ export function playHeroIntro() {
   SplitText.create('[data-hero-title]', {
     type: 'lines',
     mask: 'lines',
-    linesClass: 'split-line', // masks become .split-line-mask (base.css lets descenders through)
+    linesClass: 'split-line',
+    aria: 'none', // the split words stay readable; 'auto' puts a (prohibited) aria-label on <p> titles
+    // masks become .split-line-mask (base.css lets descenders through)
     autoSplit: true, // re-splits on resize / font swap
     onSplit: (self) =>
       gsap.from(self.lines, { yPercent: 125, duration: 1.3, stagger: 0.12, ease: 'expo.out' }),
@@ -30,6 +32,7 @@ export function initScrollText() {
       type: 'lines,words',
       mask: 'lines',
       linesClass: 'split-line',
+      aria: 'none',
       autoSplit: true,
       onSplit: (self) =>
         gsap.from(self.words, {

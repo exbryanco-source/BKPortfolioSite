@@ -88,10 +88,13 @@ img[loading='lazy'].is-loaded {
   opacity: 1;
 }
 
+/* Reduced motion: no CSS transitions. (Not `transition-duration: 0.01ms` —
+   with the default `transition-property: all` that gives every element a
+   transition, which fought GSAP's inline styles and left the menu hidden.) */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    transition-duration: 0.01ms !important;
+    transition: none !important;
   }
 }

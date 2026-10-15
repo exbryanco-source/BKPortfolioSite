@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import { prefersReducedMotion } from './scroll.js';
 
 /** "Loading (0%)" boot screen. Progress is fed by the GLTF loader. */
 export function createLoader() {
@@ -15,6 +16,11 @@ export function createLoader() {
       tweenTo(Math.min(p, 1) * 100);
     },
     finish() {
+      if (prefersReducedMotion) {
+        el.remove();
+        document.body.classList.remove('is-loading');
+        return Promise.resolve();
+      }
       return new Promise((resolve) => {
         gsap
           .timeline({

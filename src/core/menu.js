@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { scrollToTarget } from './scroll.js';
+import { scrollToTarget, prefersReducedMotion } from './scroll.js';
 
 /**
  * Side-panel menu: the page dims, the dark panel wipes in from the right and
@@ -63,9 +63,16 @@ export function initMenu(lenis) {
     if (open) {
       markCurrent();
       lenis?.stop();
-      tl.timeScale(1).play();
     } else {
       lenis?.start();
+    }
+    if (prefersReducedMotion) {
+      // No slide or fade: jump to the end state (or back to hidden)
+      tl.progress(open ? 1 : 0).pause();
+      if (!open) gsap.set(menu, { visibility: 'hidden' });
+    } else if (open) {
+      tl.timeScale(1).play();
+    } else {
       tl.timeScale(1.6).reverse();
     }
   }
