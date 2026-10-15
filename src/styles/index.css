@@ -1,6 +1,12 @@
 /* Shared styles for every page. Page-specific styles live in pages/*.css
    and are <link>ed in that page's <head> next to this file (never imported
    from JS — that delays styles until the module runs and flashes raw HTML). */
+/* Inter, self-hosted (was Google Fonts — a render-blocking third-party request).
+   unicode-range blocks: only the subsets a page uses are downloaded. */
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
 @import './tokens.css';
 @import './base.css';
 @import './typography.css';

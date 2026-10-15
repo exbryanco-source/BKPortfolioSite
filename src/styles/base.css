@@ -39,8 +39,13 @@ a {
 ul {
   list-style: none;
 }
-img {
+img,
+video {
   display: block;
+}
+/* <picture> wrappers added by the responsive-media plugin don't take part in layout */
+picture[data-rm] {
+  display: contents;
 }
 h1,
 h2,

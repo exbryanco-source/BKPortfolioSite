@@ -1,0 +1,290 @@
+[
+ {
+  "preset": "mobile",
+  "page": "/about.html",
+  "perf": 72,
+  "a11y": 100,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 9.3,
+  "cls": 0.008,
+  "tbt": 0,
+  "kb": 1542,
+  "a11yFails": []
+ },
+ {
+  "preset": "mobile",
+  "page": "/bandlab.html",
+  "perf": 74,
+  "a11y": 96,
+  "bp": 77,
+  "seo": 92,
+  "lcp": 11.9,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 4573,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "mobile",
+  "page": "/comparesing.html",
+  "perf": 74,
+  "a11y": 95,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 13.1,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 4357,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "mobile",
+  "page": "/edb.html",
+  "perf": 74,
+  "a11y": 95,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 23.1,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 7660,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "mobile",
+  "page": "/",
+  "perf": 42,
+  "a11y": 96,
+  "bp": 77,
+  "seo": 83,
+  "lcp": 16.9,
+  "cls": 0.857,
+  "tbt": 68,
+  "kb": 20353,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "mobile",
+  "page": "/library.html",
+  "perf": 97,
+  "a11y": 100,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 2.3,
+  "cls": 0.009,
+  "tbt": 0,
+  "kb": 36225,
+  "a11yFails": []
+ },
+ {
+  "preset": "mobile",
+  "page": "/pil.html",
+  "perf": 74,
+  "a11y": 95,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 14.4,
+  "cls": 0.01,
+  "tbt": 0,
+  "kb": 12250,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "mobile",
+  "page": "/send-app.html",
+  "perf": 74,
+  "a11y": 96,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 14,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 4163,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "mobile",
+  "page": "/spotify.html",
+  "perf": 72,
+  "a11y": 95,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 19.5,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 5238,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "mobile",
+  "page": "/work.html",
+  "perf": 74,
+  "a11y": 100,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 18.8,
+  "cls": 0.007,
+  "tbt": 0,
+  "kb": 4557,
+  "a11yFails": []
+ },
+ {
+  "preset": "desktop",
+  "page": "/about.html",
+  "perf": 95,
+  "a11y": 100,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 1.5,
+  "cls": 0.003,
+  "tbt": 0,
+  "kb": 1542,
+  "a11yFails": []
+ },
+ {
+  "preset": "desktop",
+  "page": "/bandlab.html",
+  "perf": 96,
+  "a11y": 96,
+  "bp": 77,
+  "seo": 92,
+  "lcp": 1.3,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 8070,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "desktop",
+  "page": "/comparesing.html",
+  "perf": 90,
+  "a11y": 95,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 2.1,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 4357,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "desktop",
+  "page": "/edb.html",
+  "perf": 88,
+  "a11y": 95,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 2.2,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 3739,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "desktop",
+  "page": "/",
+  "perf": 75,
+  "a11y": 96,
+  "bp": 77,
+  "seo": 83,
+  "lcp": 0.4,
+  "cls": 0.523,
+  "tbt": 0,
+  "kb": 23251,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "desktop",
+  "page": "/library.html",
+  "perf": 98,
+  "a11y": 100,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 1,
+  "cls": 0.001,
+  "tbt": 0,
+  "kb": 36225,
+  "a11yFails": []
+ },
+ {
+  "preset": "desktop",
+  "page": "/pil.html",
+  "perf": 100,
+  "a11y": 95,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 0.6,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 12695,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "desktop",
+  "page": "/send-app.html",
+  "perf": 88,
+  "a11y": 96,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 2.4,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 4163,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "desktop",
+  "page": "/spotify.html",
+  "perf": 89,
+  "a11y": 95,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 2.1,
+  "cls": 0,
+  "tbt": 0,
+  "kb": 9638,
+  "a11yFails": [
+   "aria-prohibited-attr"
+  ]
+ },
+ {
+  "preset": "desktop",
+  "page": "/work.html",
+  "perf": 87,
+  "a11y": 100,
+  "bp": 100,
+  "seo": 92,
+  "lcp": 2.5,
+  "cls": 0.001,
+  "tbt": 0,
+  "kb": 2924,
+  "a11yFails": []
+ }
+]

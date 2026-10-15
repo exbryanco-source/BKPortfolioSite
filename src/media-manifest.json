@@ -1,0 +1,1566 @@
+{
+ "/assets/about/portrait.png": {
+  "w": 1024,
+  "h": 1024,
+  "widths": [
+   640,
+   1024
+  ],
+  "fallback": "/opt/about/portrait-1024.jpg"
+ },
+ "/assets/bandlab/context-01.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/bandlab/context-01-1920.jpg"
+ },
+ "/assets/bandlab/gallery-01-m.png": {
+  "w": 600,
+  "h": 600,
+  "widths": [
+   600
+  ],
+  "fallback": "/opt/bandlab/gallery-01-m-600.png"
+ },
+ "/assets/bandlab/gallery-01.gif": {
+  "w": 600,
+  "h": 600,
+  "video": true,
+  "webm": "/opt/bandlab/gallery-01.webm",
+  "mp4": "/opt/bandlab/gallery-01.mp4",
+  "posterAvif": "/opt/bandlab/gallery-01-poster.avif",
+  "posterJpg": "/opt/bandlab/gallery-01-poster.jpg"
+ },
+ "/assets/bandlab/gallery-02.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/bandlab/gallery-02-1920.jpg"
+ },
+ "/assets/bandlab/hero.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/bandlab/hero-1920.jpg"
+ },
+ "/assets/bandlab/next-edb.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/bandlab/next-edb-1920.jpg"
+ },
+ "/assets/bandlab/square-01-m.png": {
+  "w": 600,
+  "h": 600,
+  "widths": [
+   600
+  ],
+  "fallback": "/opt/bandlab/square-01-m-600.png"
+ },
+ "/assets/bandlab/square-01.gif": {
+  "w": 600,
+  "h": 600,
+  "video": true,
+  "webm": "/opt/bandlab/square-01.webm",
+  "mp4": "/opt/bandlab/square-01.mp4",
+  "posterAvif": "/opt/bandlab/square-01-poster.avif",
+  "posterJpg": "/opt/bandlab/square-01-poster.jpg"
+ },
+ "/assets/bandlab/square-02-m.png": {
+  "w": 600,
+  "h": 600,
+  "widths": [
+   600
+  ],
+  "fallback": "/opt/bandlab/square-02-m-600.png"
+ },
+ "/assets/bandlab/square-02.gif": {
+  "w": 600,
+  "h": 600,
+  "video": true,
+  "webm": "/opt/bandlab/square-02.webm",
+  "mp4": "/opt/bandlab/square-02.mp4",
+  "posterAvif": "/opt/bandlab/square-02-poster.avif",
+  "posterJpg": "/opt/bandlab/square-02-poster.jpg"
+ },
+ "/assets/bandlab/square-03-m.png": {
+  "w": 600,
+  "h": 600,
+  "widths": [
+   600
+  ],
+  "fallback": "/opt/bandlab/square-03-m-600.png"
+ },
+ "/assets/bandlab/square-03.gif": {
+  "w": 600,
+  "h": 600,
+  "video": true,
+  "webm": "/opt/bandlab/square-03.webm",
+  "mp4": "/opt/bandlab/square-03.mp4",
+  "posterAvif": "/opt/bandlab/square-03-poster.avif",
+  "posterJpg": "/opt/bandlab/square-03-poster.jpg"
+ },
+ "/assets/bandlab/square-04-m.png": {
+  "w": 600,
+  "h": 600,
+  "widths": [
+   600
+  ],
+  "fallback": "/opt/bandlab/square-04-m-600.png"
+ },
+ "/assets/bandlab/square-04.gif": {
+  "w": 600,
+  "h": 600,
+  "video": true,
+  "webm": "/opt/bandlab/square-04.webm",
+  "mp4": "/opt/bandlab/square-04.mp4",
+  "posterAvif": "/opt/bandlab/square-04-poster.avif",
+  "posterJpg": "/opt/bandlab/square-04-poster.jpg"
+ },
+ "/assets/branding-01.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/branding-01-1920.jpg"
+ },
+ "/assets/branding-02.jpg": {
+  "w": 4096,
+  "h": 2303,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/branding-02-1920.jpg"
+ },
+ "/assets/branding-03.jpg": {
+  "w": 1280,
+  "h": 720,
+  "widths": [
+   640,
+   1280
+  ],
+  "fallback": "/opt/branding-03-1280.jpg"
+ },
+ "/assets/branding-04.png": {
+  "w": 2250,
+  "h": 1500,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2250
+  ],
+  "fallback": "/opt/branding-04-1920.jpg"
+ },
+ "/assets/comparesing/bleed.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/bleed-1920.jpg"
+ },
+ "/assets/comparesing/context-01.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/context-01-1920.jpg"
+ },
+ "/assets/comparesing/gallery-01.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/gallery-01-1920.jpg"
+ },
+ "/assets/comparesing/gallery-02.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/gallery-02-1920.jpg"
+ },
+ "/assets/comparesing/gallery-03.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/gallery-03-1920.jpg"
+ },
+ "/assets/comparesing/gallery-04.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/gallery-04-1920.jpg"
+ },
+ "/assets/comparesing/gallery-05.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/gallery-05-1920.jpg"
+ },
+ "/assets/comparesing/gallery-06.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/gallery-06-1920.jpg"
+ },
+ "/assets/comparesing/strip-01.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/strip-01-1920.jpg"
+ },
+ "/assets/comparesing/strip-02.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/strip-02-1920.jpg"
+ },
+ "/assets/comparesing/strip-03.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/strip-03-1920.jpg"
+ },
+ "/assets/comparesing/strip-04.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/strip-04-1920.jpg"
+ },
+ "/assets/comparesing/strip-05.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/strip-05-1920.jpg"
+ },
+ "/assets/comparesing/strip-06.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/strip-06-1920.jpg"
+ },
+ "/assets/comparesing/strip-07.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/strip-07-1920.jpg"
+ },
+ "/assets/comparesing/strip-08.jpg": {
+  "w": 2460,
+  "h": 1080,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2460
+  ],
+  "fallback": "/opt/comparesing/strip-08-1920.jpg"
+ },
+ "/assets/comparesing/strip-09.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/strip-09-1920.jpg"
+ },
+ "/assets/comparesing/strip-10.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/comparesing/strip-10-1920.jpg"
+ },
+ "/assets/edb/bleed-01.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/edb/bleed-01-1920.jpg"
+ },
+ "/assets/edb/bleed-02.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/edb/bleed-02-1920.jpg"
+ },
+ "/assets/edb/context-01.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/edb/context-01-1920.jpg"
+ },
+ "/assets/edb/gallery-01.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/edb/gallery-01-1920.jpg"
+ },
+ "/assets/edb/gallery-02.gif": {
+  "w": 1120,
+  "h": 630,
+  "video": true,
+  "webm": "/opt/edb/gallery-02.webm",
+  "mp4": "/opt/edb/gallery-02.mp4",
+  "posterAvif": "/opt/edb/gallery-02-poster.avif",
+  "posterJpg": "/opt/edb/gallery-02-poster.jpg"
+ },
+ "/assets/edb/gallery-03.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/edb/gallery-03-1920.jpg"
+ },
+ "/assets/edb/hero.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/edb/hero-1920.jpg"
+ },
+ "/assets/edb/motion-01.gif": {
+  "w": 1120,
+  "h": 630,
+  "video": true,
+  "webm": "/opt/edb/motion-01.webm",
+  "mp4": "/opt/edb/motion-01.mp4",
+  "posterAvif": "/opt/edb/motion-01-poster.avif",
+  "posterJpg": "/opt/edb/motion-01-poster.jpg"
+ },
+ "/assets/edb/motion-02.gif": {
+  "w": 1120,
+  "h": 630,
+  "video": true,
+  "webm": "/opt/edb/motion-02.webm",
+  "mp4": "/opt/edb/motion-02.mp4",
+  "posterAvif": "/opt/edb/motion-02-poster.avif",
+  "posterJpg": "/opt/edb/motion-02-poster.jpg"
+ },
+ "/assets/edb/motion-03.gif": {
+  "w": 1120,
+  "h": 630,
+  "video": true,
+  "webm": "/opt/edb/motion-03.webm",
+  "mp4": "/opt/edb/motion-03.mp4",
+  "posterAvif": "/opt/edb/motion-03-poster.avif",
+  "posterJpg": "/opt/edb/motion-03-poster.jpg"
+ },
+ "/assets/edb/motion-04.gif": {
+  "w": 896,
+  "h": 504,
+  "video": true,
+  "webm": "/opt/edb/motion-04.webm",
+  "mp4": "/opt/edb/motion-04.mp4",
+  "posterAvif": "/opt/edb/motion-04-poster.avif",
+  "posterJpg": "/opt/edb/motion-04-poster.jpg"
+ },
+ "/assets/edb/motion-05.gif": {
+  "w": 896,
+  "h": 504,
+  "video": true,
+  "webm": "/opt/edb/motion-05.webm",
+  "mp4": "/opt/edb/motion-05.mp4",
+  "posterAvif": "/opt/edb/motion-05-poster.avif",
+  "posterJpg": "/opt/edb/motion-05-poster.jpg"
+ },
+ "/assets/edb/motion-06.gif": {
+  "w": 1280,
+  "h": 720,
+  "video": true,
+  "webm": "/opt/edb/motion-06.webm",
+  "mp4": "/opt/edb/motion-06.mp4",
+  "posterAvif": "/opt/edb/motion-06-poster.avif",
+  "posterJpg": "/opt/edb/motion-06-poster.jpg"
+ },
+ "/assets/edb/motion-07.gif": {
+  "w": 1280,
+  "h": 720,
+  "video": true,
+  "webm": "/opt/edb/motion-07.webm",
+  "mp4": "/opt/edb/motion-07.mp4",
+  "posterAvif": "/opt/edb/motion-07-poster.avif",
+  "posterJpg": "/opt/edb/motion-07-poster.jpg"
+ },
+ "/assets/edb/motion-08.gif": {
+  "w": 1280,
+  "h": 720,
+  "video": true,
+  "webm": "/opt/edb/motion-08.webm",
+  "mp4": "/opt/edb/motion-08.mp4",
+  "posterAvif": "/opt/edb/motion-08-poster.avif",
+  "posterJpg": "/opt/edb/motion-08-poster.jpg"
+ },
+ "/assets/edb/motion-09.gif": {
+  "w": 1280,
+  "h": 720,
+  "video": true,
+  "webm": "/opt/edb/motion-09.webm",
+  "mp4": "/opt/edb/motion-09.mp4",
+  "posterAvif": "/opt/edb/motion-09-poster.avif",
+  "posterJpg": "/opt/edb/motion-09-poster.jpg"
+ },
+ "/assets/edb/next-comparesing.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/edb/next-comparesing-1920.jpg"
+ },
+ "/assets/edb/square-01.gif": {
+  "w": 600,
+  "h": 600,
+  "video": true,
+  "webm": "/opt/edb/square-01.webm",
+  "mp4": "/opt/edb/square-01.mp4",
+  "posterAvif": "/opt/edb/square-01-poster.avif",
+  "posterJpg": "/opt/edb/square-01-poster.jpg"
+ },
+ "/assets/edb/square-02.gif": {
+  "w": 600,
+  "h": 600,
+  "video": true,
+  "webm": "/opt/edb/square-02.webm",
+  "mp4": "/opt/edb/square-02.mp4",
+  "posterAvif": "/opt/edb/square-02-poster.avif",
+  "posterJpg": "/opt/edb/square-02-poster.jpg"
+ },
+ "/assets/edb/square-03.gif": {
+  "w": 600,
+  "h": 600,
+  "video": true,
+  "webm": "/opt/edb/square-03.webm",
+  "mp4": "/opt/edb/square-03.mp4",
+  "posterAvif": "/opt/edb/square-03-poster.avif",
+  "posterJpg": "/opt/edb/square-03-poster.jpg"
+ },
+ "/assets/edb/square-04.jpg": {
+  "w": 2160,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2160
+  ],
+  "fallback": "/opt/edb/square-04-1920.jpg"
+ },
+ "/assets/library/library-01.jpg": {
+  "w": 960,
+  "h": 539,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-01-960.jpg"
+ },
+ "/assets/library/library-02.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-02-960.jpg"
+ },
+ "/assets/library/library-03.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-03-960.jpg"
+ },
+ "/assets/library/library-04.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-04-960.jpg"
+ },
+ "/assets/library/library-05.png": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-05-960.jpg"
+ },
+ "/assets/library/library-06.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-06-960.jpg"
+ },
+ "/assets/library/library-07.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-07-960.jpg"
+ },
+ "/assets/library/library-08.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-08-960.jpg"
+ },
+ "/assets/library/library-09.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-09-960.jpg"
+ },
+ "/assets/library/library-10.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-10-960.jpg"
+ },
+ "/assets/library/library-11.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-11-960.jpg"
+ },
+ "/assets/library/library-12.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-12-960.jpg"
+ },
+ "/assets/library/library-13.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-13-960.jpg"
+ },
+ "/assets/library/library-14.jpg": {
+  "w": 960,
+  "h": 539,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-14-960.jpg"
+ },
+ "/assets/library/library-15.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-15-960.jpg"
+ },
+ "/assets/library/library-16.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-16-960.jpg"
+ },
+ "/assets/library/library-17.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-17-960.jpg"
+ },
+ "/assets/library/library-18.jpg": {
+  "w": 960,
+  "h": 539,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-18-960.jpg"
+ },
+ "/assets/library/library-19.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-19-960.jpg"
+ },
+ "/assets/library/library-20.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-20-960.jpg"
+ },
+ "/assets/library/library-21.gif": {
+  "w": 600,
+  "h": 600,
+  "video": true,
+  "webm": "/opt/library/library-21.webm",
+  "mp4": "/opt/library/library-21.mp4",
+  "posterAvif": "/opt/library/library-21-poster.avif",
+  "posterJpg": "/opt/library/library-21-poster.jpg"
+ },
+ "/assets/library/library-22.gif": {
+  "w": 800,
+  "h": 400,
+  "video": true,
+  "webm": "/opt/library/library-22.webm",
+  "mp4": "/opt/library/library-22.mp4",
+  "posterAvif": "/opt/library/library-22-poster.avif",
+  "posterJpg": "/opt/library/library-22-poster.jpg"
+ },
+ "/assets/library/library-23.gif": {
+  "w": 600,
+  "h": 600,
+  "video": true,
+  "webm": "/opt/library/library-23.webm",
+  "mp4": "/opt/library/library-23.mp4",
+  "posterAvif": "/opt/library/library-23-poster.avif",
+  "posterJpg": "/opt/library/library-23-poster.jpg"
+ },
+ "/assets/library/library-24.gif": {
+  "w": 800,
+  "h": 800,
+  "video": true,
+  "webm": "/opt/library/library-24.webm",
+  "mp4": "/opt/library/library-24.mp4",
+  "posterAvif": "/opt/library/library-24-poster.avif",
+  "posterJpg": "/opt/library/library-24-poster.jpg"
+ },
+ "/assets/library/library-25.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-25-960.jpg"
+ },
+ "/assets/library/library-26.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-26-960.jpg"
+ },
+ "/assets/library/library-27.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-27-960.jpg"
+ },
+ "/assets/library/library-28.jpg": {
+  "w": 960,
+  "h": 539,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-28-960.jpg"
+ },
+ "/assets/library/library-29.jpg": {
+  "w": 960,
+  "h": 539,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-29-960.jpg"
+ },
+ "/assets/library/library-30.jpg": {
+  "w": 960,
+  "h": 540,
+  "widths": [
+   640,
+   960
+  ],
+  "fallback": "/opt/library/library-30-960.jpg"
+ },
+ "/assets/motion-01.jpg": {
+  "w": 3840,
+  "h": 2382,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/motion-01-1920.jpg"
+ },
+ "/assets/motion-02.png": {
+  "w": 1920,
+  "h": 1080,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/motion-02-1920.png"
+ },
+ "/assets/motion-03.png": {
+  "w": 1235,
+  "h": 703,
+  "widths": [
+   640,
+   1235
+  ],
+  "fallback": "/opt/motion-03-1235.png"
+ },
+ "/assets/motion-04.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/motion-04-1920.jpg"
+ },
+ "/assets/pil/bleed.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/bleed-1440.jpg"
+ },
+ "/assets/pil/context-01.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/context-01-1440.jpg"
+ },
+ "/assets/pil/context-03.jpg": {
+  "w": 2720,
+  "h": 1530,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/pil/context-03-1920.jpg"
+ },
+ "/assets/pil/hero.jpg": {
+  "w": 1020,
+  "h": 720,
+  "widths": [
+   640,
+   1020
+  ],
+  "fallback": "/opt/pil/hero-1020.jpg"
+ },
+ "/assets/pil/next-spotify-m.jpg": {
+  "w": 1400,
+  "h": 788,
+  "widths": [
+   640,
+   1280,
+   1400
+  ],
+  "fallback": "/opt/pil/next-spotify-m-1400.jpg"
+ },
+ "/assets/pil/next-spotify.jpg": {
+  "w": 1024,
+  "h": 1024,
+  "widths": [
+   640,
+   1024
+  ],
+  "fallback": "/opt/pil/next-spotify-1024.jpg"
+ },
+ "/assets/pil/strip-01-m.jpg": {
+  "w": 800,
+  "h": 556,
+  "widths": [
+   640,
+   800
+  ],
+  "fallback": "/opt/pil/strip-01-m-800.jpg"
+ },
+ "/assets/pil/strip-01.gif": {
+  "w": 800,
+  "h": 556,
+  "video": true,
+  "webm": "/opt/pil/strip-01.webm",
+  "mp4": "/opt/pil/strip-01.mp4",
+  "posterAvif": "/opt/pil/strip-01-poster.avif",
+  "posterJpg": "/opt/pil/strip-01-poster.jpg"
+ },
+ "/assets/pil/strip-02.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-02-1440.jpg"
+ },
+ "/assets/pil/strip-03.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-03-1440.jpg"
+ },
+ "/assets/pil/strip-04.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-04-1440.jpg"
+ },
+ "/assets/pil/strip-05.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-05-1440.jpg"
+ },
+ "/assets/pil/strip-06.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-06-1440.jpg"
+ },
+ "/assets/pil/strip-07.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-07-1440.jpg"
+ },
+ "/assets/pil/strip-08.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-08-1440.jpg"
+ },
+ "/assets/pil/strip-09.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-09-1440.jpg"
+ },
+ "/assets/pil/strip-10.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-10-1440.jpg"
+ },
+ "/assets/pil/strip-11.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-11-1440.jpg"
+ },
+ "/assets/pil/strip-12.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-12-1440.jpg"
+ },
+ "/assets/pil/strip-13.jpg": {
+  "w": 1440,
+  "h": 1000,
+  "widths": [
+   640,
+   1280,
+   1440
+  ],
+  "fallback": "/opt/pil/strip-13-1440.jpg"
+ },
+ "/assets/product-01.png": {
+  "w": 3584,
+  "h": 2018,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/product-01-1920.png"
+ },
+ "/assets/product-02.jpg": {
+  "w": 3950,
+  "h": 1920,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/product-02-1920.jpg"
+ },
+ "/assets/product-03.png": {
+  "w": 1640,
+  "h": 720,
+  "widths": [
+   640,
+   1280,
+   1640
+  ],
+  "fallback": "/opt/product-03-1640.png"
+ },
+ "/assets/product-04.jpg": {
+  "w": 2100,
+  "h": 1080,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2100
+  ],
+  "fallback": "/opt/product-04-1920.jpg"
+ },
+ "/assets/send-app/bleed.jpg": {
+  "w": 2400,
+  "h": 1350,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2400
+  ],
+  "fallback": "/opt/send-app/bleed-1920.jpg"
+ },
+ "/assets/send-app/context-01.jpg": {
+  "w": 2720,
+  "h": 1066,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/send-app/context-01-1920.jpg"
+ },
+ "/assets/send-app/context-02-m.jpg": {
+  "w": 1400,
+  "h": 720,
+  "widths": [
+   640,
+   1280,
+   1400
+  ],
+  "fallback": "/opt/send-app/context-02-m-1400.jpg"
+ },
+ "/assets/send-app/context-02.jpg": {
+  "w": 2720,
+  "h": 1530,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/send-app/context-02-1920.jpg"
+ },
+ "/assets/send-app/context-03.jpg": {
+  "w": 2720,
+  "h": 1530,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/send-app/context-03-1920.jpg"
+ },
+ "/assets/send-app/context-04-m.jpg": {
+  "w": 1400,
+  "h": 787,
+  "widths": [
+   640,
+   1280,
+   1400
+  ],
+  "fallback": "/opt/send-app/context-04-m-1400.jpg"
+ },
+ "/assets/send-app/context-04.jpg": {
+  "w": 2720,
+  "h": 1530,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/send-app/context-04-1920.jpg"
+ },
+ "/assets/send-app/context-05.png": {
+  "w": 2720,
+  "h": 1531,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/send-app/context-05-1920.png"
+ },
+ "/assets/send-app/hero.jpg": {
+  "w": 2720,
+  "h": 1322,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/send-app/hero-1920.jpg"
+ },
+ "/assets/send-app/next-pil.jpg": {
+  "w": 1020,
+  "h": 720,
+  "widths": [
+   640,
+   1020
+  ],
+  "fallback": "/opt/send-app/next-pil-1020.jpg"
+ },
+ "/assets/send-app/strip-01.jpg": {
+  "w": 1900,
+  "h": 1068,
+  "widths": [
+   640,
+   1280,
+   1900
+  ],
+  "fallback": "/opt/send-app/strip-01-1900.jpg"
+ },
+ "/assets/send-app/strip-02.jpg": {
+  "w": 1000,
+  "h": 562,
+  "widths": [
+   640,
+   1000
+  ],
+  "fallback": "/opt/send-app/strip-02-1000.jpg"
+ },
+ "/assets/send-app/strip-03.jpg": {
+  "w": 1000,
+  "h": 562,
+  "widths": [
+   640,
+   1000
+  ],
+  "fallback": "/opt/send-app/strip-03-1000.jpg"
+ },
+ "/assets/send-app/strip-04.jpg": {
+  "w": 1900,
+  "h": 1068,
+  "widths": [
+   640,
+   1280,
+   1900
+  ],
+  "fallback": "/opt/send-app/strip-04-1900.jpg"
+ },
+ "/assets/send-app/strip-05.jpg": {
+  "w": 1000,
+  "h": 562,
+  "widths": [
+   640,
+   1000
+  ],
+  "fallback": "/opt/send-app/strip-05-1000.jpg"
+ },
+ "/assets/send-app/strip-06.jpg": {
+  "w": 1900,
+  "h": 570,
+  "widths": [
+   640,
+   1280,
+   1900
+  ],
+  "fallback": "/opt/send-app/strip-06-1900.jpg"
+ },
+ "/assets/send-app/strip-07.jpg": {
+  "w": 1000,
+  "h": 562,
+  "widths": [
+   640,
+   1000
+  ],
+  "fallback": "/opt/send-app/strip-07-1000.jpg"
+ },
+ "/assets/send-app/strip-08.jpg": {
+  "w": 1900,
+  "h": 619,
+  "widths": [
+   640,
+   1280,
+   1900
+  ],
+  "fallback": "/opt/send-app/strip-08-1900.jpg"
+ },
+ "/assets/send-app/strip-09.jpg": {
+  "w": 1000,
+  "h": 562,
+  "widths": [
+   640,
+   1000
+  ],
+  "fallback": "/opt/send-app/strip-09-1000.jpg"
+ },
+ "/assets/send-app/strip-10.jpg": {
+  "w": 1900,
+  "h": 570,
+  "widths": [
+   640,
+   1280,
+   1900
+  ],
+  "fallback": "/opt/send-app/strip-10-1900.jpg"
+ },
+ "/assets/send-app/strip-11.jpg": {
+  "w": 1000,
+  "h": 562,
+  "widths": [
+   640,
+   1000
+  ],
+  "fallback": "/opt/send-app/strip-11-1000.jpg"
+ },
+ "/assets/send-app/strip-12.jpg": {
+  "w": 1000,
+  "h": 562,
+  "widths": [
+   640,
+   1000
+  ],
+  "fallback": "/opt/send-app/strip-12-1000.jpg"
+ },
+ "/assets/send-app/strip-13.jpg": {
+  "w": 1000,
+  "h": 562,
+  "widths": [
+   640,
+   1000
+  ],
+  "fallback": "/opt/send-app/strip-13-1000.jpg"
+ },
+ "/assets/spotify/bleed.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/spotify/bleed-1920.jpg"
+ },
+ "/assets/spotify/context-01-m.jpg": {
+  "w": 1892,
+  "h": 1052,
+  "widths": [
+   640,
+   1280,
+   1892
+  ],
+  "fallback": "/opt/spotify/context-01-m-1892.jpg"
+ },
+ "/assets/spotify/context-01.gif": {
+  "w": 1892,
+  "h": 1052,
+  "video": true,
+  "webm": "/opt/spotify/context-01.webm",
+  "mp4": "/opt/spotify/context-01.mp4",
+  "posterAvif": "/opt/spotify/context-01-poster.avif",
+  "posterJpg": "/opt/spotify/context-01-poster.jpg"
+ },
+ "/assets/spotify/gallery-01-m.jpg": {
+  "w": 1900,
+  "h": 1058,
+  "widths": [
+   640,
+   1280,
+   1900
+  ],
+  "fallback": "/opt/spotify/gallery-01-m-1900.jpg"
+ },
+ "/assets/spotify/gallery-01.gif": {
+  "w": 1900,
+  "h": 1058,
+  "video": true,
+  "webm": "/opt/spotify/gallery-01.webm",
+  "mp4": "/opt/spotify/gallery-01.mp4",
+  "posterAvif": "/opt/spotify/gallery-01-poster.avif",
+  "posterJpg": "/opt/spotify/gallery-01-poster.jpg"
+ },
+ "/assets/spotify/gallery-02.jpg": {
+  "w": 3840,
+  "h": 2159,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/spotify/gallery-02-1920.jpg"
+ },
+ "/assets/spotify/gallery-03.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/spotify/gallery-03-1920.jpg"
+ },
+ "/assets/spotify/gallery-04-m.jpg": {
+  "w": 1140,
+  "h": 1282,
+  "widths": [
+   640,
+   1140
+  ],
+  "fallback": "/opt/spotify/gallery-04-m-1140.jpg"
+ },
+ "/assets/spotify/gallery-04.gif": {
+  "w": 1140,
+  "h": 1282,
+  "video": true,
+  "webm": "/opt/spotify/gallery-04.webm",
+  "mp4": "/opt/spotify/gallery-04.mp4",
+  "posterAvif": "/opt/spotify/gallery-04-poster.avif",
+  "posterJpg": "/opt/spotify/gallery-04-poster.jpg"
+ },
+ "/assets/spotify/hero.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/spotify/hero-1920.jpg"
+ },
+ "/assets/spotify/next-bandlab.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/spotify/next-bandlab-1920.jpg"
+ },
+ "/assets/spotify/square-01.jpg": {
+  "w": 1920,
+  "h": 1922,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/spotify/square-01-1920.jpg"
+ },
+ "/assets/spotify/square-02.jpg": {
+  "w": 1920,
+  "h": 1920,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/spotify/square-02-1920.jpg"
+ },
+ "/assets/spotify/square-03.jpg": {
+  "w": 1920,
+  "h": 1920,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/spotify/square-03-1920.jpg"
+ },
+ "/assets/spotify/square-04.jpg": {
+  "w": 1920,
+  "h": 1922,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/spotify/square-04-1920.jpg"
+ },
+ "/assets/work/work-bandlab.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/work/work-bandlab-1920.jpg"
+ },
+ "/assets/work/work-comparesing.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/work/work-comparesing-1920.jpg"
+ },
+ "/assets/work/work-edb.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/work/work-edb-1920.jpg"
+ },
+ "/assets/work/work-pil.jpg": {
+  "w": 1020,
+  "h": 720,
+  "widths": [
+   640,
+   1020
+  ],
+  "fallback": "/opt/work/work-pil-1020.jpg"
+ },
+ "/assets/work/work-spotify.jpg": {
+  "w": 1024,
+  "h": 1024,
+  "widths": [
+   640,
+   1024
+  ],
+  "fallback": "/opt/work/work-spotify-1024.jpg"
+ }
+}

@@ -8,6 +8,11 @@
 /* Two columns: ~54% HTML text, ~46% WebGL canvas flush with the top-right
    corner. The disc stack is placed by fractions of that canvas and runs off
    its top/right edges on purpose (see src/hero/DiscStack.tsx). */
+/* The React hero mounts into [data-hero-root] after the 3D bundle loads;
+   reserve its height so the sections below don't jump (CLS). */
+[data-hero-root] {
+  min-height: 704px;
+}
 .hero {
   position: relative;
   display: grid;
@@ -158,6 +163,7 @@
 ------------------------------------------------------------------ */
 @media (max-width: 720px) {
   /* Hero — 700px, statement bottom-left, 3D object behind it */
+  [data-hero-root] { min-height: 700px; }
   .hero {
     display: flex;
     flex-direction: column;
