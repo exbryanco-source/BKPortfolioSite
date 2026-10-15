@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bryankhua.com/sitemap.xml
+Sitemap: https://www.bryankhua.com/sitemap.xml
