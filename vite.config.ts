@@ -5,8 +5,10 @@ import react from '@vitejs/plugin-react';
 import { responsiveMedia } from './vite/responsive-media';
 import { seoHead } from './vite/seo-head';
 
-// Production origin — canonical URLs, Open Graph, sitemap.xml (override with SITE_URL=…)
-const SITE_URL = process.env.SITE_URL ?? 'https://bryankhua.com';
+// Production origin — canonical URLs, Open Graph, sitemap.xml (override with SITE_URL=…).
+// www is the primary host on Vercel (the bare domain 308-redirects to it), so
+// every absolute URL uses it — a canonical or og:image that redirects is a weak signal.
+const SITE_URL = process.env.SITE_URL ?? 'https://www.bryankhua.com';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const partialsDir = `${root}src/partials/`;
