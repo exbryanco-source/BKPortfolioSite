@@ -114,7 +114,7 @@ To add another case study: copy `pil.html` (keep `is-framing` + the frame partia
 | Header + menu overlay | `<!-- @include header.html -->` | `components/header.css`, `menu.css` |
 | Contact card | `<!-- @include contact-card.html -->` | `components/contact-card.css` |
 | Footer | `<!-- @include footer.html -->` | `components/footer.css` |
-| Marquee band | `.marquee > .divider + .marquee__viewport > .marquee__track[data-ticker] > span… + .divider` | `components/marquee.css` |
+| Marquee band | `.marquee > .divider + .marquee__viewport > .marquee__track[data-ticker] > span + .divider` (one span = the whole sentence, cloned for the loop; the band is cap-height tall, with the dividers behind the text on its cap line and baseline) | `components/marquee.css` |
 | Image strip | `.thumbs[data-hscroll][data-lenis-prevent-horizontal] > .card__media > img[loading=lazy]` | `components/hscroll.css` |
 | Tag pill | `ul.tags > li.tag.t-caption-tag` | `components/tag.css` |
 | Featured video | `.feature > .feature__media > iframe` + `.feature__meta` | `components/feature.css` |

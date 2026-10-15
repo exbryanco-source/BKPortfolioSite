@@ -1,21 +1,41 @@
 /* Autoscroller heading band — a looping [data-ticker] track between dividers.
-   Markup: .marquee > .divider + .marquee__viewport > .marquee__track[data-ticker] > span… + .divider */
+   Markup: .marquee > .divider + .marquee__viewport > .marquee__track[data-ticker] > span + .divider
+   — one span holding the whole sentence (core/animations.js clones it for the loop).
+   The band is only cap-height tall: the dividers sit behind the text on its
+   cap line and baseline, and ascenders/descenders spill into the padding. */
 .marquee {
   display: flex;
   flex-direction: column;
   padding: var(--space-section-lg) var(--scale-000);
   overflow: clip;
 }
+/* Clip only sideways — vertically the glyphs overhang the trimmed box */
 .marquee__viewport {
-  overflow: clip;
+  position: relative;
+  z-index: 1; /* text paints over the dividers */
+  overflow-x: clip;
+  overflow-y: visible;
 }
+/* Trim the line box to cap line → baseline. Inter (measured): ascent 0.969em,
+   descent 0.241em, cap height 0.7275em, so in any line box the baseline sits
+   0.364em below its middle and the cap line 0.3635em above it. em + lh keep
+   this right at both sizes (128/128 desktop, 40/44 mobile). */
 .marquee__track {
   display: flex;
   width: max-content;
+  margin-top: calc(0.3635em - 0.5lh);
+  margin-bottom: calc(0.364em - 0.5lh);
   white-space: nowrap;
 }
 .marquee__track span {
-  padding-right: var(--scale-096); /* = gap; padding keeps the -50% loop seamless */
+  padding-right: var(--scale-096); /* gap between repeats of the sentence; padding (not gap) keeps the -50% loop seamless */
+}
+/* Lines overlap the viewport's edges: top = cap line, bottom = baseline */
+.marquee > .divider:first-child {
+  margin-bottom: -1px;
+}
+.marquee > .divider:last-child {
+  margin-top: -1px;
 }
 
 @media (max-width: 720px) {
