@@ -9,11 +9,16 @@ import { prefersReducedMotion } from './scroll.js';
  * (grid width + gap), so panning in either direction never runs out.
  * Drag (mouse, pen, touch), wheel (vertical or horizontal) and ←/→ all pan it;
  * movement eases towards a target, and a drag release keeps its momentum.
+ *
+ * Intro: the tiles start hidden (.is-pending); `ready(loader)` holds the boot
+ * loader until the first screen's media are decoded, then `reveal()` wipes
+ * those tiles open column by column, left to right.
  */
 export function initArchive(root = document.querySelector('[data-archive]')) {
   if (!root) return;
   const rail = root.querySelector('[data-archive-rail]');
   const set = rail.querySelector('[data-archive-set]');
+  if (!prefersReducedMotion) root.classList.add('is-pending');
 
   const LERP = 0.08; // matches Lenis in core/scroll.js
   const DRAG_THRESHOLD = 4; // px before a press becomes a drag
@@ -141,4 +146,60 @@ export function initArchive(root = document.querySelector('[data-archive]')) {
   layout();
   new ResizeObserver(layout).observe(root);
   gsap.ticker.add(render);
+
+  return { ready: (loader) => ready(root, loader), reveal: () => reveal(root) };
+}
+
+const READY_TIMEOUT = 5000; // never hold the loader longer than this
+
+/** Tiles currently inside the archive's box (first set + visible clones). */
+function visibleTiles(root) {
+  const box = root.getBoundingClientRect();
+  return [...root.querySelectorAll('.card__media')].filter((tile) => {
+    const r = tile.getBoundingClientRect();
+    return r.right > box.left && r.left < box.right && r.bottom > box.top && r.top < box.bottom;
+  });
+}
+
+/** Resolves once every visible tile's image (or video poster) is decoded, feeding the loader's %. */
+function ready(root, loader) {
+  const jobs = visibleTiles(root).map((tile) => {
+    const media = tile.querySelector('img, video');
+    if (media?.tagName === 'VIDEO') {
+      if (!media.poster) return Promise.resolve();
+      const poster = new Image();
+      poster.src = media.poster;
+      return poster.decode();
+    }
+    return media ? media.decode() : Promise.resolve();
+  });
+  let done = 0;
+  const all = Promise.all(
+    jobs.map((job) =>
+      job.catch(() => {}).then(() => loader?.setProgress(++done / jobs.length))
+    )
+  );
+  return Promise.race([all, new Promise((resolve) => setTimeout(resolve, READY_TIMEOUT))]);
+}
+
+/** Wipe + fade the visible tiles in, left to right; everything else just shows. */
+function reveal(root) {
+  if (!root.classList.contains('is-pending')) return;
+  const box = root.getBoundingClientRect();
+  const tiles = visibleTiles(root).map((tile) => ({ tile, rect: tile.getBoundingClientRect() }));
+  const rows = [...new Set(tiles.map(({ rect }) => Math.round(rect.top)))].sort((a, b) => a - b);
+
+  gsap.set(tiles.map(({ tile }) => tile), { opacity: 0, clipPath: 'inset(0% 100% 0% 0%)' });
+  root.classList.remove('is-pending');
+  tiles.forEach(({ tile, rect }) => {
+    tile.querySelector('img')?.classList.add('is-loaded'); // decoded by ready(); skip the per-image fade
+    gsap.to(tile, {
+      opacity: 1,
+      clipPath: 'inset(0% 0% 0% 0%)',
+      duration: 0.9,
+      ease: 'expo.out',
+      delay: ((rect.left - box.left) / box.width) * 0.7 + rows.indexOf(Math.round(rect.top)) * 0.05,
+      clearProps: 'opacity,clipPath',
+    });
+  });
 }

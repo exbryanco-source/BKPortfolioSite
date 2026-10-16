@@ -36,6 +36,10 @@
   cursor: grabbing;
   user-select: none;
 }
+/* Tiles stay hidden until core/archive.js reveals them after the loader */
+.archive.is-pending .card__media {
+  opacity: 0;
+}
 .archive__rail {
   display: flex;
   column-gap: var(--tile-gap);
