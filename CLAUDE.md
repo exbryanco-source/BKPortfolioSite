@@ -40,7 +40,7 @@ src/
   pages/404.js             404 entry: bootPage()
   pages/comparesing.js     CompareSing case study entry: bootPage()
   core/                    Shared runtime — every page uses these via bootPage()
-    boot.js                bootPage({ load }): scroll, menu, strips, clock, loader, animations
+    boot.js                bootPage({ load }): Vercel Web Analytics + Speed Insights (@vercel/analytics, @vercel/speed-insights), scroll, menu, strips, clock, loader, animations
     scroll.js              Lenis smooth scroll (starts stopped; boot.js starts it after the loader)
     menu.js                Fullscreen menu timeline + [data-scroll-link] handling
     loader.js              "Loading (n%)" boot screen (skipped on pages without the loader partial)
