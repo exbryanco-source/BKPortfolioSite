@@ -1,0 +1,40 @@
+/* Cursor-following project thumbnail ([data-cursor-preview], core/cursor-preview.js).
+   Fixed to the viewport so it tracks clientX/Y through smooth scrolling; stays
+   display:none (images unloaded) until JS arms it on fine-pointer devices. */
+.cursor-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40; /* over the page, under the header (60), menu (50) and frame (100) */
+  display: none;
+  width: 320px;
+  margin: calc(-1 * var(--scale-024)) 0 0 var(--scale-024); /* clear of the cursor, up and right */
+  aspect-ratio: 900 / 500;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--background-surface);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+.cursor-preview.is-armed {
+  display: block;
+}
+.cursor-preview img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* GSAP crossfades these; opt out of the lazy-image fade (base.css) */
+.cursor-preview img[loading='lazy'] {
+  opacity: 0;
+  transition: none;
+}
+
+@media (max-width: 720px) {
+  .cursor-preview.is-armed {
+    display: none;
+  }
+}

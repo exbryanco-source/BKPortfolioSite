@@ -28,6 +28,7 @@ const SLOT_SIZES: [RegExp, string][] = [
   [/case-context__media--square/, '(max-width: 720px) 100vw, 680px'],
   [/case-context__media--motion/, '(max-width: 720px) 100vw, 440px'],
   [/project-card__image/, '(max-width: 720px) 300px, 900px'],
+  [/cursor-preview/, '320px'], // landing client-list hover thumbnail
   [/bio__portrait/, '(max-width: 720px) 100vw, 420px'],
   [/archive-tile/, '240px'],
   [/^card__media$/, '(max-width: 720px) 280px, 600px'], // landing service strips
