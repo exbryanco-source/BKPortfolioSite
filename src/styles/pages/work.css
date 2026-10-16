@@ -6,14 +6,18 @@
   flex-direction: column;
   height: 100svh;
   overflow: hidden;
-  /* Clear the fixed header: gutter + logo + gutter */
-  padding-top: calc(var(--gutter) * 2 + var(--header-logo-height));
+  padding-top: var(--header-clearance);
 }
+/* Cards + rail are centred on the page as one block (as on the library page):
+   the bottom padding mirrors the header clearance, and the extra 16px on top
+   offsets the rail's bottom padding so the centre runs card top → dot bottom. */
 .work__featured {
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
+  justify-content: center;
   min-height: 0;
+  padding-block: var(--scale-016) calc(var(--header-clearance) - var(--base-line-height));
 }
 
 /* Gallery — snap carousel of project cards (core/hscroll.js + core/carousel.js).
@@ -23,7 +27,7 @@
   flex: 0 1 500px;
   min-height: 0;
   height: auto;
-  margin-block: var(--scale-048);
+  margin-bottom: var(--scale-048);
   gap: var(--scale-024);
   /* Inset both ends by the page gutter so cards never touch the screen edge */
   padding-inline: var(--gutter);
@@ -163,7 +167,7 @@
 }
 
 @media (max-width: 720px) {
-  .work__gallery.thumbs { margin-block: var(--scale-024); gap: var(--scale-016); }
+  .work__gallery.thumbs { margin-bottom: var(--scale-024); gap: var(--scale-016); }
   .project-card { flex-basis: 300px; }
   /* Image scrim (201:914) */
   .project-card::before {

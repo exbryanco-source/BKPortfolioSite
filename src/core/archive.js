@@ -17,8 +17,7 @@ export function initArchive(root = document.querySelector('[data-archive]')) {
 
   const LERP = 0.08; // matches Lenis in core/scroll.js
   const DRAG_THRESHOLD = 4; // px before a press becomes a drag
-  const KEY_STEP = 280; // one tile + gap
-
+  let keyStep = 280; // one tile + gap (tiles shrink on short screens)
   let period = 0; // width of one set incl. the gap to the next
   let target = 0;
   let current = 0;
@@ -26,6 +25,7 @@ export function initArchive(root = document.querySelector('[data-archive]')) {
   function layout() {
     const gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
     period = set.offsetWidth + gap;
+    keyStep = (set.firstElementChild?.offsetWidth || 240) + gap;
     const needed = Math.ceil(root.clientWidth / period) + 1;
     const sets = rail.querySelectorAll('[data-archive-set]');
     for (let i = sets.length; i <= needed; i++) rail.append(cloneSet());
@@ -132,8 +132,8 @@ export function initArchive(root = document.querySelector('[data-archive]')) {
   );
 
   root.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') target -= KEY_STEP;
-    else if (e.key === 'ArrowLeft') target += KEY_STEP;
+    if (e.key === 'ArrowRight') target -= keyStep;
+    else if (e.key === 'ArrowLeft') target += keyStep;
     else return;
     e.preventDefault();
   });
