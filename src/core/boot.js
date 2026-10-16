@@ -5,6 +5,7 @@ import { initHorizontalScrollers } from './hscroll.js';
 import { initCarousels } from './carousel.js';
 import { initClock } from './clock.js';
 import { initAutoplayVideos } from './media.js';
+import { initCursorPreviews } from './cursor-preview.js';
 import { initPageTransitions, frameIn } from './transition.js';
 import { playHeroIntro, initScrollText, initReveals, initTicker } from './animations.js';
 
@@ -41,6 +42,7 @@ export function bootPage({ load } = {}) {
     initScrollText();
     initReveals();
     initTicker();
+    initCursorPreviews(); // after the loader, so its images don't compete with the hero
     return { lenis };
   });
 }

@@ -87,6 +87,14 @@
 .brand-card:hover .brand-card__details {
   color: var(--text-primary);
 }
+/* The arrow nudges right, like .arrow-link (buttons.css) */
+.brand-card__details > .t-label-link {
+  transition: transform 0.3s ease;
+}
+.brand-card:hover .brand-card__details > .t-label-link,
+.brand-card:focus-visible .brand-card__details > .t-label-link {
+  transform: translateX(var(--scale-008));
+}
 .brand-card__name {
   width: 300px;
   flex-shrink: 0;
