@@ -125,6 +125,9 @@
   --space-section-lg: var(--scale-160);    /* marquee bands, big section tops */
   --space-section-md: var(--scale-096);    /* contact card top */
   --header-logo-height: 63px;              /* brand logo; offsets the menu overlay */
+  /* Fixed screens (Work, Library): fixed header above, clock + © base line below */
+  --header-clearance: calc(var(--gutter) * 2 + var(--header-logo-height));
+  --base-line-height: calc(var(--scale-040) * 2 + var(--caption-footer-lh));
 }
 
 /* Mobile breakpoint is 720px everywhere (CSS, <picture> sources, src/hero). */
