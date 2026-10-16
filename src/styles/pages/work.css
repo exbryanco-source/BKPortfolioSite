@@ -167,8 +167,7 @@
 }
 
 @media (max-width: 720px) {
-  .work__featured { justify-content: flex-start; padding-block: 0; }
-  .work__gallery.thumbs { margin-block: var(--scale-024); gap: var(--scale-016); }
+  .work__gallery.thumbs { margin-bottom: var(--scale-024); gap: var(--scale-016); }
   .project-card { flex-basis: 300px; }
   /* Image scrim (201:914) */
   .project-card::before {

@@ -136,5 +136,6 @@
     --gutter: var(--scale-024);
     --space-section-lg: var(--scale-096);
     --space-section-md: var(--scale-064);
+    --base-line-height: calc(var(--scale-040) + var(--scale-032) + 18px); /* --m-caption line */
   }
 }
