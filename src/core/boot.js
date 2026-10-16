@@ -1,3 +1,5 @@
+import { inject as injectAnalytics } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 import { initSmoothScroll } from './scroll.js';
 import { initMenu } from './menu.js';
 import { createLoader } from './loader.js';
@@ -24,6 +26,8 @@ import { playHeroIntro, initScrollText, initReveals, initTicker } from './animat
  *   hero). May call `loader.setProgress(0–1)`; `loader` is null on pages without one.
  */
 export function bootPage({ load } = {}) {
+  injectAnalytics(); // Vercel Web Analytics page views (production only; dev logs to the console)
+  injectSpeedInsights(); // Vercel Speed Insights (real-user Core Web Vitals)
   const lenis = initSmoothScroll();
   initMenu(lenis);
   initHorizontalScrollers();
