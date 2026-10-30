@@ -12,10 +12,11 @@
   max-width: 930px;
 }
 
-/* Biography — round portrait + copy. Columns keep Figma's 420 : 900 split as the page narrows. */
+/* Biography — round portrait + copy. Columns keep Figma's 420 : 900 split as the page narrows;
+   the portrait column stops at Figma's 420px on wider screens and the copy takes the rest. */
 .bio {
   display: grid;
-  grid-template-columns: minmax(0, 420fr) minmax(0, 900fr);
+  grid-template-columns: min(420px, (100% - var(--scale-040)) * 420 / 1320) minmax(0, 1fr);
   gap: var(--scale-040);
   align-items: start;
   padding-block: var(--scale-096);
