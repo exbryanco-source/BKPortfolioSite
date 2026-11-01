@@ -2,9 +2,10 @@
    Shared case-study sections live in components/case-study.css; this file
    holds Bandlab's next-project accent and its mobile proportions. */
 
-/* Next project (184:4584) — EDB's accent */
+/* Next project (184:4584) — CompareSing's accent (EDB, its Figma next
+   project, is hidden while password-protected; restore --accent-orange) */
 .case-next {
-  --case-next-bg: var(--accent-orange);
+  --case-next-bg: var(--accent-yellow);
 }
 
 /* ------------------------------------------------------------------
