@@ -25,8 +25,7 @@ const DEFAULT_SIZES = '(max-width: 720px) 100vw, min(100vw, 1440px)';
 const SLOT_SIZES: [RegExp, string][] = [
   [/case-strip__item--wide/, '(max-width: 720px) 100vw, 940px'],
   [/case-strip__item/, '(max-width: 720px) 100vw, 480px'],
-  [/case-context__media--square/, '(max-width: 720px) 100vw, 680px'],
-  [/case-context__media--motion/, '(max-width: 720px) 100vw, 440px'],
+  [/case-context__media--(square|landscape)/, '(max-width: 720px) 100vw, 680px'],
   [/project-card__image/, '(max-width: 720px) 300px, 900px'],
   [/cursor-preview/, '320px'], // landing client-list hover thumbnail
   [/bio__portrait/, '(max-width: 720px) 100vw, 420px'],

@@ -1,0 +1,43 @@
+/* The Ridge NUS Campus Hotel case study (the-ridge.html) — Figma 301:947 desktop / 301:1076 mobile.
+   Shared case-study sections live in components/case-study.css; this file
+   holds The Ridge's lead-sized context title, the 2 × 2 landscape grid, its
+   next-project accent and its mobile proportions. */
+
+/* Context heading (301:970) — a long lead-sized statement that fills the row */
+.case-context__title {
+  flex: 1 1 0;
+}
+
+@media (max-width: 1100px) {
+  .case-context__title { flex-basis: auto; }
+}
+
+/* Landscape gallery (301:986) — 2 × 2 grid of 660 × 400 tiles */
+.case-context__media.case-context__media--landscape {
+  aspect-ratio: 660 / 400;
+}
+
+/* Next project (301:1013) — CompareSing's accent */
+.case-next {
+  --case-next-bg: var(--accent-yellow);
+}
+
+/* ------------------------------------------------------------------
+   Mobile — Figma 301:1076 (390 wide)
+------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  .case-hero__media { aspect-ratio: 342 / 260; }
+
+  /* Long client name — label stacks over the tags, 8 apart (301:1083) */
+  .case-premise__meta { gap: var(--scale-008); }
+
+  .case-context__title { font: var(--m-heading-lead); }
+
+  /* Gallery (301:1106) — every tile is a 342 × 201 band, and the last wide
+     visual comes before the landscape tiles */
+  .case-context__media.case-context__media--square,
+  .case-context__media.case-context__media--landscape { aspect-ratio: 342 / 201; }
+  .case-context__grid--landscape { order: 1; }
+
+  .utility-row__meta { font: var(--m-caption-micro); }
+}

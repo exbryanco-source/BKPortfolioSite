@@ -78,7 +78,7 @@
       </section>
       <!-- /OPTIONAL strip -->
 
-      <!-- OPTIONAL bleed — full-width visual (repeat the div for two in a row, as EDB) -->
+      <!-- OPTIONAL bleed — full-width visual (repeat the div for two in a row) -->
       <div class="case-bleed card__media" data-reveal>
         <img src="/assets/{{SLUG}}/bleed.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
       </div>
@@ -91,7 +91,7 @@
           <p class="utility-row__meta t-caption">{{CONTEXT_META}}</p>
         </div>
         <div class="case-context__heading">
-          <!-- t-heading-h2 by default; a long statement can be t-heading-lead (EDB) -->
+          <!-- t-heading-h2 by default; a long statement can be t-heading-lead (The Ridge; see pages/the-ridge.css) -->
           <p class="case-context__title t-heading-h2" data-split>{{CONTEXT_TITLE}}</p>
           <p class="case-context__challenge t-body-default" data-reveal>{{CHALLENGE}}</p>
         </div>
@@ -114,7 +114,7 @@
         <!-- /OPTIONAL plain gallery -->
 
         <!-- OPTIONAL campaign gallery — 1360 × 800 visuals, a 2 × 2 grid of squares (one column on
-             mobile), and optionally a 3-column motion grid (EDB). Order the blocks as in Figma. -->
+             mobile), and optionally a 2 × 2 grid of 660 × 400 landscape tiles (The Ridge). Order the blocks as in Figma. -->
         <div class="case-context__gallery case-context__gallery--campaign">
           <div class="case-context__media card__media" data-reveal>
             <img src="/assets/{{SLUG}}/gallery-01.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
@@ -133,13 +133,13 @@
               <img src="/assets/{{SLUG}}/square-04.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
             </div>
           </div>
-          <!-- OPTIONAL motion grid — needs the .case-context__grid--motion rules from pages/edb.css -->
-          <div class="case-context__grid case-context__grid--motion">
-            <div class="case-context__media case-context__media--motion card__media" data-reveal>
-              <img src="/assets/{{SLUG}}/motion-01.gif" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
+          <!-- OPTIONAL landscape grid — needs the .case-context__media--landscape rules from pages/the-ridge.css -->
+          <div class="case-context__grid case-context__grid--landscape">
+            <div class="case-context__media case-context__media--landscape card__media" data-reveal>
+              <img src="/assets/{{SLUG}}/landscape-01.jpg" width="{{W}}" height="{{H}}" loading="lazy" alt="{{ALT}}" />
             </div>
           </div>
-          <!-- /OPTIONAL motion grid -->
+          <!-- /OPTIONAL landscape grid -->
         </div>
         <!-- /OPTIONAL campaign gallery -->
       </section>

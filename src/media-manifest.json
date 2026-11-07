@@ -58,17 +58,6 @@
   ],
   "fallback": "/opt/bandlab/hero-1920.jpg"
  },
- "/assets/bandlab/next-edb.jpg": {
-  "w": 3840,
-  "h": 2161,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/bandlab/next-edb-1920.jpg"
- },
  "/assets/bandlab/square-01-m.png": {
   "w": 600,
   "h": 600,
@@ -376,211 +365,6 @@
    2720
   ],
   "fallback": "/opt/comparesing/strip-10-1920.jpg"
- },
- "/assets/edb/bleed-01.jpg": {
-  "w": 3840,
-  "h": 2161,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/edb/bleed-01-1920.jpg"
- },
- "/assets/edb/bleed-02.jpg": {
-  "w": 3840,
-  "h": 2161,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/edb/bleed-02-1920.jpg"
- },
- "/assets/edb/context-01.jpg": {
-  "w": 3840,
-  "h": 2161,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/edb/context-01-1920.jpg"
- },
- "/assets/edb/gallery-01.jpg": {
-  "w": 3840,
-  "h": 2160,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/edb/gallery-01-1920.jpg"
- },
- "/assets/edb/gallery-02.gif": {
-  "w": 1120,
-  "h": 630,
-  "video": true,
-  "webm": "/opt/edb/gallery-02.webm",
-  "mp4": "/opt/edb/gallery-02.mp4",
-  "posterAvif": "/opt/edb/gallery-02-poster.avif",
-  "posterJpg": "/opt/edb/gallery-02-poster.jpg"
- },
- "/assets/edb/gallery-03.jpg": {
-  "w": 3840,
-  "h": 2160,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/edb/gallery-03-1920.jpg"
- },
- "/assets/edb/hero.jpg": {
-  "w": 3840,
-  "h": 2161,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/edb/hero-1920.jpg"
- },
- "/assets/edb/motion-01.gif": {
-  "w": 1120,
-  "h": 630,
-  "video": true,
-  "webm": "/opt/edb/motion-01.webm",
-  "mp4": "/opt/edb/motion-01.mp4",
-  "posterAvif": "/opt/edb/motion-01-poster.avif",
-  "posterJpg": "/opt/edb/motion-01-poster.jpg"
- },
- "/assets/edb/motion-02.gif": {
-  "w": 1120,
-  "h": 630,
-  "video": true,
-  "webm": "/opt/edb/motion-02.webm",
-  "mp4": "/opt/edb/motion-02.mp4",
-  "posterAvif": "/opt/edb/motion-02-poster.avif",
-  "posterJpg": "/opt/edb/motion-02-poster.jpg"
- },
- "/assets/edb/motion-03.gif": {
-  "w": 1120,
-  "h": 630,
-  "video": true,
-  "webm": "/opt/edb/motion-03.webm",
-  "mp4": "/opt/edb/motion-03.mp4",
-  "posterAvif": "/opt/edb/motion-03-poster.avif",
-  "posterJpg": "/opt/edb/motion-03-poster.jpg"
- },
- "/assets/edb/motion-04.gif": {
-  "w": 896,
-  "h": 504,
-  "video": true,
-  "webm": "/opt/edb/motion-04.webm",
-  "mp4": "/opt/edb/motion-04.mp4",
-  "posterAvif": "/opt/edb/motion-04-poster.avif",
-  "posterJpg": "/opt/edb/motion-04-poster.jpg"
- },
- "/assets/edb/motion-05.gif": {
-  "w": 896,
-  "h": 504,
-  "video": true,
-  "webm": "/opt/edb/motion-05.webm",
-  "mp4": "/opt/edb/motion-05.mp4",
-  "posterAvif": "/opt/edb/motion-05-poster.avif",
-  "posterJpg": "/opt/edb/motion-05-poster.jpg"
- },
- "/assets/edb/motion-06.gif": {
-  "w": 1280,
-  "h": 720,
-  "video": true,
-  "webm": "/opt/edb/motion-06.webm",
-  "mp4": "/opt/edb/motion-06.mp4",
-  "posterAvif": "/opt/edb/motion-06-poster.avif",
-  "posterJpg": "/opt/edb/motion-06-poster.jpg"
- },
- "/assets/edb/motion-07.gif": {
-  "w": 1280,
-  "h": 720,
-  "video": true,
-  "webm": "/opt/edb/motion-07.webm",
-  "mp4": "/opt/edb/motion-07.mp4",
-  "posterAvif": "/opt/edb/motion-07-poster.avif",
-  "posterJpg": "/opt/edb/motion-07-poster.jpg"
- },
- "/assets/edb/motion-08.gif": {
-  "w": 1280,
-  "h": 720,
-  "video": true,
-  "webm": "/opt/edb/motion-08.webm",
-  "mp4": "/opt/edb/motion-08.mp4",
-  "posterAvif": "/opt/edb/motion-08-poster.avif",
-  "posterJpg": "/opt/edb/motion-08-poster.jpg"
- },
- "/assets/edb/motion-09.gif": {
-  "w": 1280,
-  "h": 720,
-  "video": true,
-  "webm": "/opt/edb/motion-09.webm",
-  "mp4": "/opt/edb/motion-09.mp4",
-  "posterAvif": "/opt/edb/motion-09-poster.avif",
-  "posterJpg": "/opt/edb/motion-09-poster.jpg"
- },
- "/assets/edb/next-comparesing.jpg": {
-  "w": 3840,
-  "h": 2160,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/edb/next-comparesing-1920.jpg"
- },
- "/assets/edb/square-01.gif": {
-  "w": 600,
-  "h": 600,
-  "video": true,
-  "webm": "/opt/edb/square-01.webm",
-  "mp4": "/opt/edb/square-01.mp4",
-  "posterAvif": "/opt/edb/square-01-poster.avif",
-  "posterJpg": "/opt/edb/square-01-poster.jpg"
- },
- "/assets/edb/square-02.gif": {
-  "w": 600,
-  "h": 600,
-  "video": true,
-  "webm": "/opt/edb/square-02.webm",
-  "mp4": "/opt/edb/square-02.mp4",
-  "posterAvif": "/opt/edb/square-02-poster.avif",
-  "posterJpg": "/opt/edb/square-02-poster.jpg"
- },
- "/assets/edb/square-03.gif": {
-  "w": 600,
-  "h": 600,
-  "video": true,
-  "webm": "/opt/edb/square-03.webm",
-  "mp4": "/opt/edb/square-03.mp4",
-  "posterAvif": "/opt/edb/square-03-poster.avif",
-  "posterJpg": "/opt/edb/square-03-poster.jpg"
- },
- "/assets/edb/square-04.jpg": {
-  "w": 2160,
-  "h": 2160,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2160
-  ],
-  "fallback": "/opt/edb/square-04-1920.jpg"
  },
  "/assets/library/library-01.jpg": {
   "w": 960,
@@ -1512,6 +1296,171 @@
   ],
   "fallback": "/opt/spotify/square-04-1920.jpg"
  },
+ "/assets/the-ridge/bleed.jpg": {
+  "w": 3840,
+  "h": 2159,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/bleed-1920.jpg"
+ },
+ "/assets/the-ridge/context-01.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/context-01-1920.jpg"
+ },
+ "/assets/the-ridge/gallery-01.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/gallery-01-1920.jpg"
+ },
+ "/assets/the-ridge/gallery-02.jpg": {
+  "w": 3840,
+  "h": 2159,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/gallery-02-1920.jpg"
+ },
+ "/assets/the-ridge/gallery-03.jpg": {
+  "w": 3840,
+  "h": 2160,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/gallery-03-1920.jpg"
+ },
+ "/assets/the-ridge/gallery-04.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/gallery-04-1920.jpg"
+ },
+ "/assets/the-ridge/gallery-05.jpg": {
+  "w": 3840,
+  "h": 2162,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/gallery-05-1920.jpg"
+ },
+ "/assets/the-ridge/landscape-01.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/landscape-01-1920.jpg"
+ },
+ "/assets/the-ridge/landscape-02.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/landscape-02-1920.jpg"
+ },
+ "/assets/the-ridge/landscape-03.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/landscape-03-1920.jpg"
+ },
+ "/assets/the-ridge/landscape-04.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/landscape-04-1920.jpg"
+ },
+ "/assets/the-ridge/square-01.jpg": {
+  "w": 3840,
+  "h": 2159,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/square-01-1920.jpg"
+ },
+ "/assets/the-ridge/square-02.jpg": {
+  "w": 3840,
+  "h": 2158,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/square-02-1920.jpg"
+ },
+ "/assets/the-ridge/square-03.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/square-03-1920.jpg"
+ },
+ "/assets/the-ridge/square-04.jpg": {
+  "w": 3840,
+  "h": 2158,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/the-ridge/square-04-1920.jpg"
+ },
  "/assets/work/work-bandlab.jpg": {
   "w": 3840,
   "h": 2160,
@@ -1534,17 +1483,6 @@
   ],
   "fallback": "/opt/work/work-comparesing-1920.jpg"
  },
- "/assets/work/work-edb.jpg": {
-  "w": 3840,
-  "h": 2161,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/work/work-edb-1920.jpg"
- },
  "/assets/work/work-pil.jpg": {
   "w": 1020,
   "h": 720,
@@ -1562,5 +1500,16 @@
    1024
   ],
   "fallback": "/opt/work/work-spotify-1024.jpg"
+ },
+ "/assets/work/work-the-ridge.jpg": {
+  "w": 3840,
+  "h": 2161,
+  "widths": [
+   640,
+   1280,
+   1920,
+   2720
+  ],
+  "fallback": "/opt/work/work-the-ridge-1920.jpg"
  }
 }

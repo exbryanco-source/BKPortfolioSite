@@ -1,5 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/edb", "destination": "/the-ridge.html", "permanent": true },
+    { "source": "/edb.html", "destination": "/the-ridge.html", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)\\.(js|css|woff2?)",
