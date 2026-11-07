@@ -1,4 +1,4 @@
-/* Case study template — shared by every project page (send-app, pil, spotify, bandlab, edb, comparesing).
+/* Case study template — shared by every project page (send-app, pil, spotify, bandlab, the-ridge, comparesing).
    Page files (pages/<project>.css) add the sections only they use and the
    mobile proportions / spacing that differ between their Figma frames. */
 
@@ -121,7 +121,7 @@
   flex-direction: column;
   gap: var(--scale-040);
 }
-/* Campaign gallery (Spotify, Bandlab) — taller wide visuals + a 2 × 2 grid of squares */
+/* Campaign gallery (Spotify, Bandlab, The Ridge) — taller wide visuals + a 2 × 2 grid of squares */
 .case-context__gallery--campaign > .case-context__media {
   aspect-ratio: 1360 / 800;
 }
