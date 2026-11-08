@@ -127,46 +127,54 @@
   "posterJpg": "/opt/bandlab/square-04-poster.jpg"
  },
  "/assets/branding-01.jpg": {
-  "w": 3840,
-  "h": 2160,
+  "w": 1920,
+  "h": 1080,
   "widths": [
    640,
    1280,
-   1920,
-   2720
+   1920
   ],
   "fallback": "/opt/branding-01-1920.jpg"
  },
  "/assets/branding-02.jpg": {
-  "w": 4096,
-  "h": 2303,
+  "w": 1920,
+  "h": 1080,
   "widths": [
    640,
    1280,
-   1920,
-   2720
+   1920
   ],
   "fallback": "/opt/branding-02-1920.jpg"
  },
  "/assets/branding-03.jpg": {
-  "w": 1280,
-  "h": 720,
-  "widths": [
-   640,
-   1280
-  ],
-  "fallback": "/opt/branding-03-1280.jpg"
- },
- "/assets/branding-04.png": {
-  "w": 2250,
-  "h": 1500,
+  "w": 1920,
+  "h": 1080,
   "widths": [
    640,
    1280,
-   1920,
-   2250
+   1920
+  ],
+  "fallback": "/opt/branding-03-1920.jpg"
+ },
+ "/assets/branding-04.jpg": {
+  "w": 1920,
+  "h": 1079,
+  "widths": [
+   640,
+   1280,
+   1920
   ],
   "fallback": "/opt/branding-04-1920.jpg"
+ },
+ "/assets/branding-05.jpg": {
+  "w": 1920,
+  "h": 1080,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/branding-05-1920.jpg"
  },
  "/assets/comparesing/bleed.jpg": {
   "w": 3840,
@@ -637,17 +645,6 @@
   "fallback": "/opt/library/library-30-960.jpg"
  },
  "/assets/motion-01.jpg": {
-  "w": 3840,
-  "h": 2382,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/motion-01-1920.jpg"
- },
- "/assets/motion-02.png": {
   "w": 1920,
   "h": 1080,
   "widths": [
@@ -655,27 +652,47 @@
    1280,
    1920
   ],
-  "fallback": "/opt/motion-02-1920.png"
+  "fallback": "/opt/motion-01-1920.jpg"
  },
- "/assets/motion-03.png": {
-  "w": 1235,
-  "h": 703,
-  "widths": [
-   640,
-   1235
-  ],
-  "fallback": "/opt/motion-03-1235.png"
- },
- "/assets/motion-04.jpg": {
-  "w": 3840,
-  "h": 2160,
+ "/assets/motion-02.jpg": {
+  "w": 1920,
+  "h": 1080,
   "widths": [
    640,
    1280,
-   1920,
-   2720
+   1920
+  ],
+  "fallback": "/opt/motion-02-1920.jpg"
+ },
+ "/assets/motion-03.jpg": {
+  "w": 1920,
+  "h": 1093,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/motion-03-1920.jpg"
+ },
+ "/assets/motion-04.jpg": {
+  "w": 1920,
+  "h": 1080,
+  "widths": [
+   640,
+   1280,
+   1920
   ],
   "fallback": "/opt/motion-04-1920.jpg"
+ },
+ "/assets/motion-05.jpg": {
+  "w": 1920,
+  "h": 1080,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/motion-05-1920.jpg"
  },
  "/assets/pil/bleed.jpg": {
   "w": 1440,
@@ -874,17 +891,6 @@
   ],
   "fallback": "/opt/pil/strip-13-1440.jpg"
  },
- "/assets/product-01.png": {
-  "w": 3584,
-  "h": 2018,
-  "widths": [
-   640,
-   1280,
-   1920,
-   2720
-  ],
-  "fallback": "/opt/product-01-1920.png"
- },
  "/assets/product-02.jpg": {
   "w": 3950,
   "h": 1920,
@@ -896,26 +902,55 @@
   ],
   "fallback": "/opt/product-02-1920.jpg"
  },
- "/assets/product-03.png": {
-  "w": 1640,
-  "h": 720,
-  "widths": [
-   640,
-   1280,
-   1640
-  ],
-  "fallback": "/opt/product-03-1640.png"
- },
- "/assets/product-04.jpg": {
-  "w": 2100,
+ "/assets/product-strip-01.jpg": {
+  "w": 1920,
   "h": 1080,
   "widths": [
    640,
    1280,
-   1920,
-   2100
+   1920
   ],
-  "fallback": "/opt/product-04-1920.jpg"
+  "fallback": "/opt/product-strip-01-1920.jpg"
+ },
+ "/assets/product-strip-02.jpg": {
+  "w": 1920,
+  "h": 1079,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/product-strip-02-1920.jpg"
+ },
+ "/assets/product-strip-03.jpg": {
+  "w": 1920,
+  "h": 1080,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/product-strip-03-1920.jpg"
+ },
+ "/assets/product-strip-04.jpg": {
+  "w": 1920,
+  "h": 1079,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/product-strip-04-1920.jpg"
+ },
+ "/assets/product-strip-05.jpg": {
+  "w": 1920,
+  "h": 1080,
+  "widths": [
+   640,
+   1280,
+   1920
+  ],
+  "fallback": "/opt/product-strip-05-1920.jpg"
  },
  "/assets/send-app/bleed.jpg": {
   "w": 2400,
